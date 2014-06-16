@@ -60,7 +60,7 @@ http {
 
     access_log logs/nginx.log main;
 
-    root <%= node[:wim][:basedir] %>/public;
+    root <%= node[:wim][:rails][:basedir] %>/public;
     set_from_accept_language $lang en de;
 
     try_files $uri/index.html $uri @redis;

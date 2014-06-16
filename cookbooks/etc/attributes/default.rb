@@ -121,6 +121,6 @@ default[:wim][:home]                     = '/home/wim'
 default[:wim][:logdir]                   = '/opt/log'
 default[:wim][:domain_user]              = 'wim'         # Caution: this must match the wim-user that
                                                          #          is configured at the base host wim01
-default[:wim][:rails][:base_dir]         = '/opt/voice-rails'
+default[:wim][:rails][:basedir]          = '/opt/voice-rails'
 default[:wim][:zshplugs]                 = 'last-working-dir'
 default[:wim][:color]                    = 'red'
