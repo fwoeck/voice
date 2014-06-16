@@ -1,0 +1,9 @@
+Host wim01-r
+  HostName <%= node[:etc][:domain_hostname] %>
+  User root
+  Compression yes
+
+Host wim01
+  HostName <%= node[:etc][:domain_hostname] %>
+  User <%= node[:wim][:domain_user] %>
+  Compression yes

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export PATH=<%= node[:rvm][:basedir] %>/bin:<%= node[:wim][:home] %>/bin:<%= node[:jdk][:home] %>/bin:<%= node[:etc][:path] %>
+
+if [ ! -f /etc/ssh/ssh_host_rsa_key ]; then
+  dpkg-reconfigure openssh-server
+  servive ssh restart
+fi
+
+while [ $(route -n | grep [U]G | wc -l) -eq 0 ]
+do
+  sleep 1
+done
+
+<% if node[:roles].include?('desktop') %>
+rm /usr/local/<%= node[:flashphoner][:basename] %>/logs/**/* 2>/dev/null
+rm /var/log/mongodb/mongod.log.20* 2>/dev/null
+
+su - -c 'truncate -s0 /opt/**/log*/*.log 2>/dev/null' <%= node[:wim][:user] %>
+truncate -s0 <%= node[:nginx][:basedir] %>/logs/*.log
+chmod 666 /dev/video0 2>/dev/null
+
+<% end %>
+service fail2ban restart
+<% if node[:roles].include?('desktop') %>
+
+route add -net <%= node[:vagrant][:local_net] %> netmask <%= node[:vagrant][:local_mask] %> gw <%= node[:vagrant][:gateway] %>
+<% end %>

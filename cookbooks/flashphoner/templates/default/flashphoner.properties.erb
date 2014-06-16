@@ -1,0 +1,21 @@
+ip                         = <%= node[:etc][:external_ip] %>
+ip_local                   = 127.0.0.1
+port_from                  = 30000
+port_to                    = 31000
+media_port_from            = 31001
+media_port_to              = 32000
+waiting_answer             = 60
+user_agent                 = Flashphoner/1.0
+balance_header             = balance
+cost_header                = cost
+video_enabled              = true
+domain                     =
+outbound_proxy             = <%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>
+outbound_port              = 5060
+log_level                  = 5
+enable_context_logs        = false
+rtp_activity_detecting     = true,5
+sip_msg_listener           = com.flashphoner.sdk.sip.ChangeCallIdListener
+call_record_listener       = com.flashphoner.server.client.DefaultCallRecordListener
+dtmf                       = rfc2833
+codecs                     = speex16,alaw,ulaw,telephone-event

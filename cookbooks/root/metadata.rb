@@ -1,0 +1,8 @@
+name             'root'
+maintainer       'Wimdu'
+maintainer_email 'frank.woeckener@wimdu.com'
+license          'All rights reserved'
+description      'Configures the root/vagrant user with ssh'
+long_description ''
+version          '0.1.0'
+depends          'etc'

@@ -1,0 +1,158 @@
+#
+# common aliases
+
+alias vvm='((jvisualvm 2>&1 &)&)'
+alias jmc='((jmc 2>&1 &)&)'
+
+alias ws='wemux start'
+alias wa='wemux attach'
+alias wr='wemux rogue'
+
+alias  j='jobs'
+alias j1='fg %1'
+alias j2='fg %2'
+alias j3='fg %3'
+alias j4='fg %4'
+alias ,,='fg %+'
+alias ,.='fg %-'
+
+function , () {
+  if [ $(jobs | grep '\[' | wc -l) -gt 1 ]; then
+    fg %-
+  else
+    fg
+  fi
+}
+
+alias gv='gvim'
+alias  v='vim'
+alias vi='vim'
+alias ea='vim ~/.bash_aliases'
+alias ra='source ~/.bash_aliases'
+
+alias  ot='tail -F <%= node[:wim][:logdir] %>/*.log <%= node[:nginx][:basedir] %>/logs/*.log'
+alias tfl='tail -f /usr/local/<%= node[:flashphoner][:basename] %>/logs/**/*.log | grep -v FlowWriter'
+
+function mri() {
+  rvm ruby-<%= node[:mri][:version] %>@global
+}
+
+function rbx() {
+  rvm rbx-<%= node[:rbx][:version] %>@global
+}
+
+function jrb() {
+  rvm jruby-<%= node[:jruby][:version] %>@global
+}
+
+function rrd() {
+  rvm ruby-<%= node[:mri][:version] %>@global do $*
+}
+
+function rjd() {
+  rvm jruby-<%= node[:jruby][:version] %>@global do $*
+}
+
+alias   h='history | tail -n20'
+alias   l='ls -1'
+alias  ll='ls -lhG'
+alias lla='ls -lhGa'
+alias   s='cd ..'
+alias   o='cd /opt'
+alias   e='exit'
+alias   t='htop'
+
+function gc() {
+  git commit -v -a -m "$*"
+}
+
+function gg() {
+  git grep -Iin "$*"
+}
+
+function Gg() {
+  git grep -In "$*"
+}
+
+alias  ga='git add --all'
+alias gfa='git fetch --all'
+alias grh='git reset --hard'
+alias  gs='git show'
+alias gst='git stash'
+alias  gb='git branch'
+alias gba='git branch -a'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias  gd='git diff --no-prefix'
+alias gdh='git diff --no-prefix HEAD'
+alias gdt='git difftool'
+alias  gt='git tag'
+alias  gp='git push'
+alias   g='git status --short'
+alias gmt='git mergetool'
+alias  gr='git repack -a -d -f --depth=250 --window=250'
+
+alias  gsi='git submodule init'
+alias  gsu='git submodule update'
+
+alias gll='git smart-pull'
+alias  gm='git smart-merge'
+alias  gl='git smart-log'
+
+alias ret='export RAILS_ENV=test'
+alias red='export RAILS_ENV=development'
+alias rep='export RAILS_ENV=production'
+
+alias  b='bundle'
+alias bl='bundle list'
+alias bs='bundle show'
+alias be='bundle exec'
+alias bc='bundle clean'
+alias bu='bundle update'
+alias bo='bundle outdated'
+
+alias  go='gem outdated'
+alias gcu='gem cleanup'
+
+alias  tl='tail -f log/*.log'
+alias rac='sh -c "/bin/rm -rf public/assets/*"'
+alias psg='ps aux | grep -v grep | grep -v tail | grep -i'
+alias afu="sudo aptitude update && sudo aptitude -y full-upgrade && sudo aptitude clean"
+
+function remove-rbx-bundles() {
+  find /opt -type d |
+    grep vendor/bundle/rbx |
+    sed 's/^\(.*\)vendor.bundle.*$/\1/' |
+    sort -u |
+    while read dir; do cd $dir; rm -rf vendor/bundle/rbx; done
+}
+
+alias   r='rake'
+alias  rt='rake -T'
+alias  rr='rails runner'
+alias  rc='rails console'
+alias  rg='rails generate'
+
+<% if node[:roles].include?('desktop') %>
+#
+# desktop specific aliases
+
+alias  gff='git flow feature'
+alias gffs='git flow feature start'
+alias gffp='git flow feature publish'
+alias gfff='git flow feature finish'
+alias  gfr='git flow release'
+alias gfrs='git flow release start'
+alias gfrf='git flow release finish --nobackmerge --push'
+
+alias    rsvc='rsync --delete -a ./vendor/cache wim01:$PWD/vendor'
+alias   wim01='mosh <%= node[:wim][:domain_user] %>@<%= node[:etc][:domain_hostname] %>'
+alias wim01-r='mosh root@<%= node[:etc][:domain_hostname] %>'
+alias wim01-p='ssh root@<%= node[:etc][:domain_hostname] %> "chef-client -j /etc/chef/client.json"'
+
+alias   ct='ctags -R app/* config/* lib/* spec/* --exclude=app/views'
+alias  rap='rake assets:precompile'
+alias v4l2='gst-launch-0.10 videotestsrc ! v4l2sink device=/dev/video0'
+
+alias  sm='rspec -fp ./spec/models'
+<% end %>

@@ -1,0 +1,170 @@
+set nocompatible
+filetype off
+
+filetype plugin indent on
+
+let mapleader = ","
+let g:mapleader = ","
+
+set wildignore+=.git,coverage,log,*/vendor/bundle/*,._*,.*.swp,*~,tmp,public
+
+syntax on
+
+" This is a temporary workaround for slow syntax highlighting in vim 7.4:
+" set regexpengine=1
+
+set tags=./tags;
+set guifont=Menlo:h14
+set lsp=1
+set guitablabel=%M%t
+set nobackup
+set number
+set relativenumber
+set nowritebackup
+set noswapfile
+set path=$PWD/public/**,$PWD/**
+set guioptions-=m
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set statusline=%<%f\ %h%m%r%=%-20.(line=%l,col=%c%V,totlin=%L%)\%h%m%r%=%-40(,%n%Y%)\%P
+set laststatus=2
+set nocursorline
+set hlsearch
+set t_Co=256
+set term=xterm-256color
+set guioptions-=T
+
+if has("gui_running")
+  set foldcolumn=0
+  set t_Co=256
+  set lines=60
+  set columns=150
+else
+  set foldcolumn=0
+  let g:CSApprox_loaded = 0
+endif
+
+if $COLORTERM == 'gnome-terminal'
+  set term=gnome-256color
+endif
+
+nnoremap <leader>f :BufExplorer<cr>
+noremap Q gq
+nnoremap Y y$
+
+set foldlevel=99
+set foldnestmax=8
+set foldlevelstart=99
+set foldmethod=indent
+set nofoldenable
+
+set scrolloff=3
+set sidescrolloff=7
+set sidescroll=1
+set cf
+set clipboard+=unnamed
+set history=256
+set autowrite
+set ruler
+set nowrap
+set timeoutlen=250
+set ts=2
+set bs=2
+set shiftwidth=2
+set incsearch
+set cinoptions=:0,p0,t0
+set cinwords=if,else,while,do,for,switch,case
+set formatoptions=tcqr
+set cindent
+set autoindent
+set smarttab
+set expandtab
+set showmatch
+set mat=5
+set list
+set lcs=tab:\ \ ,extends:>,precedes:<
+set novisualbell
+set noerrorbells
+set laststatus=2
+set mousehide
+set encoding=utf-8
+set wildmenu
+
+vnoremap <C-Z> <C-C>
+inoremap <S-Tab> <C-P>
+set viminfo='50,%
+
+map <leader>v <C-W>v
+map <leader>s <C-W>s
+
+hi link localWhitespaceError Error
+au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
+au Syntax * syn match localWhitespaceError / \+\ze\t/ display
+
+map <leader>+ :cn<CR>
+map <leader>- :cp<CR>
+
+map <leader>. g,
+map <leader>m g;
+
+nmap <C-k> [e
+nmap <C-j> ]e
+vmap <C-k> [egv
+vmap <C-j> ]egv
+
+nmap gV `[v`]
+nmap gl `^
+
+nmap <C-l> >>
+nmap <C-h> <<
+vmap <C-l> >gv
+vmap <C-h> <gv
+
+nnoremap <leader>i :set invpaste paste?<CR>
+set pastetoggle=<leader>i
+set showmode
+set nopaste
+
+nmap <F1> <NOP>
+imap <F1> <NOP>
+nmap <F2> :w<cr>
+imap <F2> <esc>:w<cr>i
+
+map <Space> /
+map <leader><Space> ?
+map <leader>gg :Ggrep -e '<C-R>=expand("<cword>")<Enter>'
+map <leader>, <C-^>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+noremap <leader>k <C-W>k
+noremap <leader>j <C-W>j
+noremap <leader>h <C-W>h
+noremap <leader>l <C-W>l
+
+nnoremap <CR> :let @/ = ""<CR>
+nnoremap <leader>c :set cursorline!<CR>
+hi CursorLine ctermbg=black cterm=NONE
+
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline

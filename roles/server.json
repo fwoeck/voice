@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "description": "external Wimdu voice setup",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[aptget]",
+    "recipe[etc]",
+    "recipe[root]",
+    "recipe[mongodb]",
+    "recipe[rabbitmq]",
+    "recipe[mysql]",
+    "recipe[asterisk]",
+    "recipe[nodejs]",
+    "recipe[redis]",
+    "recipe[tmux]",
+    "recipe[wim-user]",
+    "recipe[jdk]",
+    "recipe[rvm]",
+    "recipe[mri]",
+    "recipe[jruby]",
+    "recipe[rubinius]",
+    "recipe[flashphoner]",
+    "recipe[nginx]",
+    "recipe[vim]"
+  ],
+  "env_run_lists": {
+  }
+}

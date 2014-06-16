@@ -1,0 +1,6 @@
+/.chef
+/.vagrant
+/Vagrantfile
+/.Trash*
+/*.xz
+/opt

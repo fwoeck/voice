@@ -1,0 +1,90 @@
+daemon           on;
+user             <%= node[:wim][:user] %>;
+error_log        logs/error.log warn;
+worker_processes 1;
+
+env ZKAMQP=1;
+env JDK_HOME;
+env JAVA_HOME;
+env JAVA_OPTS;
+env JRUBY_OPTS;
+
+events {
+  worker_connections 1024;
+  use epoll;
+}
+
+http {
+  include       mime.types;
+  default_type  application/octet-stream;
+  server_tokens off;
+
+  log_format main '$http_x_forwarded_for - $remote_user [$time_local] '
+                  '"$request" $status $body_bytes_sent '
+                  '"$http_referer" "$http_user_agent"';
+
+  keepalive_timeout       60;
+  sendfile                on;
+  tcp_nopush              on;
+  tcp_nodelay             on;
+  client_max_body_size    50M;
+  client_body_buffer_size 50M;
+
+  <% if node[:roles].include?('desktop') %>
+  gzip              off;
+  <% else %>
+  gzip              on;
+  <% end %>
+  gzip_static       on;
+  gzip_http_version 1.1;
+  gzip_proxied      any;
+  gzip_vary         on;
+  gzip_min_length   10;
+  gzip_buffers      4  8k;
+  gzip_types        text/event-stream text/plain text/css application/x-javascript text/xml
+                    application/json application/xml application/xml+rss text/javascript;
+
+  passenger_root <%= node[:rvm][:basedir] %>/gems/ruby-<%= node[:mri][:version] %>@global/gems/passenger-<%= node[:passenger][:version] %>;
+  passenger_ruby <%= node[:rvm][:basedir] %>/wrappers/ruby-<%= node[:mri][:version] %>@global/ruby;
+  passenger_show_version_in_header off;
+  passenger_max_instances_per_app 1;
+  passenger_pool_idle_time 0;
+
+  upstream redisbackend {
+    server <%= node[:redis][:host] %>:<%= node[:redis][:port] %> fail_timeout=0;
+  }
+
+  server {
+    listen <%= node[:nginx][:fe_port] %> default deferred;
+    server_name <%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>;
+
+    access_log logs/nginx.log main;
+
+    root <%= node[:wim][:basedir] %>/public;
+    set_from_accept_language $lang en de;
+
+    try_files $uri/index.html $uri @redis;
+
+    location @redis {
+      set $redis_db "<%= node[:redis][:db][:fe_wim] %>";
+      set $redis_key $lang-$request_uri;
+      default_type text/html;
+      redis_pass redisbackend;
+      error_page 404 405 502 504 = @wimdu;
+    }
+
+    location @wimdu {
+      root                        <%= node[:wim][:rails][:basedir] %>/public;
+      rails_env                   <%= node[:etc][:railsenv] %>;
+      passenger_ruby              <%= node[:rvm][:basedir] %>/wrappers/rbx-<%= node[:rbx][:version] %>@global/ruby;
+      passenger_enabled           on;
+      passenger_start_timeout     300;
+      passenger_debugger          <%= node[:roles].include?('desktop') ? 'off' : 'off' %>;
+    }
+
+    location /munin/www/ {
+      expires modified +310s;
+      root /var/cache/;
+    }
+  }
+}

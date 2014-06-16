@@ -1,0 +1,236 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'YankRing.vim'
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-git'
+Bundle 'kien/ctrlp.vim'
+Bundle 'bufexplorer.zip'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-repeat'
+Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdtree'
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-scripts/tComment'
+Bundle 'sheerun/vim-polyglot'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'heartsentwined/vim-emblem'
+
+filetype plugin indent on
+
+let mapleader = ","
+let g:mapleader = ","
+
+set wildignore+=.git,*/log/*,*/vendor/*,._*,.*.swp,*~,*/tmp/*,*/public/*,tags,*/bin/*,*/db/*,*/doc/*
+
+syntax on
+
+" This is a temporary workaround for slow syntax highlighting in vim 7.4:
+set regexpengine=1
+
+nnoremap <leader>c :CtrlPTag<cr>
+set tags=./tags;
+
+set guifont=Menlo:h14
+set lsp=1
+set guitablabel=%M%t
+set nobackup
+set number
+set relativenumber
+set nowritebackup
+set noswapfile
+set path=$PWD/public/**,$PWD/**
+set guioptions-=m
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set statusline=%<%f\ %h%m%r%=%-20.(line=%l,col=%c%V,totlin=%L%)\%h%m%r%=%-40(,%n%Y%)\%P
+set laststatus=2
+set nocursorline
+set hlsearch
+set t_Co=256
+colorscheme ir_black
+set term=xterm-256color
+set guioptions-=T
+
+if has("gui_running")
+  set foldcolumn=0
+  set t_Co=256
+  set lines=60
+  set columns=150
+else
+  set foldcolumn=0
+  let g:CSApprox_loaded = 0
+endif
+
+if $COLORTERM == 'gnome-terminal'
+  set term=gnome-256color
+endif
+
+nnoremap <leader>f :BufExplorer<cr>
+noremap Q gq
+nnoremap Y y$
+
+set foldlevel=99
+set foldnestmax=8
+set foldlevelstart=99
+set foldmethod=indent
+set nofoldenable
+
+set scrolloff=3
+set sidescrolloff=7
+set sidescroll=1
+set cf
+set clipboard+=unnamed
+set history=256
+set autowrite
+set ruler
+set nowrap
+set timeoutlen=250
+set ts=2
+set bs=2
+set shiftwidth=2
+set incsearch
+set cinoptions=:0,p0,t0
+set cinwords=if,else,while,do,for,switch,case
+set formatoptions=tcqr
+set cindent
+set autoindent
+set smarttab
+set expandtab
+set showmatch
+set mat=5
+set list
+set lcs=tab:\ \ ,extends:>,precedes:<
+set novisualbell
+set noerrorbells
+set laststatus=2
+set mousehide
+set encoding=utf-8
+set wildmenu
+
+vnoremap <C-Z> <C-C>
+inoremap <S-Tab> <C-P>
+set viminfo='50,%
+
+map <leader>v <C-W>v
+map <leader>s <C-W>s
+
+hi link localWhitespaceError Error
+au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
+au Syntax * syn match localWhitespaceError / \+\ze\t/ display
+
+map <leader>+ :cn<CR>
+map <leader>- :cp<CR>
+
+let NERDTreeChDirMode=2
+let NERDTreeWinSize=40
+let NERDTreeIgnore=['\.git', '^\._', '^\..*\.swp$', '\~$']
+nnoremap <leader>p :NERDTreeToggle<CR>
+
+nmap <leader>r :CtrlPClearCache<cr>
+
+map <leader>. g,
+map <leader>m g;
+
+nmap <C-k> [e
+nmap <C-j> ]e
+vmap <C-k> [egv
+vmap <C-j> ]egv
+
+nmap gV `[v`]
+nmap gl `^
+
+nmap <C-l> >>
+nmap <C-h> <<
+vmap <C-l> >gv
+vmap <C-h> <gv
+
+nnoremap <leader>i :set invpaste paste?<CR>
+set pastetoggle=<leader>i
+set showmode
+set nopaste
+
+nmap <F1> <NOP>
+imap <F1> <NOP>
+nmap <F2> :w<cr>
+imap <F2> <esc>:w<cr>i
+
+nnoremap <leader># :Tabularize /\|<CR>
+vnoremap <leader># :Tabularize /\|<CR>
+
+nnoremap <leader>= :Tabularize /=<CR>
+vnoremap <leader>= :Tabularize /=<CR>
+
+nnoremap <leader>: :Tabularize /:\zs<CR>
+vnoremap <leader>: :Tabularize /:\zs<CR>
+
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = $HOME.'/.vim/cache/ctrlp'
+let g:ctrlp_working_path_mode = 'a'
+let g:yankring_history_dir = '$HOME/.vim'
+
+map <Space> /
+map <leader><Space> ?
+map <leader>gg :Ggrep -e '<C-R>=expand("<cword>")<Enter>'
+map <leader>, <C-^>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+noremap <leader>k <C-W>k
+noremap <leader>j <C-W>j
+noremap <leader>h <C-W>h
+noremap <leader>l <C-W>l
+
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> ib <Plug>CamelCaseMotion_ib
+xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap <silent> ie <Plug>CamelCaseMotion_ie
+xmap <silent> ie <Plug>CamelCaseMotion_ie
+
+nnoremap <CR> :let @/ = ""<CR>
+hi CursorLine ctermbg=black cterm=NONE
+
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
+
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)

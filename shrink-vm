@@ -1,0 +1,7 @@
+#!/bin/bash
+# VBoxManage clonehd --format vdi box-disk2.vmdk box-disk2.vdi
+
+ssh root@33.33.33.100 '/root/bin/shrink_disks'
+vagrant halt
+cd /Volumes/Daten/VirtualBox/wimdu-voice*
+VBoxManage modifyhd box-disk2.vdi --compact

@@ -1,0 +1,9 @@
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT_QUIET=true
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT="text acpi=force elevator=noop zswap.enabled=1"
+GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1"
+GRUB_GFXMODE=1024x768
+GRUB_DISABLE_RECOVERY="true"

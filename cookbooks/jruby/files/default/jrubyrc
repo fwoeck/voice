@@ -1,0 +1,5 @@
+cext.enabled=true
+compat.version=2.0
+bytecode.version=1.8
+jruby.min.runtimes=1
+jruby.max.runtimes=1

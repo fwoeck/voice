@@ -1,0 +1,57 @@
+export PATH=~/bin:$PATH
+
+alias  ea='vim ~/.bash_aliases'
+alias  ra='source ~/.bash_aliases'
+alias  tl='tail -F ./log/*'
+alias  ot='tail -F /var/log/**/*log'
+
+alias  afu='aptitude update && aptitude -y upgrade && aptitude clean'
+alias make='make -j3'
+
+alias   v='vim'
+alias  vi='vim'
+
+alias   h='history 100'
+alias   l='ls'
+alias  ll='ls -lhG'
+alias  la='ls -lhGa'
+alias   s='cd ..'
+alias   o='cd /opt'
+alias   e='exit'
+alias   t='htop'
+
+alias    psg='ps aux | grep -v grep | grep -v tail | grep -i'
+alias    chc='chef-client -j /etc/chef/client.json'
+alias     vr='service varnish restart'
+
+alias dgc='docker rm $(docker ps -a -q) 2>/dev/null; docker rmi $(docker images -a | grep "^<none>" | awk "{print \$3}") 2>/dev/null'
+alias dps='docker ps'
+alias  di='docker images'
+alias  dk='docker kill'
+alias  dr='docker rmi'
+
+function gg() {
+  git grep -n "$*"
+}
+
+alias  gb='git branch'
+alias gba='git branch -a'
+alias gco='git checkout'
+alias  gd='git diff'
+alias   g='git status --short'
+
+alias  j='jobs'
+alias ,,='fg %+'
+alias ,.='fg %-'
+alias j1='fg %1'
+alias j2='fg %2'
+alias j3='fg %3'
+alias j4='fg %4'
+
+function , () {
+  if [ $(jobs | grep '\[' | wc -l) -gt 1 ]; then
+    fg %-
+  else
+    fg
+  fi
+}

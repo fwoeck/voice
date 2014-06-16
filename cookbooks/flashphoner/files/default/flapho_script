@@ -1,0 +1,37 @@
+#!/usr/bin/expect
+
+spawn ./install.sh
+
+expect "Press ENTER"
+send "\n"
+
+expect "must exist."
+send "/opt/jdk\n"
+
+expect "Press ENTER"
+send "\n"
+
+expect "stop installation."
+send "\n"
+expect "stop installation."
+send "\n"
+expect "stop installation."
+send "\n"
+expect "stop installation."
+send "\n"
+expect "stop installation."
+send "\n"
+expect "stop installation."
+send "\n"
+
+expect "\[yes\/no\]"
+send "yes\n"
+
+expect "Enter external IP"
+send "1.2.3.4\n"
+
+expect "local IP of this server"
+send "127.0.0.1\n"
+
+expect "Installation complete"
+send "\n"

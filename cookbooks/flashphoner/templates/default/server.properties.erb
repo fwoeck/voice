@@ -1,0 +1,23 @@
+ws.port                    = <%= node[:flashphoner][:ws_port] %>
+wss.port                   = 8443
+
+wss.keystore.file          = wss.jks
+wss.keystore.password      = password
+wss.cert.password          = password
+
+rtmfp.port                 = 1935
+
+client_handler             = com.flashphoner.server.client.FlashphonerHandler
+
+keep_alive.algorithm       = HIGH_LEVEL
+keep_alive.peer_interval   = 2000
+keep_alive.server_interval = 5000
+keep_alive.probes          = 5
+
+video_reliable             = partial
+audio_reliable             = partial
+
+audio_frames_per_packet    = 6
+burst_avoidance_count      = 100
+flush_audio_interval       = 80
+flush_video_interval       = 0

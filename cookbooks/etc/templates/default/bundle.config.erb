@@ -1,0 +1,8 @@
+---
+BUNDLE_BIN: bin
+BUNDLE_PATH: vendor/bundle
+BUNDLE_DISABLE_SHARED_GEMS: "1"
+<% unless node[:roles].include?('desktop') %>
+BUNDLE_WITHOUT: development:test
+BUNDLE_FROZEN: "1"
+<% end %>

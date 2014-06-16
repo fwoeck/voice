@@ -1,0 +1,6 @@
+#!/bin/bash
+
+<% unless node[:roles].include?('desktop') %>
+test -x /usr/share/logwatch/scripts/logwatch.pl || exit 0
+/usr/sbin/logwatch --output mail
+<% end %>

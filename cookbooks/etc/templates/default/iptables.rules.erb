@@ -1,0 +1,43 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [90723:69257272]
+:OUTPUT ACCEPT [1354563:281328670]
+:global-blacklist - [0:0]
+-A INPUT -i lo -j ACCEPT
+<% if node[:roles].include?('desktop') %>
+-A INPUT -i eth0 -j ACCEPT
+-A INPUT -i eth1 -j ACCEPT
+<% end %>
+-A INPUT -i tap0 -j ACCEPT
+-A INPUT -i <%= node[:etc][:ext_interface] %> -p tcp -m tcp -m multiport --dports 23,25,110,139,445 -j DROP
+-A INPUT -d 224.0.0.251/32 -j DROP
+-A INPUT -i eth0 -j global-blacklist
+-A INPUT -p icmp -m icmp --icmp-type any -j ACCEPT
+-A INPUT -p tcp -m tcp ! --tcp-flags FIN,SYN,RST,ACK SYN -m state --state NEW -j DROP
+-A INPUT -f -j DROP
+-A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG -j DROP
+-A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -j DROP
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p tcp -m tcp -m multiport --dports 80,443,5061 -j ACCEPT
+-A INPUT -p udp -m udp -m multiport --dports 1194,1935,5060 -j ACCEPT
+-A INPUT -p udp -m udp --dport 10000:20000 -j ACCEPT
+-A INPUT -p udp -m udp --dport 30000:32000 -j ACCEPT
+-A INPUT -p udp -m udp --dport 60000:61000 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -m limit --limit 1/sec -j LOG --log-prefix "iptables denied: " --log-level 7
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A global-blacklist -s <%= node[:etc][:ip_blacklist].join(',') %> -j DROP
+-A global-blacklist -j RETURN
+COMMIT
+<% unless node[:roles].include?('desktop') %>
+*nat
+:PREROUTING ACCEPT [2044:156862]
+:INPUT ACCEPT [6:360]
+:OUTPUT ACCEPT [337:20236]
+:POSTROUTING ACCEPT [337:20236]
+-A PREROUTING -d <%= node[:etc][:external_ip] %> -p tcp -m tcp --dport 5900 -j DNAT --to-destination 10.8.0.4:5900
+-A OUTPUT -d <%= node[:etc][:external_ip] %> -p tcp -m tcp --dport 5900 -j DNAT --to-destination 10.8.0.4:5900
+-A POSTROUTING -s 10.8.0.0/24 -o <%= node[:etc][:ext_interface] %> -j MASQUERADE
+-A POSTROUTING -d 10.8.0.4 -p tcp -m tcp --dport 5900 -j SNAT --to-source 10.8.0.1
+COMMIT
+<% end %>

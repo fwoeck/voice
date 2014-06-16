@@ -1,0 +1,7 @@
+name             'etc'
+maintainer       'Wimdu'
+maintainer_email 'frank.woeckener@wimdu.com'
+license          'All rights reserved'
+description      'Installs/Configures etc'
+long_description ''
+version          '0.1.0'

@@ -1,0 +1,16 @@
+[user]
+  name    = <%= node[:git][:user][:name] %>
+  email   = <%= node[:git][:user][:email] %>
+[color]
+  diff    = auto
+  status  = auto
+  branch  = auto
+[push]
+  default = upstream
+[branch]
+  autosetuprebase = always
+[pull]
+  rebase = true
+[github]
+  user   = <%= node[:git][:github][:user] %>
+  token  = <%= node[:git][:github][:token] %>

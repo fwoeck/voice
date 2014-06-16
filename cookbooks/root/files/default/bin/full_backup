@@ -1,0 +1,10 @@
+#!/bin/bash
+
+~/bin/prepare_shutdown
+
+cd /
+name=wimdu.com.$(date "+%Y-%m-%d").txz.aes
+tar -c --exclude=/proc --exclude=/dev --exclude=/lost+found --exclude=/sys --exclude=/mnt --exclude=/media --exclude=/var/lib/docker/aufs --exclude=/var/lib/mongodb / | pixz -3 | openssl enc -aes-256-cbc -out /mnt/$name
+s3cmd put --guess-mime-type /mnt/$name s3://cubiflex-cdn/$name
+
+# openssl enc -aes-256-cbc -d -in /mnt/$name | tar -Ipixz -t

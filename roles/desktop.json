@@ -1,0 +1,36 @@
+{
+  "name": "desktop",
+  "description": "local Wimdu dev-machine setup",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "etc": {
+      "railsenv": "development"
+    },
+    "wim": {
+      "user": "vagrant",
+      "group": "vagrant",
+      "home": "/home/vagrant",
+      "branch": "develop",
+      "color": "green"
+    },
+    "rvm": {
+      "basedir": "/home/vagrant/.rvm"
+    },
+    "jruby": {
+      "opts": "-J-Dfile.encoding=utf8"
+    },
+    "screenhub": {
+      "max_port": 19
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[server]",
+    "recipe[v4l2]"
+  ],
+  "env_run_lists": {
+  }
+}
+
