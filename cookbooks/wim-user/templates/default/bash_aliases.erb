@@ -32,6 +32,7 @@ alias ra='source ~/.bash_aliases'
 
 alias  ot='tail -F <%= node[:wim][:logdir] %>/*.log <%= node[:nginx][:basedir] %>/logs/*.log'
 alias tfl='tail -f /usr/local/<%= node[:flashphoner][:basename] %>/logs/**/*.log | grep -v FlowWriter'
+alias ttr='touch tmp/restart.txt'
 
 function mri() {
   rvm ruby-<%= node[:mri][:version] %>@global

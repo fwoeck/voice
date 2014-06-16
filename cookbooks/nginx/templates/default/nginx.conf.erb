@@ -75,7 +75,7 @@ http {
     location @wimdu {
       root                        <%= node[:wim][:rails][:basedir] %>/public;
       rails_env                   <%= node[:etc][:railsenv] %>;
-      passenger_ruby              <%= node[:rvm][:basedir] %>/wrappers/rbx-<%= node[:rbx][:version] %>@global/ruby;
+      passenger_ruby              <%= node[:rvm][:basedir] %>/wrappers/ruby-<%= node[:mri][:version] %>@global/ruby;
       passenger_enabled           on;
       passenger_start_timeout     300;
       passenger_debugger          <%= node[:roles].include?('desktop') ? 'off' : 'off' %>;
