@@ -3,7 +3,6 @@ user             <%= node[:wim][:user] %>;
 error_log        logs/error.log warn;
 worker_processes 1;
 
-env ZKAMQP=1;
 env JDK_HOME;
 env JAVA_HOME;
 env JAVA_OPTS;
