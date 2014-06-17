@@ -1,7 +1,6 @@
 default[:ahn][:ami_pass]                 = '***REMOVED***'
 default[:ahn][:ami_user]                 = 'ahn_ami'
 default[:ahn][:ami_host]                 = '127.0.0.1'
-default[:ahn][:drb_port]                 =  9050
 
 default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com/chef'
 

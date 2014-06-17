@@ -27,6 +27,7 @@ end
   expect
   exuberant-ctags
   fail2ban
+  festival
   flex
   freetds-dev
   g++
