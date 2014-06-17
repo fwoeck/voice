@@ -1,19 +1,5 @@
-require 'ansi'
+require 'hirb'
 require 'wirble'
-
-extend_console 'wirble' do
-  Wirble.init(:history_uniq => false)
-  Wirble.colorize
-end
-
-extend_console 'hirb' do
-  Hirb.enable
-  extend Hirb::Console
-end
-
-extend_console 'ap' do
-  alias pp ap
-end
 
 if defined?(Rails) && Rails.logger && Rails.env.development?
   Rails.logger = Logger.new(STDOUT)
