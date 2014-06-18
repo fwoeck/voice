@@ -100,6 +100,7 @@ end
   python-pyinotify
   python-software-properties
   remmina
+  runit
   s3cmd
   scons
   sox
