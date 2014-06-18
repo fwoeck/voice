@@ -25,6 +25,7 @@
     "recipe[jruby]",
     "recipe[rubinius]",
     "recipe[voice-ahn]",
+    "recipe[voice-push]",
     "recipe[voice-rails]",
     "recipe[flashphoner]",
     "recipe[nginx]",

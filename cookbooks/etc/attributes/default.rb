@@ -86,6 +86,7 @@ default[:redis][:port]                   =  6379
 default[:redis][:db][:fe_wim]            =  1
 default[:redis][:db][:ahn]               =  2
 default[:redis][:db][:rails]             =  3
+default[:redis][:db][:push]              =  4
 
 default[:rvm][:basedir]                  = '/home/wim/.rvm'
 
@@ -118,6 +119,11 @@ default[:vnc][:display]                  =  0
 
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
 default[:voice_ahn][:logdir]             = '/var/log/voice-ahn'
+
+default[:voice_push][:basedir]           = '/opt/voice-push'
+default[:voice_push][:logdir]            = '/var/log/voice-push'
+default[:voice_push][:host]              = '127.0.0.1'
+default[:voice_push][:port]              =  8889
 
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
 default[:voice_rails][:logdir]           = '/var/log/voice-rails'

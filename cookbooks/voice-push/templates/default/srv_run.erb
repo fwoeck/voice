@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+source <%= node[:rvm][:basedir] %>/scripts/rvm
+
+cd <%= node[:voice_push][:basedir] %>
+exec chpst -u <%= node[:wim][:user] %> ./server.rb -sv -e production -a <%= node[:voice_push][:host] %> -p <%= node[:voice_push][:port] %> 2>&1

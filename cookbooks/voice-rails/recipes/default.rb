@@ -9,7 +9,7 @@ git node[:voice_rails][:basedir] do
 end
 
 file "#{node[:voice_rails][:basedir]}/.ruby-version" do
-  content "jruby-#{node[:jruby][:version]}"
+  content "ruby-#{node[:mri][:version]}"
   owner   node[:wim][:user]
   group   node[:wim][:group]
   mode    00755
@@ -42,13 +42,13 @@ bash 'install_voice_rails' do
     export PATH=#{node[:jdk][:home]}/bin:$PATH
 
     source #{node[:rvm][:basedir]}/scripts/rvm
-    rvm use jruby-#{node[:jruby][:version]}@global
+    rvm use ruby-#{node[:mri][:version]}@global
     git reset --hard
     git checkout master
     bundle install --path=vendor/bundle
   EOH
 
-  not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/jruby/#{node[:jruby][:baseapi]}/gems"
+  not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/ruby/#{node[:mri][:baseapi]}/gems"
 end
 
 directory node[:voice_rails][:logdir] do
@@ -73,6 +73,6 @@ template '/srv/voice-rails/log/run' do
   mode 00755
 end
 
-link '/etc/service/voice-rails' do
-  to '/srv/voice-rails'
-end
+# link '/etc/service/voice-rails' do
+#   to '/srv/voice-rails'
+# end
