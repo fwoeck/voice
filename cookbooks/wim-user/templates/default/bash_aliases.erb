@@ -63,6 +63,9 @@ alias   o='cd /opt'
 alias   e='exit'
 alias   t='htop'
 
+alias va='cd <%= node[:voice_ahn][:basedir] %>'
+alias vr='cd <%= node[:voice_rails][:basedir] %>'
+
 function gc() {
   git commit -v -a -m "$*"
 }
