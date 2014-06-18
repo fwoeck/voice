@@ -24,6 +24,7 @@
     "recipe[mri]",
     "recipe[jruby]",
     "recipe[rubinius]",
+    "recipe[voice-ahn]",
     "recipe[flashphoner]",
     "recipe[nginx]",
     "recipe[vim]"

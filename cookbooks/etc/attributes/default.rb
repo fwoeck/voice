@@ -50,7 +50,7 @@ default[:mongodb][:host]                 = '127.0.0.1'
 default[:mongodb][:port]                 =  27017
 default[:mongoid][:basedir]              = '/opt/mongoid'
 
-default[:mri][:baseapi]                  = '2.1'
+default[:mri][:baseapi]                  = '2.1.0'
 default[:mri][:version]                  = '2.1.2'
 
 default[:mysql][:wim_pass]               = '***REMOVED***'
@@ -81,6 +81,7 @@ default[:rbx][:version]                  = '2.2.9'
 default[:redis][:host]                   = '127.0.0.1'
 default[:redis][:port]                   =  6379
 default[:redis][:db][:fe_wim]            =  1
+default[:redis][:db][:ahn]               =  2
 
 default[:rvm][:basedir]                  = '/home/wim/.rvm'
 
@@ -111,9 +112,11 @@ default[:vagrant][:local_mask]           = '255.255.255.0'
 default[:vnc][:password]                 = '***REMOVED***'
 default[:vnc][:display]                  =  0
 
+default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
+
 default[:v4l2][:basedir]                 = '/opt/v4l2'
 
-default[:wim][:gitbase]                  = 'dkm01.dokmatic.com' # This is the gitolite repo-host
+default[:wim][:gitbase]                  = 'github.com:fwoeck'
 default[:wim][:user]                     = 'wim'
 default[:wim][:group]                    = 'wim'
 default[:wim][:home]                     = '/home/wim'

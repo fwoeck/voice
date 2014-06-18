@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+source <%= node[:rvm][:basedir] %>/scripts/rvm
+
+export AHN_ENV=<%= node[:etc][:railsenv] %>
+export RACK_ENV=<%= node[:etc][:railsenv] %>
+export RAILS_ENV=<%= node[:etc][:railsenv] %>
+
+cd <%= node[:voice_ahn][:basedir] %>
+exec chpst -u <%= node[:wim][:user] %> <%= node[:voice_ahn][:basedir] %>/bin/ahn start . --no-console 2>&1
