@@ -122,7 +122,7 @@ default[:voice_ahn][:logdir]             = '/var/log/voice-ahn'
 
 default[:voice_push][:basedir]           = '/opt/voice-push'
 default[:voice_push][:logdir]            = '/var/log/voice-push'
-default[:voice_push][:host]              = '0.0.0.0'
+default[:voice_push][:host]              = '127.0.0.1'
 default[:voice_push][:port]              =  8889
 
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
