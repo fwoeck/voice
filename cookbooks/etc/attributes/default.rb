@@ -113,6 +113,8 @@ default[:vnc][:password]                 = '***REMOVED***'
 default[:vnc][:display]                  =  0
 
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
+default[:voice_ahn][:logdir]             = '/var/log/voice-ahn'
+
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
 
 default[:v4l2][:basedir]                 = '/opt/v4l2'

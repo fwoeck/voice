@@ -51,7 +51,7 @@ bash 'install_voice_ahn' do
   not_if "test -e #{node[:voice_ahn][:basedir]}/vendor/bundle/ruby/#{node[:mri][:baseapi]}/gems"
 end
 
-directory '/var/log/voice-ahn' do
+directory node[:voice_ahn][:logdir] do
   mode 00755
 end
 
