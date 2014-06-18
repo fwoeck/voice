@@ -5,4 +5,4 @@ source <%= node[:rvm][:basedir] %>/scripts/rvm
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
 
 cd <%= node[:voice_rails][:basedir] %>
-exec chpst -u <%= node[:wim][:user] %> puma --environment <%= node[:etc][:railsenv] %> --port <%= node[:puma][:port] %> --threads 0:16 2>&1
+exec chpst -u <%= node[:wim][:user] %> ./bin/puma --environment <%= node[:etc][:railsenv] %> --port <%= node[:puma][:port] %> --threads 0:16 2>&1
