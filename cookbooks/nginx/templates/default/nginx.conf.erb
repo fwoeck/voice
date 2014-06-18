@@ -66,7 +66,7 @@ http {
     root <%= node[:wim][:rails][:basedir] %>/public;
     set_from_accept_language $lang en de;
 
-    try_files $uri/index.html $uri @redis;
+    # try_files $uri/index.html $uri @redis;
 
     location @redis {
       set $redis_db "<%= node[:redis][:db][:fe_wim] %>";
@@ -76,22 +76,22 @@ http {
       error_page 404 405 502 504 = @wimdu;
     }
 
-    location @wimdu {
+    location ~ ^/events {
+      proxy_http_version 1.1;
+      chunked_transfer_encoding off;
+      proxy_set_header Connection '';
+      proxy_buffering off;
+      proxy_cache off;
+      proxy_pass http://events;
+    }
+
+    location / {
       root                        <%= node[:wim][:rails][:basedir] %>/public;
       rails_env                   <%= node[:etc][:railsenv] %>;
       passenger_ruby              <%= node[:rvm][:basedir] %>/wrappers/ruby-<%= node[:mri][:version] %>@global/ruby;
       passenger_debugger          <%= node[:roles].include?('desktop') ? 'off' : 'off' %>;
       passenger_start_timeout     300;
       passenger_enabled           on;
-    }
-
-    location /events {
-      proxy_http_version 1.1;
-      chunked_transfer_encoding off;
-      proxy_set_header Connection '';
-      proxy_pass http://events;
-      proxy_buffering off;
-      proxy_cache off;
     }
 
     location /munin/www/ {
