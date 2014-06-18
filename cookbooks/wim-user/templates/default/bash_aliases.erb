@@ -30,7 +30,7 @@ alias vi='vim'
 alias ea='vim ~/.bash_aliases'
 alias ra='source ~/.bash_aliases'
 
-alias  ot='tail -F <%= node[:voice_ahn][:logdir] %>/current <%= node[:nginx][:basedir] %>/logs/*.log'
+alias  ot='tail -F <%= node[:voice_rails][:logdir] %>/current <%= node[:voice_ahn][:logdir] %>/current <%= node[:nginx][:basedir] %>/logs/*.log'
 alias tfl='tail -f /usr/local/<%= node[:flashphoner][:basename] %>/logs/**/*.log | grep -v FlowWriter'
 alias ttr='touch tmp/restart.txt'
 
