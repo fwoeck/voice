@@ -49,6 +49,10 @@ http {
   passenger_max_instances_per_app 1;
   passenger_pool_idle_time 0;
 
+  upstream puma {
+    server <%= node[:puma][:host] %>:<%= node[:puma][:port] %> fail_timeout=0;
+  }
+
   upstream redisbackend {
     server <%= node[:redis][:host] %>:<%= node[:redis][:port] %> fail_timeout=0;
   }
@@ -72,13 +76,22 @@ http {
       error_page 404 405 502 504 = @wimdu;
     }
 
+    # location @wimdu {
+    #   root                        <%= node[:wim][:rails][:basedir] %>/public;
+    #   rails_env                   <%= node[:etc][:railsenv] %>;
+    #   passenger_ruby              <%= node[:rvm][:basedir] %>/wrappers/ruby-<%= node[:mri][:version] %>@global/ruby;
+    #   passenger_enabled           on;
+    #   passenger_start_timeout     300;
+    #   passenger_debugger          <%= node[:roles].include?('desktop') ? 'off' : 'off' %>;
+    # }
+
     location @wimdu {
-      root                        <%= node[:wim][:rails][:basedir] %>/public;
-      rails_env                   <%= node[:etc][:railsenv] %>;
-      passenger_ruby              <%= node[:rvm][:basedir] %>/wrappers/ruby-<%= node[:mri][:version] %>@global/ruby;
-      passenger_enabled           on;
-      passenger_start_timeout     300;
-      passenger_debugger          <%= node[:roles].include?('desktop') ? 'off' : 'off' %>;
+      proxy_http_version 1.1;
+      chunked_transfer_encoding off;
+      proxy_set_header Connection '';
+      proxy_pass http://puma;
+      proxy_buffering off;
+      proxy_cache off;
     }
 
     location /munin/www/ {

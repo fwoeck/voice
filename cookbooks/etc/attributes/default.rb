@@ -71,6 +71,9 @@ default[:nginx][:redis][:version]        = '0.3.7'
 default[:passenger][:version]            = '4.0.45'
 default[:postfix][:remote_admin]         = 'frank.woeckener@wimdu.com'
 
+default[:puma][:host]                    = '127.0.0.1'
+default[:puma][:port]                    =  9292
+
 default[:rabbitmq][:host]                = '127.0.0.1'
 default[:rabbitmq][:pass]                = '***REMOVED***'
 default[:rabbitmq][:user]                = 'wim'
