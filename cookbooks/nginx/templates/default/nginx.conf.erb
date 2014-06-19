@@ -48,6 +48,7 @@ http {
   passenger_show_version_in_header off;
   passenger_max_instances_per_app 1;
   passenger_pool_idle_time 0;
+  passenger_min_instances 1;
 
   upstream events {
     server <%= node[:voice_push][:host] %>:<%= node[:voice_push][:port] %> fail_timeout=0;
