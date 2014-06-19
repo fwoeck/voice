@@ -194,3 +194,7 @@ service 'asterisk' do
   action   [:enable, :start]
   ignore_failure true
 end
+
+remote_directory '/var/lib/asterisk/sounds/wimdu' do
+  files_mode 00644
+end
