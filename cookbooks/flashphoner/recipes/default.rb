@@ -60,18 +60,25 @@ template "/usr/local/#{tar_name}/conf/flashphoner.properties" do
   notifies :run, 'bash[restart_flashphoner]', :delayed
 end
 
-cron 'renice_flashphoner' do
-  command %q{chrt -p -f 20 $(ps aux | grep [f]lashphoner | grep -v ' sh ' | awk '{ print $2 }') >/dev/null 2>&1}
-  minute '*/5'
-end
-
 bash 'restart_flashphoner' do
-  user node[:wim][:user]
+  user 'root'
 
   code <<-EOH
-    kill $(ps aux | grep '#{ node[:flashphoner][:basename].sub(/^(.)/, '[\1]') }' | grep -v 'sh ' | awk '{ print $2 }')
+    sv t flashphoner
   EOH
 
-  only_if "test -e #{node[:wim][:home]}/.god/pids/flashphoner.pid"
   action :nothing
+end
+
+directory '/srv/flashphoner' do
+  mode 00755
+end
+
+template '/srv/flashphoner/run' do
+  source 'run.erb'
+  mode 00755
+end
+
+link '/etc/service/flashphoner' do
+  to '/srv/flashphoner'
 end
