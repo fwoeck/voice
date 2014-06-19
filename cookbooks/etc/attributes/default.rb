@@ -43,12 +43,11 @@ default[:jruby][:baseapi]                = '1.9'
 default[:jruby][:version]                = '1.7.12'
 default[:jruby][:opts]                   = '-J-XX:+UseCodeCacheFlushing -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify'
 
-default[:mongodb][:db][:development]     = 'wimdu_development'
-default[:mongodb][:db][:production]      = 'wimdu_production'
-default[:mongodb][:db][:test]            = 'wimdu_test'
+default[:mongodb][:db][:development]     = 'voice_development'
+default[:mongodb][:db][:production]      = 'voice_production'
+default[:mongodb][:db][:test]            = 'voice_test'
 default[:mongodb][:host]                 = '127.0.0.1'
 default[:mongodb][:port]                 =  27017
-default[:mongoid][:basedir]              = '/opt/mongoid'
 
 default[:mri][:baseapi]                  = '2.1.0'
 default[:mri][:version]                  = '2.1.2'
@@ -83,10 +82,9 @@ default[:rbx][:version]                  = '2.2.9'
 
 default[:redis][:host]                   = '127.0.0.1'
 default[:redis][:port]                   =  6379
-default[:redis][:db][:fe_wim]            =  1
-default[:redis][:db][:ahn]               =  2
-default[:redis][:db][:rails]             =  3
-default[:redis][:db][:push]              =  4
+default[:redis][:db][:nginx]             =  1
+default[:redis][:db][:rails]             =  2
+default[:redis][:db][:ahn]               =  3
 
 default[:rvm][:basedir]                  = '/home/wim/.rvm'
 

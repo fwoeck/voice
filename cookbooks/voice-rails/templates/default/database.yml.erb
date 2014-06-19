@@ -1,0 +1,18 @@
+default: &default
+  encoding: utf8
+  adapter:  mysql2
+  database: <%= node[:mysql][:dbname] %>
+  username: <%= node[:mysql][:wim_user] %>
+  password: <%= node[:mysql][:wim_pass] %>
+  socket:   <%= node[:mysql][:socket] %>
+  pool:     10
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: <%= node[:mysql][:dbname] %>_test
+
+production:
+  <<: *default
