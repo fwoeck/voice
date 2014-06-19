@@ -1,0 +1,23 @@
+#!/bin/bash
+set -x
+
+sv d /etc/service/*
+service cron stop
+service asterisk stop
+service nginx stop
+service mysql stop
+service mongod stop
+service rabbitmq-server stop
+service redis-server stop
+service fail2ban stop
+service postfix stop
+service cups stop
+
+swapoff -a
+dd if=/dev/zero of=/dev/sda5 bs=1M
+mkswap /dev/sda5
+
+dd if=/dev/zero of=/empty.file bs=1M
+sync
+rm /empty.file
+sync
