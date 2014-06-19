@@ -20,9 +20,6 @@
     },
     "jruby": {
       "opts": "-J-Dfile.encoding=utf8"
-    },
-    "screenhub": {
-      "max_port": 19
     }
   },
   "chef_type": "role",
