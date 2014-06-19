@@ -184,10 +184,10 @@ cookbook_file '/etc/asterisk/ca.crt' do
   notifies :restart, 'service[asterisk]', :delayed
 end
 
-cron 'renice_asterisk' do
-  command %q{chrt -p -f 20 $(pidof asterisk) >/dev/null 2>&1}
-  minute '*/5'
-end
+# cron 'renice_asterisk' do
+#   command %q{chrt -p -f 20 $(pidof asterisk) >/dev/null 2>&1}
+#   minute '*/5'
+# end
 
 service 'asterisk' do
   supports restart: true, stop: true, start: true
