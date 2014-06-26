@@ -67,6 +67,8 @@ default[:nginx][:language][:checksum]    = '4609c52787e10a86d0bf25b524b91eaa3e8b
 default[:nginx][:headers][:version]      = '0.25'
 default[:nginx][:redis][:version]        = '0.3.7'
 
+default[:opus][:version]                 = '1.1'
+
 default[:passenger][:version]            = '4.0.45'
 default[:postfix][:remote_admin]         = 'frank.woeckener@wimdu.com'
 

@@ -138,6 +138,15 @@ alias  rr='rails runner'
 alias  rc='rails console'
 alias  rg='rails generate'
 
+alias  svd='sudo sv down'
+alias  svr='sudo sv restart'
+alias  avs='sudo sv status'
+alias  svu='sudo sv up'
+alias svda='sudo sv down /etc/service/*'
+alias svra='sudo sv restart /etc/service/*'
+alias svsa='sudo sv status /etc/service/*'
+alias svua='sudo sv up /etc/service/*'
+
 <% if node[:roles].include?('desktop') %>
 #
 # desktop specific aliases
