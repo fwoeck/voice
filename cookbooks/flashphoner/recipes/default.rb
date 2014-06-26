@@ -57,16 +57,11 @@ template "/usr/local/#{tar_name}/conf/flashphoner.properties" do
   owner node[:wim][:user]
   group node[:wim][:group]
 
-  notifies :run, 'bash[restart_flashphoner]', :delayed
+  notifies :run, 'execute[restart_flashphoner]', :delayed
 end
 
-bash 'restart_flashphoner' do
-  user 'root'
-
-  code <<-EOH
-    sv t flashphoner
-  EOH
-
+execute 'restart_flashphoner' do
+  command 'sv restart flashphoner'
   action :nothing
 end
 
