@@ -41,7 +41,7 @@ cookbook_file "/usr/local/#{tar_name}/conf/log4j.properties" do
   owner node[:wim][:user]
   group node[:wim][:group]
 
-  notifies :run, 'bash[restart_flashphoner]', :delayed
+  notifies :run, 'execute[restart_flashphoner]', :delayed
 end
 
 template "/usr/local/#{tar_name}/conf/server.properties" do
@@ -49,7 +49,7 @@ template "/usr/local/#{tar_name}/conf/server.properties" do
   owner node[:wim][:user]
   group node[:wim][:group]
 
-  notifies :run, 'bash[restart_flashphoner]', :delayed
+  notifies :run, 'execute[restart_flashphoner]', :delayed
 end
 
 template "/usr/local/#{tar_name}/conf/flashphoner.properties" do

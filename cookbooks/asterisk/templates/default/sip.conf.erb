@@ -1,6 +1,3 @@
-;
-; SIP Configuration example for Asterisk
-;
 ; Note: Please read the security documentation for Asterisk in order to
 ;	understand the risks of installing Asterisk with the sample
 ;	configuration. If your Asterisk is installed on a public
@@ -306,8 +303,10 @@ srvlookup=yes                   ; Enable DNS SRV lookups on outbound calls
                                 ; limits the other side's codec choice to exactly what we prefer.
 
 disallow=all                    ; First disallow all codecs
+allow=opus
 allow=speex16
 allow=alaw
+allow=ulaw
 allow=h264
 
 ;allow=ulaw                     ; Allow codecs in order of preference

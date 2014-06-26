@@ -6,11 +6,43 @@ user 'asterisk' do
   shell '/usr/sbin/nologin'
 end
 
+opus_name = "opus-#{node[:opus][:version]}"
+
+remote_file "#{Chef::Config['file_cache_path']}/#{opus_name}.tar.gz" do
+  source "#{node[:aws][:cdn]}/#{opus_name}.tar.gz"
+  not_if "test -e #{Chef::Config['file_cache_path']}/#{opus_name}.tar.gz"
+
+  notifies :run, 'bash[install_opus]', :immediately
+end
+
+bash 'install_opus' do
+  user 'root'
+  cwd   Chef::Config['file_cache_path']
+
+  code <<-EOH
+    rm /usr/sbin/asterisk 2>/dev/null
+    tar -zxf #{opus_name}.tar.gz
+    cd #{opus_name}
+    ./configure
+    make && make install
+    cd ..
+    rm -rf #{opus_name}
+  EOH
+
+  notifies :run, 'bash[install_asterisk]', :delayed
+  action :nothing
+end
+
 tar_name = "asterisk-#{node[:asterisk][:version]}"
 
 remote_file "#{Chef::Config['file_cache_path']}/#{tar_name}.tar.gz" do
   source "#{node[:aws][:cdn]}/#{tar_name}.tar.gz"
   not_if "test -e #{Chef::Config['file_cache_path']}/#{tar_name}.tar.gz"
+end
+
+cookbook_file "#{Chef::Config['file_cache_path']}/asterisk-opus.diff" do
+  source 'asterisk-opus.diff'
+  notifies :run, 'bash[install_asterisk]', :delayed
 end
 
 remote_file "#{Chef::Config['file_cache_path']}/ast-sounds.tgz" do
@@ -26,16 +58,18 @@ bash 'install_asterisk' do
     export CFLAGS=""
     tar -zxf #{tar_name}.tar.gz
     cd #{tar_name}
-    ./contrib/scripts/get_mp3_source.sh
-    ./configure --with-crypto --with-ssl --with-mysqlclient
+    patch -p1 < ../asterisk-opus.diff
+    ./bootstrap.sh
+    make clean && ./configure --with-crypto --with-ssl --with-srtp --with-mysqlclient
     make -C menuselect
     make menuselect-tree
-    menuselect/menuselect --disable-category MENUSELECT_CORE_SOUNDS menuselect.makeopts
-    menuselect/menuselect --disable-category MENUSELECT_MOH menuselect.makeopts
-    menuselect/menuselect --disable-category MENUSELECT_EXTRA_SOUNDS menuselect.makeopts
-    menuselect/menuselect --enable format_mp3 menuselect.makeopts
-    menuselect/menuselect --enable res_config_mysql menuselect.makeopts
-    make -j3 && make install && make samples
+    menuselect/menuselect --disable-category MENUSELECT_CORE_SOUNDS menuselect.makeopts || :
+    menuselect/menuselect --disable-category MENUSELECT_MOH menuselect.makeopts || :
+    menuselect/menuselect --disable-category MENUSELECT_EXTRA_SOUNDS menuselect.makeopts || :
+    menuselect/menuselect --enable format_mp3 menuselect.makeopts || :
+    menuselect/menuselect --enable res_config_mysql menuselect.makeopts || :
+    ./contrib/scripts/get_mp3_source.sh
+    make -j4 && make install && make samples
     cd ..
     rm -rf #{tar_name}
   EOH
@@ -109,7 +143,7 @@ cookbook_file '/etc/asterisk/logger.conf' do
   owner  'asterisk'
   mode    00640
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 cookbook_file '/etc/asterisk/confbridge.conf' do
@@ -117,7 +151,7 @@ cookbook_file '/etc/asterisk/confbridge.conf' do
   owner  'asterisk'
   mode    00640
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 cookbook_file '/etc/asterisk/extconfig.conf' do
@@ -125,7 +159,7 @@ cookbook_file '/etc/asterisk/extconfig.conf' do
   owner  'asterisk'
   mode    00640
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 cookbook_file '/etc/asterisk/modules.conf' do
@@ -133,7 +167,7 @@ cookbook_file '/etc/asterisk/modules.conf' do
   owner  'asterisk'
   mode    00640
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 cookbook_file '/etc/asterisk/extensions.conf' do
@@ -141,7 +175,7 @@ cookbook_file '/etc/asterisk/extensions.conf' do
   owner  'asterisk'
   mode    00640
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 template '/etc/asterisk/manager.conf' do
@@ -149,7 +183,7 @@ template '/etc/asterisk/manager.conf' do
   owner  'asterisk'
   mode    00640
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 template '/etc/asterisk/res_config_mysql.conf' do
@@ -157,7 +191,7 @@ template '/etc/asterisk/res_config_mysql.conf' do
   owner  'asterisk'
   mode    00640
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 template '/etc/asterisk/sip.conf' do
@@ -165,7 +199,7 @@ template '/etc/asterisk/sip.conf' do
   owner  'asterisk'
   mode    00640
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 cookbook_file '/etc/asterisk/asterisk.pem' do
@@ -173,7 +207,7 @@ cookbook_file '/etc/asterisk/asterisk.pem' do
   owner  'asterisk'
   mode 00600
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
 cookbook_file '/etc/asterisk/ca.crt' do

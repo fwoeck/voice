@@ -158,7 +158,7 @@ case "$1" in
 	fi
 	
 	echo "$NAME."
-  killall ahn 2>/dev/null # restart babelfish manually
+  exit 0
 	;;
   stop)
 	echo -n "Stopping $DESC: $NAME"

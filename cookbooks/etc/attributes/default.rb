@@ -2,14 +2,14 @@ default[:ahn][:ami_pass]                 = '***REMOVED***'
 default[:ahn][:ami_user]                 = 'ahn_ami'
 default[:ahn][:ami_host]                 = '127.0.0.1'
 
-default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com/chef'
+default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com/wimdu'
 
 default[:asterisk][:version]             = '11.10.2'
 default[:asterisk][:g729_checksum]       = '8bbd222c2b1f7883d16387809ad7bfdc85f8e32a7fb5b73e499b1740a93664b1'
 
 default[:etc][:domain]                   = 'wimdu.com'
 default[:etc][:domain_hostname]          = 'wim01.wimdu.com' # This is the main deployment target
-default[:etc][:domain_host]              =  false # Set this to true in /etc/chef/client.json, if we are wim01
+default[:etc][:domain_host]              =  false            # Set this to true in /etc/chef/client.json, if we are wim01
 default[:etc][:ext_interface]            = 'eth0'
 default[:etc][:ip_blacklist]             = [ # Last update 2014-06-15
                                              '23.250.10.130',   # !
@@ -40,7 +40,7 @@ default[:jdk][:version]                  = '1.8.0_05'
 default[:jdk][:opts]                     = '-server -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly'
 
 default[:jruby][:baseapi]                = '1.9'
-default[:jruby][:version]                = '1.7.12'
+default[:jruby][:version]                = '1.7.13'
 default[:jruby][:opts]                   = '-J-XX:+UseCodeCacheFlushing -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify'
 
 default[:mongodb][:db][:development]     = 'voice_development'

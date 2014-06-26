@@ -19,12 +19,11 @@ Defaults exempt_group=admin
 root ALL=(ALL:ALL) ALL
 
 # Members of the admin group may gain root privileges
-%admin  ALL=NOPASSWD: /usr/bin/aptitude update
 %admin  ALL=NOPASSWD: /usr/bin/aptitude -y full-upgrade
-%admin  ALL=NOPASSWD: /usr/bin/aptitude clean
-%admin  ALL=NOPASSWD: /usr/local/bin/restart_screenhub
-%admin  ALL=NOPASSWD: /usr/local/bin/reload_varnish
 %admin  ALL=NOPASSWD: /usr/sbin/service varnish restart
+%admin  ALL=NOPASSWD: /usr/bin/aptitude update
+%admin  ALL=NOPASSWD: /usr/bin/aptitude clean
+%admin  ALL=NOPASSWD: /usr/bin/sv
 
 # Allow members of group sudo to execute any command
 %sudo ALL=NOPASSWD: ALL
