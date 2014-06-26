@@ -70,15 +70,15 @@ bash 'restart_flashphoner' do
   action :nothing
 end
 
-directory '/srv/flashphoner' do
+directory '/etc/sv/flashphoner' do
   mode 00755
 end
 
-template '/srv/flashphoner/run' do
+template '/etc/sv/flashphoner/run' do
   source 'run.erb'
   mode 00755
 end
 
 link '/etc/service/flashphoner' do
-  to '/srv/flashphoner'
+  to '/etc/sv/flashphoner'
 end

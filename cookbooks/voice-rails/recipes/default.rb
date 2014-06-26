@@ -67,24 +67,24 @@ directory node[:voice_rails][:logdir] do
   mode 00755
 end
 
-directory '/srv/voice-rails' do
+directory '/etc/sv/voice-rails' do
   mode 00755
 end
 
-template '/srv/voice-rails/run' do
+template '/etc/sv/voice-rails/run' do
   source 'srv_run.erb'
   mode 00755
 end
 
-directory '/srv/voice-rails/log' do
+directory '/etc/sv/voice-rails/log' do
   mode 00755
 end
 
-template '/srv/voice-rails/log/run' do
+template '/etc/sv/voice-rails/log/run' do
   source 'log_run.erb'
   mode 00755
 end
 
 # link '/etc/service/voice-rails' do
-#   to '/srv/voice-rails'
+#   to '/etc/sv/voice-rails'
 # end

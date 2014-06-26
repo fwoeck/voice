@@ -55,24 +55,24 @@ directory node[:voice_ahn][:logdir] do
   mode 00755
 end
 
-directory '/srv/voice-ahn' do
+directory '/etc/sv/voice-ahn' do
   mode 00755
 end
 
-template '/srv/voice-ahn/run' do
+template '/etc/sv/voice-ahn/run' do
   source 'srv_run.erb'
   mode 00755
 end
 
-directory '/srv/voice-ahn/log' do
+directory '/etc/sv/voice-ahn/log' do
   mode 00755
 end
 
-template '/srv/voice-ahn/log/run' do
+template '/etc/sv/voice-ahn/log/run' do
   source 'log_run.erb'
   mode 00755
 end
 
 link '/etc/service/voice-ahn' do
-  to '/srv/voice-ahn'
+  to '/etc/sv/voice-ahn'
 end

@@ -55,24 +55,24 @@ directory node[:voice_push][:logdir] do
   mode 00755
 end
 
-directory '/srv/voice-push' do
+directory '/etc/sv/voice-push' do
   mode 00755
 end
 
-template '/srv/voice-push/run' do
+template '/etc/sv/voice-push/run' do
   source 'srv_run.erb'
   mode 00755
 end
 
-directory '/srv/voice-push/log' do
+directory '/etc/sv/voice-push/log' do
   mode 00755
 end
 
-template '/srv/voice-push/log/run' do
+template '/etc/sv/voice-push/log/run' do
   source 'log_run.erb'
   mode 00755
 end
 
 link '/etc/service/voice-push' do
-  to '/srv/voice-push'
+  to '/etc/sv/voice-push'
 end
