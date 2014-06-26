@@ -215,20 +215,19 @@ cookbook_file '/etc/asterisk/ca.crt' do
   owner  'asterisk'
   mode 00644
 
-  notifies :restart, 'service[asterisk]', :delayed
+  notifies :run, 'execute[restart-asterisk]', :delayed
 end
-
-# cron 'renice_asterisk' do
-#   command %q{chrt -p -f 20 $(pidof asterisk) >/dev/null 2>&1}
-#   minute '*/5'
-# end
 
 service 'asterisk' do
   supports restart: true, stop: true, start: true
   action   [:enable, :start]
-  ignore_failure true
 end
 
 remote_directory '/var/lib/asterisk/sounds/wimdu' do
   files_mode 00644
+end
+
+execute 'restart-asterisk' do
+  command 'asterisk -rx "core restart gracefully"'
+  action :nothing
 end
