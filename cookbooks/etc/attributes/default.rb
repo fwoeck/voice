@@ -118,15 +118,15 @@ default[:vnc][:password]                 = '***REMOVED***'
 default[:vnc][:display]                  =  0
 
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
-default[:voice_ahn][:logdir]             = '/var/log/voice-ahn'
+default[:voice_ahn][:logdir]             = '/opt/log/voice-ahn'
 
 default[:voice_push][:basedir]           = '/opt/voice-push'
-default[:voice_push][:logdir]            = '/var/log/voice-push'
+default[:voice_push][:logdir]            = '/opt/log/voice-push'
 default[:voice_push][:host]              = '127.0.0.1'
 default[:voice_push][:port]              =  8889
 
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
-default[:voice_rails][:logdir]           = '/var/log/voice-rails'
+default[:voice_rails][:logdir]           = '/opt/log/voice-rails'
 
 default[:v4l2][:basedir]                 = '/opt/v4l2'
 
