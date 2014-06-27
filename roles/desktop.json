@@ -25,6 +25,7 @@
   "chef_type": "role",
   "run_list": [
     "role[server]",
+    "recipe[wim-user-dev]",
     "recipe[v4l2]"
   ],
   "env_run_lists": {
