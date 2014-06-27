@@ -1,5 +1,5 @@
 ip                         = <%= node[:etc][:external_ip] %>
-ip_local                   = 127.0.0.1
+ip_local                   = 127.0.1.1
 port_from                  = 30000
 port_to                    = 31000
 media_port_from            = 31001
@@ -8,7 +8,7 @@ waiting_answer             = 60
 user_agent                 = Flashphoner/1.0
 balance_header             = balance
 cost_header                = cost
-video_enabled              = true
+video_enabled              = false
 domain                     =
 outbound_proxy             = <%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>
 outbound_port              = 5060
