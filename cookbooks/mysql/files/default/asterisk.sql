@@ -41,7 +41,7 @@ CREATE TABLE `users` (
   `secret` varchar(80) DEFAULT NULL,
   `type` varchar(6) NOT NULL DEFAULT 'friend',
   `disallow` varchar(100) DEFAULT 'all',
-  `allow` varchar(100) DEFAULT 'speex16,speex32,silk16,silk24,alaw,h264,ulaw',
+  `allow` varchar(100) DEFAULT 'opus,speex16,alaw,ulaw',
   `musiconhold` varchar(100) DEFAULT NULL,
   `regseconds` int(11) NOT NULL DEFAULT '0',
   `ipaddr` varchar(50) NOT NULL DEFAULT '',
