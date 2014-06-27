@@ -27,7 +27,7 @@ default[:etc][:skel_sum]                 = '7230bf9bbb54a032a4cc4d33535d0ff0885b
 default[:etc][:path]                     = '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
 
 default[:flashphoner][:basename]         = 'FlashphonerWebCallServer'
-default[:flashphoner][:version]          = '3.0.832'
+default[:flashphoner][:version]          = '3.0.745'
 default[:flashphoner][:ws_port]          = '8080'
 
 default[:git][:user][:name]              = 'Frank Woeckener'
