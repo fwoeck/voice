@@ -49,7 +49,7 @@ CREATE TABLE `users` (
   `cancallforward` char(3) DEFAULT 'no',
   `transport` char(10) DEFAULT 'udp,tls',
   `encryption` char(3) DEFAULT 'no',
-  `directmedia` char(3) DEFAULT 'yes',
+  `directmedia` char(3) DEFAULT 'no',
   `defaultuser` varchar(10) DEFAULT NULL,
   `regserver` varchar(20) DEFAULT NULL,
   `useragent` varchar(20) DEFAULT NULL,
