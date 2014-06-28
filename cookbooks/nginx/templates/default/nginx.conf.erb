@@ -43,12 +43,16 @@ http {
   gzip_types        text/event-stream text/plain text/css application/x-javascript text/xml
                     application/json application/xml application/xml+rss text/javascript;
 
-  passenger_root <%= node[:rvm][:basedir] %>/gems/ruby-<%= node[:mri][:version] %>@global/gems/passenger-<%= node[:passenger][:version] %>;
-  passenger_ruby <%= node[:rvm][:basedir] %>/wrappers/ruby-<%= node[:mri][:version] %>@global/ruby;
-  passenger_show_version_in_header off;
-  passenger_max_preloader_idle_time 0;
-  passenger_max_instances_per_app 1;
-  passenger_pool_idle_time 0;
+  # passenger_root <%= node[:rvm][:basedir] %>/gems/ruby-<%= node[:mri][:version] %>@global/gems/passenger-<%= node[:passenger][:version] %>;
+  # passenger_ruby <%= node[:rvm][:basedir] %>/wrappers/ruby-<%= node[:mri][:version] %>@global/ruby;
+  # passenger_show_version_in_header off;
+  # passenger_max_preloader_idle_time 0;
+  # passenger_max_instances_per_app 1;
+  # passenger_pool_idle_time 0;
+
+  upstream puma {
+    server <%= node[:puma][:host] %>:<%= node[:puma][:port] %> fail_timeout=0;
+  }
 
   upstream events {
     server <%= node[:voice_push][:host] %>:<%= node[:voice_push][:port] %> fail_timeout=0;
@@ -88,14 +92,22 @@ http {
     }
 
     location / {
-      root                     <%= node[:wim][:rails][:basedir] %>/public;
-      rails_env                <%= node[:etc][:railsenv] %>;
-      passenger_ruby           <%= node[:rvm][:basedir] %>/wrappers/rbx-<%= node[:rbx][:version] %>@global/ruby;
-      passenger_debugger       <%= node[:roles].include?('desktop') ? 'off' : 'off' %>;
-      passenger_min_instances  1;
-      passenger_start_timeout  300;
-      passenger_enabled        on;
+      proxy_set_header  X-Forwarded-Proto <%= node[:roles].include?('desktop') ? 'http' : 'https' %>;
+      proxy_set_header  X-Url-Scheme $scheme;
+      proxy_set_header  Host $http_host;
+      proxy_pass        http://puma;
+      proxy_redirect    off;
     }
+
+    # location / {
+    #   root                     <%= node[:wim][:rails][:basedir] %>/public;
+    #   rails_env                <%= node[:etc][:railsenv] %>;
+    #   passenger_ruby           <%= node[:rvm][:basedir] %>/wrappers/rbx-<%= node[:rbx][:version] %>@global/ruby;
+    #   passenger_debugger       <%= node[:roles].include?('desktop') ? 'off' : 'off' %>;
+    #   passenger_min_instances  1;
+    #   passenger_start_timeout  300;
+    #   passenger_enabled        on;
+    # }
 
     location /munin/www/ {
       expires modified +310s;
