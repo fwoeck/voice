@@ -167,6 +167,7 @@ alias wim01-p='ssh root@<%= node[:etc][:domain_hostname] %> "chef-client -j /etc
 alias   ct='ctags -R app/* config/* lib/* spec/* --exclude=app/views'
 alias  rap='rake assets:precompile'
 alias v4l2='gst-launch-0.10 videotestsrc ! v4l2sink device=/dev/video0'
+alias  avr='sudo asterisk -vvvr'
 
 alias  sm='rspec -fp ./spec/models'
 <% end %>
