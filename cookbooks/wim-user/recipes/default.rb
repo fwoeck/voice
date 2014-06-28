@@ -88,6 +88,18 @@ template "#{node[:wim][:home]}/.zshrc" do
   group   node[:wim][:group]
 end
 
+directory "#{node[:wim][:home]}/.oh-my-zsh/completions" do
+  owner node[:wim][:user]
+  group node[:wim][:group]
+end
+
+cookbook_file "#{node[:wim][:home]}/.oh-my-zsh/completions/_sv" do
+  source 'compdef_sv'
+  mode    00644
+  owner   node[:wim][:user]
+  group   node[:wim][:group]
+end
+
 file "#{node[:wim][:home]}/.curlrc" do
   content "insecure\n"
   mode    00644

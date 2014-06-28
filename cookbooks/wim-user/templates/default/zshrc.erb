@@ -49,4 +49,7 @@ export rvmsudo_secure_path=0
 source $ZSH/oh-my-zsh.sh
 source ~/.bash_aliases
 
+autoload -Uz compinit
+compinit
+
 PATH=$PATH:<%= node[:rvm][:basedir] %>/bin # Add RVM to PATH for scripting
