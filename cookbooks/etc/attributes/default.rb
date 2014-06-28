@@ -23,8 +23,10 @@ default[:etc][:ip_blacklist]             = [ # Last update 2014-06-15
 default[:etc][:external_ip]              = ''            # Set this in the Vagrantfile or /etc/chef/client.json
 default[:etc][:internal_ip]              = '127.0.1.1'   # Caution: changing this will break things
 default[:etc][:railsenv]                 = 'production'
+default[:etc][:default_branch]           = 'master'
 default[:etc][:skel_sum]                 = '7230bf9bbb54a032a4cc4d33535d0ff0885b4929f6c221912dc2ef7d6713b982'
 default[:etc][:path]                     = '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
+default[:etc][:logdir]                   = '/opt/log'
 
 default[:flashphoner][:basename]         = 'FlashphonerWebCallServer'
 default[:flashphoner][:version]          = '3.0.745'
@@ -116,18 +118,16 @@ default[:vagrant][:local_mask]           = '255.255.255.0'
 default[:vnc][:password]                 = '***REMOVED***'
 default[:vnc][:display]                  =  0
 
-default[:logdir]                         = '/opt/log'
-
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
-default[:voice_ahn][:logdir]             = default[:logdir] + '/voice-ahn'
+default[:voice_ahn][:logdir]             = default[:etc][:logdir] + '/voice-ahn'
 
 default[:voice_push][:basedir]           = '/opt/voice-push'
-default[:voice_push][:logdir]            = default[:logdir] + '/voice-push'
+default[:voice_push][:logdir]            = default[:etc][:logdir] + '/voice-push'
 default[:voice_push][:host]              = '127.0.0.1'
 default[:voice_push][:port]              =  8889
 
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
-default[:voice_rails][:logdir]           = default[:logdir] + '/voice-rails'
+default[:voice_rails][:logdir]           = default[:etc][:logdir] + '/voice-rails'
 
 default[:v4l2][:basedir]                 = '/opt/v4l2'
 

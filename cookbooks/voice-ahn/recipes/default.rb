@@ -44,7 +44,7 @@ bash 'install_voice_ahn' do
     source #{node[:rvm][:basedir]}/scripts/rvm
     rvm use jruby-#{node[:jruby][:version]}@global
     git reset --hard
-    git checkout master
+    git checkout #{node[:etc][:default_branch]}
     bundle install --path=vendor/bundle
   EOH
 

@@ -31,7 +31,7 @@ alias ea='vim ~/.bash_aliases'
 alias ra='source ~/.bash_aliases'
 
 alias  ot='tail -F <%= node[:voice_rails][:logdir] %>/current <%= node[:voice_push][:logdir] %>/current <%= node[:voice_ahn][:logdir] %>/current'
-alias tfl='tail -f /usr/local/<%= node[:flashphoner][:basename] %>/logs/**/*.log | grep -v FlowWriter'
+alias tfl='tail -f /usr/local/<%= node[:flashphoner][:basename] %>/logs/server_logs/*.log'
 alias ttr='touch tmp/restart.txt'
 
 function mri() {

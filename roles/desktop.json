@@ -6,7 +6,8 @@
   },
   "override_attributes": {
     "etc": {
-      "railsenv": "development"
+      "railsenv": "development",
+      "default_branch": "develop"
     },
     "wim": {
       "user": "vagrant",

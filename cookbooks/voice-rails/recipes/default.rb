@@ -52,13 +52,13 @@ bash 'install_voice_rails' do
   code <<-EOH
     export HOME=#{node[:wim][:home]}
     export PATH=#{node[:jdk][:home]}/bin:$PATH
-    export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
 
     source #{node[:rvm][:basedir]}/scripts/rvm
     rvm use rbx-#{node[:rbx][:version]}@global
     git reset --hard
-    git checkout master
+    git checkout #{node[:etc][:default_branch]}
     bundle install --path=vendor/bundle
   EOH
 
