@@ -3,7 +3,6 @@ require 'wirble'
 
 if defined?(Rails)
   Hirb.enable
-  Rails.logger = Logger.new(STDOUT)
 end
 
 if defined?(Rails) && Rails.env.test?
