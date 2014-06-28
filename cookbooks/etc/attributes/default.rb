@@ -69,7 +69,6 @@ default[:nginx][:redis][:version]        = '0.3.7'
 
 default[:opus][:version]                 = '1.1'
 
-default[:passenger][:version]            = '4.0.45'
 default[:postfix][:remote_admin]         = 'frank.woeckener@wimdu.com'
 
 default[:puma][:host]                    = '127.0.0.1'

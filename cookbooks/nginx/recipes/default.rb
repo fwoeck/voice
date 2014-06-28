@@ -1,20 +1,3 @@
-bash 'install_passenger' do
-  user  node[:wim][:user]
-  group node[:wim][:group]
-  cwd   node[:wim][:home]
-
-  code <<-EOH
-    export HOME=#{node[:wim][:home]}
-    source #{node[:rvm][:basedir]}/scripts/rvm
-
-    rvm use ruby-#{node[:mri][:version]}@global && \
-    gem install passenger -v #{node[:passenger][:version]}
-  EOH
-
-  path = "#{node[:rvm][:basedir]}/gems/ruby-#{node[:mri][:version]}@global/gems/passenger-#{node[:passenger][:version]}"
-  not_if "test -e #{path}"
-end
-
 nginx_name = "nginx-#{node[:nginx][:version]}"
 
 remote_file "#{Chef::Config['file_cache_path']}/#{nginx_name}.tar.gz" do
@@ -45,21 +28,20 @@ bash 'install_nginx' do
 
   code <<-EOH
     export HOME=#{node[:wim][:home]}
-    source #{node[:rvm][:basedir]}/scripts/rvm
-    rvm use ruby-#{node[:mri][:version]}@global
 
     tar -zxf #{Chef::Config['file_cache_path']}/nginx_accept_language_module.tgz
     tar -zxf #{Chef::Config['file_cache_path']}/headers-more-nginx-module-#{node[:nginx][:headers][:version]}.tgz
     tar -zxf #{Chef::Config['file_cache_path']}/ngx_http_redis-#{node[:nginx][:redis][:version]}.tar.gz
     tar -xzf #{Chef::Config['file_cache_path']}/#{nginx_name}.tar.gz
 
-    passenger-install-nginx-module --auto --prefix=#{node[:nginx][:basedir]} \
-      --nginx-source-dir=#{node[:wim][:home]}/#{nginx_name} \
-      --extra-configure-flags='--with-http_gzip_static_module \
+    cd #{nginx_name}
+    ./configure --prefix=#{node[:nginx][:basedir]} \
+      --with-http_gzip_static_module \
       --with-http_spdy_module --with-http_realip_module \
       --add-module=#{node[:wim][:home]}/ngx_http_redis-#{node[:nginx][:redis][:version]} \
       --add-module=#{node[:wim][:home]}/headers-more-nginx-module-#{node[:nginx][:headers][:version]} \
-      --add-module=#{node[:wim][:home]}/nginx_accept_language_module'
+      --add-module=#{node[:wim][:home]}/nginx_accept_language_module
+    make -j3 && make install
 
     rm -rf headers-more-nginx-module-#{node[:nginx][:headers][:version]}
     rm -rf ngx_http_redis-#{node[:nginx][:redis][:version]}
@@ -67,10 +49,7 @@ bash 'install_nginx' do
     rm -rf #{nginx_name}
   EOH
 
-  not_if {
-    File.exists?("#{node[:nginx][:basedir]}/sbin/nginx") &&
-    File.exists?("#{node[:rvm][:basedir]}/gems/ruby-#{node[:mri][:version]}@global/gems/passenger-#{node[:passenger][:version]}/buildout/agents/PassengerWatchdog")
-  }
+  not_if { File.exists?("#{node[:nginx][:basedir]}/sbin/nginx") }
 end
 
 directory "#{node[:nginx][:basedir]}/logs" do
