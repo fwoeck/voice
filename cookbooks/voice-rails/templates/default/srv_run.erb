@@ -2,7 +2,9 @@
 set -e
 
 source <%= node[:rvm][:basedir] %>/scripts/rvm
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
 
 cd <%= node[:voice_rails][:basedir] %>
-exec chpst -u <%= node[:wim][:user] %> ./bin/puma --environment <%= node[:etc][:railsenv] %> --port <%= node[:puma][:port] %> --threads 0:16 2>&1
+exec chpst -u <%= node[:wim][:user] %> ./bin/puma -e <%= node[:etc][:railsenv] %> -p <%= node[:puma][:port] %> -t 0:64 -w 1 --preload 2>&1

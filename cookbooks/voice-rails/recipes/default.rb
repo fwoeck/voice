@@ -87,6 +87,6 @@ template '/etc/sv/voice-rails/log/run' do
   mode 00755
 end
 
-# link '/etc/service/voice-rails' do
-#   to '/etc/sv/voice-rails'
-# end
+link '/etc/service/voice-rails' do
+  to '/etc/sv/voice-rails'
+end
