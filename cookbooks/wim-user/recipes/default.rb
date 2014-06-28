@@ -53,7 +53,7 @@ directory '/opt' do
   group node[:wim][:group]
 end
 
-directory node[:wim][:logdir] do
+directory node[:logdir] do
   mode  00750
   owner node[:wim][:user]
   group node[:wim][:group]

@@ -18,7 +18,7 @@ done
 rm /usr/local/<%= node[:flashphoner][:basename] %>/logs/**/* 2>/dev/null
 rm /var/log/mongodb/mongod.log.20* 2>/dev/null
 
-su - -c 'truncate -s0 /opt/**/log*/*.log 2>/dev/null' <%= node[:wim][:user] %>
+rm <%= node[:logdir] %>/*/@* 2>/dev/null
 truncate -s0 <%= node[:nginx][:basedir] %>/logs/*.log
 chmod 666 /dev/video0 2>/dev/null
 

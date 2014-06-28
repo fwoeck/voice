@@ -116,16 +116,18 @@ default[:vagrant][:local_mask]           = '255.255.255.0'
 default[:vnc][:password]                 = '***REMOVED***'
 default[:vnc][:display]                  =  0
 
+default[:logdir]                         = '/opt/log'
+
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
-default[:voice_ahn][:logdir]             = '/opt/log/voice-ahn'
+default[:voice_ahn][:logdir]             = default[:logdir] + '/voice-ahn'
 
 default[:voice_push][:basedir]           = '/opt/voice-push'
-default[:voice_push][:logdir]            = '/opt/log/voice-push'
+default[:voice_push][:logdir]            = default[:logdir] + '/voice-push'
 default[:voice_push][:host]              = '127.0.0.1'
 default[:voice_push][:port]              =  8889
 
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
-default[:voice_rails][:logdir]           = '/opt/log/voice-rails'
+default[:voice_rails][:logdir]           = default[:logdir] + '/voice-rails'
 
 default[:v4l2][:basedir]                 = '/opt/v4l2'
 
@@ -133,7 +135,6 @@ default[:wim][:gitbase]                  = 'github.com:fwoeck'
 default[:wim][:user]                     = 'wim'
 default[:wim][:group]                    = 'wim'
 default[:wim][:home]                     = '/home/wim'
-default[:wim][:logdir]                   = '/opt/log'
 default[:wim][:domain_user]              = 'wim'         # Caution: this must match the wim-user that
                                                          #          is configured at the base host wim01
 default[:wim][:rails][:basedir]          = '/opt/voice-rails'
