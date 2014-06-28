@@ -1,7 +1,8 @@
 require 'hirb'
 require 'wirble'
 
-if defined?(Rails) && Rails.logger && Rails.env.development?
+if defined?(Rails)
+  Hirb.enable
   Rails.logger = Logger.new(STDOUT)
 end
 
