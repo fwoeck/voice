@@ -118,6 +118,9 @@ default[:vagrant][:local_mask]           = '255.255.255.0'
 default[:vnc][:password]                 = '***REMOVED***'
 default[:vnc][:display]                  =  0
 
+default[:voice_docs][:basedir]           = '/opt/voice-docs'
+default[:voice_specs][:basedir]          = '/opt/voice-specs'
+
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
 default[:voice_ahn][:logdir]             = default[:etc][:logdir] + '/voice-ahn'
 

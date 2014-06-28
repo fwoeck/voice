@@ -1,0 +1,8 @@
+name             'voice-docs'
+maintainer       'Wimdu'
+maintainer_email 'frank.woeckener@wimdu.com'
+license          'All rights reserved'
+description      'Installs the documentation repo'
+long_description ''
+version          '0.1.0'
+depends          'etc'

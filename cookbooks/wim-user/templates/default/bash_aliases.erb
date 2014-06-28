@@ -66,9 +66,8 @@ alias   t='htop'
 alias va='cd <%= node[:voice_ahn][:basedir] %>'
 alias vr='cd <%= node[:voice_rails][:basedir] %>'
 alias vp='cd <%= node[:voice_push][:basedir] %>'
-
-alias vs='cd /opt/voice-specs'
-alias vd='cd /opt/voice-docs'
+alias vs='cd <%= node[:voice_specs][:basedir] %>'
+alias vd='cd <%= node[:voice_docs][:basedir] %>'
 
 function gc() {
   git commit -v -a -m "$*"

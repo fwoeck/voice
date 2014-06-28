@@ -27,6 +27,8 @@
     "recipe[voice-ahn]",
     "recipe[voice-push]",
     "recipe[voice-rails]",
+    "recipe[voice-specs]",
+    "recipe[voice-docs]",
     "recipe[flashphoner]",
     "recipe[nginx]",
     "recipe[vim]"
