@@ -17,8 +17,6 @@ end
 group 'admin' do
   append true
   members node[:wim][:user]
-
-  not_if { node[:roles].include?('desktop') }
 end
 
 bash 'create_wim_home' do
