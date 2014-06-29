@@ -124,6 +124,9 @@ default[:voice_specs][:basedir]          = '/opt/voice-specs'
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
 default[:voice_ahn][:logdir]             = default[:etc][:logdir] + '/voice-ahn'
 
+default[:voice_numbers][:basedir]        = '/opt/voice-numbers'
+default[:voice_numbers][:logdir]         = default[:etc][:logdir] + '/voice-numbers'
+
 default[:voice_push][:basedir]           = '/opt/voice-push'
 default[:voice_push][:logdir]            = default[:etc][:logdir] + '/voice-push'
 default[:voice_push][:host]              = '127.0.0.1'

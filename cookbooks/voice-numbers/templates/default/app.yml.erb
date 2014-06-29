@@ -1,0 +1,8 @@
+mysql_db:    <%= node[:mysql][:dbname] %>
+mysql_host:  <%= node[:mysql][:host] %>
+mysql_pass:  <%= node[:mysql][:wim_pass] %>
+mysql_port:  <%= node[:mysql][:port] %>
+mysql_user:  <%= node[:mysql][:wim_user] %>
+mongo_db:    <%= node[:mongodb][:db][node[:etc][:railsenv].to_sym] %>
+mongo_hosts:
+  - <%= node[:mongodb][:host] %>:<%= node[:mongodb][:port] %>

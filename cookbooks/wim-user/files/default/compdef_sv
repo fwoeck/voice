@@ -2,4 +2,4 @@
 
 _arguments \
   "1: :(restart status up down)" \
-  "2: :(voice-ahn voice-rails voice-push flashphoner)"
+  "2: :(voice-ahn voice-rails voice-push voice-numbers flashphoner)"

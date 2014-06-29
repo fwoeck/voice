@@ -25,10 +25,11 @@
     "recipe[jruby]",
     "recipe[rubinius]",
     "recipe[voice-ahn]",
+    "recipe[voice-docs]",
     "recipe[voice-push]",
     "recipe[voice-rails]",
     "recipe[voice-specs]",
-    "recipe[voice-docs]",
+    "recipe[voice-numbers]",
     "recipe[flashphoner]",
     "recipe[nginx]",
     "recipe[vim]"
