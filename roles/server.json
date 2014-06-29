@@ -31,6 +31,7 @@
     "recipe[voice-specs]",
     "recipe[voice-numbers]",
     "recipe[flashphoner]",
+    "recipe[tigervnc]",
     "recipe[nginx]",
     "recipe[vim]"
   ],

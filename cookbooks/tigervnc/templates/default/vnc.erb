@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export DISPLAY=:<%= node[:vnc][:display] %>
+((<%= node[:vnc][:basedir] %>/bin/Xvnc :<%= node[:vnc][:display] %> -shmem -geometry 1600x1200 -depth 24 -rfbauth ~/.vnc/passwd -AlwaysShared -DeferUpdate 40 >/dev/null 2>&1  &)&)
+sleep 1
+((xfce4-session >/dev/null 2>&1 &)&)
