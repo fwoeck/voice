@@ -6,3 +6,6 @@ mysql_user:  <%= node[:mysql][:wim_user] %>
 redis_db:    <%= node[:redis][:db][:numbers] %>
 redis_host:  <%= node[:redis][:host] %>
 redis_port:  <%= node[:redis][:port] %>
+rabbit_host: <%= node[:rabbitmq][:host] %>
+rabbit_pass: <%= node[:rabbitmq][:pass] %>
+rabbit_user: <%= node[:rabbitmq][:user] %>
