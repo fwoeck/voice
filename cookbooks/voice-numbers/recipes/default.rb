@@ -28,6 +28,12 @@ template "#{node[:voice_numbers][:basedir]}/config/app.yml" do
   group   node[:wim][:group]
 end
 
+template "#{node[:voice_numbers][:basedir]}/config/mongoid.yml" do
+  source 'mongoid.yml.erb'
+  owner   node[:wim][:user]
+  group   node[:wim][:group]
+end
+
 directory node[:voice_numbers][:basedir] do
   mode 00755
 end

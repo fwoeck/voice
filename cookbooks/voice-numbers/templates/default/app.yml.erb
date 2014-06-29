@@ -6,6 +6,3 @@ mysql_user:  <%= node[:mysql][:wim_user] %>
 redis_db:    <%= node[:redis][:db][:numbers] %>
 redis_host:  <%= node[:redis][:host] %>
 redis_port:  <%= node[:redis][:port] %>
-mongo_db:    <%= node[:mongodb][:db][node[:etc][:railsenv].to_sym] %>
-mongo_hosts:
-  - <%= node[:mongodb][:host] %>:<%= node[:mongodb][:port] %>

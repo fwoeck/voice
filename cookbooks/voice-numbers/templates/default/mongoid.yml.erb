@@ -1,0 +1,18 @@
+development:
+  sessions:
+    default:
+      database: <%= node[:mongodb][:db][:development] %>
+      hosts:
+        - <%= node[:mongodb][:host] %>:<%= node[:mongodb][:port] %>
+test:
+  sessions:
+    default:
+      database: <%= node[:mongodb][:db][:test] %>
+      hosts:
+        - <%= node[:mongodb][:host] %>:<%= node[:mongodb][:port] %>
+production:
+  sessions:
+    default:
+      database: <%= node[:mongodb][:db][:production] %>
+      hosts:
+        - <%= node[:mongodb][:host] %>:<%= node[:mongodb][:port] %>
