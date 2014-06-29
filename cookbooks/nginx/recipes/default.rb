@@ -43,6 +43,7 @@ bash 'install_nginx' do
       --add-module=#{node[:wim][:home]}/nginx_accept_language_module
     make -j3 && make install
 
+    cd ..
     rm -rf headers-more-nginx-module-#{node[:nginx][:headers][:version]}
     rm -rf ngx_http_redis-#{node[:nginx][:redis][:version]}
     rm -rf nginx_accept_language_module
