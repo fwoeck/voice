@@ -141,6 +141,8 @@ alias svra='sudo sv restart /etc/service/*'
 alias svsa='sudo sv status /etc/service/*'
 alias svua='sudo sv up /etc/service/*'
 
+alias rcm='redis-cli monitor'
+
 <% if node[:roles].include?('desktop') %>
 #
 # desktop specific aliases
