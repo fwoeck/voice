@@ -24,7 +24,6 @@ function , () {
   fi
 }
 
-alias gv='gvim'
 alias  v='vim'
 alias vi='vim'
 alias ea='vim ~/.bash_aliases'
@@ -44,14 +43,6 @@ function rbx() {
 
 function jrb() {
   rvm jruby-<%= node[:jruby][:version] %>@global
-}
-
-function rrd() {
-  rvm ruby-<%= node[:mri][:version] %>@global do $*
-}
-
-function rjd() {
-  rvm jruby-<%= node[:jruby][:version] %>@global do $*
 }
 
 alias   h='history | tail -n20'
