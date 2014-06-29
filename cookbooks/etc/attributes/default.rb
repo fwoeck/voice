@@ -88,6 +88,7 @@ default[:redis][:port]                   =  6379
 default[:redis][:db][:nginx]             =  1
 default[:redis][:db][:rails]             =  2
 default[:redis][:db][:ahn]               =  3
+default[:redis][:db][:numbers]           =  4
 
 default[:rvm][:basedir]                  = '/home/wim/.rvm'
 
