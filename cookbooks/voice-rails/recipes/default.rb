@@ -1,6 +1,6 @@
 git node[:voice_rails][:basedir] do
   repository "git@#{node[:wim][:gitbase]}/voice-rails.git"
-  revision   'master'
+  revision    node[:etc][:default_branch]
   action     :sync
   user        node[:wim][:user]
   group       node[:wim][:group]

@@ -1,6 +1,6 @@
 git node[:voice_ahn][:basedir] do
   repository "git@#{node[:wim][:gitbase]}/voice-ahn.git"
-  revision   'master'
+  revision    node[:etc][:default_branch]
   action     :sync
   user        node[:wim][:user]
   group       node[:wim][:group]
