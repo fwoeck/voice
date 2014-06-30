@@ -32,9 +32,9 @@ default[:flashphoner][:basename]         = 'FlashphonerWebCallServer'
 default[:flashphoner][:version]          = '3.0.745'
 default[:flashphoner][:ws_port]          = '8080'
 
-default[:git][:user][:name]              = 'Frank Woeckener'
-default[:git][:user][:email]             = 'fwoeck@gmail.com'
-default[:git][:github][:user]            = 'fwoeck'
+default[:git][:user][:name]              = 'Change Me'         # Set these in you local Vagrantfile
+default[:git][:user][:email]             = 'change@me.com'
+default[:git][:github][:user]            = 'changeme'
 default[:git][:github][:token]           = 'replaceme'
 
 default[:jdk][:home]                     = '/opt/jdk'
