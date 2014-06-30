@@ -140,7 +140,7 @@ default[:voice_rails][:logdir]           = default[:etc][:logdir] + '/voice-rail
 
 default[:v4l2][:basedir]                 = '/opt/v4l2'
 
-default[:wim][:gitbase]                  = 'github.com:fwoeck'
+default[:wim][:gitbase]                  = 'github.com:wimdu'
 default[:wim][:user]                     = 'wim'
 default[:wim][:group]                    = 'wim'
 default[:wim][:home]                     = '/home/wim'
