@@ -7,6 +7,8 @@ echo 'their gems and finally -> restart the ruby-processes.'
 
 read -q "response?Are you sure? [y/N] "
 if [[ $response =~ ^(Y|y)$ ]]; then
+  echo
+  source <%= node[:rvm][:basedir]}/scripts/rvm %>
   sudo sv down /etc/service/*
   ls -1d /opt/voice-* | while read name; do cd $name; git reset --hard; git pull; bundle install; done
   sudo sv up /etc/service/*
