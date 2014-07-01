@@ -20,6 +20,7 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/tComment'
 Bundle 'sheerun/vim-polyglot'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'heartsentwined/vim-emblem'
@@ -28,6 +29,7 @@ filetype plugin indent on
 
 let mapleader = ","
 let g:mapleader = ","
+let g:vim_markdown_folding_disabled=1
 
 set wildignore+=.git,*/log/*,*/vendor/*,._*,.*.swp,*~,*/tmp/*,*/public/*,tags,*/bin/*,*/db/*,*/doc/*
 
