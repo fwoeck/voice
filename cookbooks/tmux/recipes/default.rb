@@ -23,6 +23,8 @@ end
 cookbook_file '/etc/tmux.conf' do
   source 'tmux.conf'
   mode    00644
+
+  not_if { File.exists?('/etc/tmux.conf') }
 end
 
 bash 'install_wemux' do
