@@ -123,6 +123,8 @@ template "#{node[:wim][:home]}/.gitconfig" do
   mode    00644
   owner   node[:wim][:user]
   group   node[:wim][:group]
+
+  not_if { File.exists?("#{node[:wim][:home]}/.gitconfig") }
 end
 
 cookbook_file "#{node[:wim][:home]}/.ctags" do
