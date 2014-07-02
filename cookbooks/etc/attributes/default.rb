@@ -71,6 +71,9 @@ default[:nginx][:redis][:version]        = '0.3.7'
 
 default[:opus][:version]                 = '1.1'
 
+default[:phantomjs][:version]            = '1.9.8'
+default[:phantomjs][:basedir]            = '/usr/local/bin'
+
 default[:postfix][:remote_admin]         = 'frank.woeckener@wimdu.com'
 
 default[:puma][:host]                    = '127.0.0.1'
