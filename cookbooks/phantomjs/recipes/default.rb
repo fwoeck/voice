@@ -2,7 +2,7 @@ tar_name = "phantomjs-#{node[:phantomjs][:version]}-linux-x86_64"
 
 remote_file "#{Chef::Config['file_cache_path']}/#{tar_name}.tar.bz2" do
   source "#{node[:aws][:cdn]}/#{tar_name}.tar.bz2"
-  owner   node[:dkm][:user]
+  owner   node[:wim][:user]
 
   notifies :run, 'bash[install_phantomjs]', :immediately
 end
