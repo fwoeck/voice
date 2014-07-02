@@ -23,7 +23,6 @@
     "recipe[rvm]",
     "recipe[mri]",
     "recipe[jruby]",
-    "recipe[rubinius]",
     "recipe[voice-ahn]",
     "recipe[voice-docs]",
     "recipe[voice-push]",

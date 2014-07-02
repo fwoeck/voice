@@ -9,7 +9,7 @@ git node[:voice_ahn][:basedir] do
 end
 
 file "#{node[:voice_ahn][:basedir]}/.ruby-version" do
-  content "jruby-#{node[:jruby][:version]}"
+  content node[:roles].include?('desktop') ? "ruby-#{node[:mri][:version]}" : "jruby-#{node[:jruby][:version]}"
   owner   node[:wim][:user]
   group   node[:wim][:group]
   mode    00755
@@ -40,16 +40,37 @@ bash 'install_voice_ahn' do
   code <<-EOH
     export HOME=#{node[:wim][:home]}
     export PATH=#{node[:jdk][:home]}/bin:$PATH
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
 
     source #{node[:rvm][:basedir]}/scripts/rvm
-    rvm use jruby-#{node[:jruby][:version]}@global
+    rvm use ruby-#{node[:mri][:version]}@global
     git reset --hard
     git checkout #{node[:etc][:default_branch]}
     bundle install --path=vendor/bundle
   EOH
 
-  not_if "test -e #{node[:voice_ahn][:basedir]}/vendor/bundle/jruby/#{node[:jruby][:baseapi]}/gems"
+  not_if "test -e #{node[:voice_ahn][:basedir]}/vendor/bundle/ruby/#{node[:mri][:baseapi]}/gems"
 end
+
+# bash 'install_voice_ahn' do
+#   user  node[:wim][:user]
+#   group node[:wim][:group]
+#   cwd   node[:voice_ahn][:basedir]
+# 
+#   code <<-EOH
+#     export HOME=#{node[:wim][:home]}
+#     export PATH=#{node[:jdk][:home]}/bin:$PATH
+# 
+#     source #{node[:rvm][:basedir]}/scripts/rvm
+#     rvm use jruby-#{node[:jruby][:version]}@global
+#     git reset --hard
+#     git checkout #{node[:etc][:default_branch]}
+#     bundle install --path=vendor/bundle
+#   EOH
+# 
+#   not_if "test -e #{node[:voice_ahn][:basedir]}/vendor/bundle/jruby/#{node[:jruby][:baseapi]}/gems"
+# end
 
 directory node[:voice_ahn][:logdir] do
   mode 00755

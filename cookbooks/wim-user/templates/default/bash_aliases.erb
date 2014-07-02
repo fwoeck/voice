@@ -37,10 +37,6 @@ function mri() {
   rvm ruby-<%= node[:mri][:version] %>@global
 }
 
-function rbx() {
-  rvm rbx-<%= node[:rbx][:version] %>@global
-}
-
 function jrb() {
   rvm jruby-<%= node[:jruby][:version] %>@global
 }
@@ -117,14 +113,6 @@ alias  tl='tail -f log/*.log'
 alias rac='sh -c "/bin/rm -rf public/assets/*"'
 alias psg='ps aux | grep -v grep | grep -v tail | grep -i'
 alias afu="sudo aptitude update && sudo aptitude -y full-upgrade && sudo aptitude clean"
-
-function remove-rbx-bundles() {
-  find /opt -type d |
-    grep vendor/bundle/rbx |
-    sed 's/^\(.*\)vendor.bundle.*$/\1/' |
-    sort -u |
-    while read dir; do cd $dir; rm -rf vendor/bundle/rbx; done
-}
 
 alias   r='rake'
 alias  rt='rake -T'

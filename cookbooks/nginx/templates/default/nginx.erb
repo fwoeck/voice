@@ -10,11 +10,6 @@
 # Description:       starts nginx using start-stop-daemon
 ### END INIT INFO
 
-JDK_HOME='<%= node[:jdk][:home] %>'
-JAVA_HOME='<%= node[:jdk][:home] %>'
-JAVA_OPTS='-Xmx1000m <%= node[:jdk][:opts] %>'
-JRUBY_OPTS='-J-XX:MaxPermSize=1000M <%= node[:jruby][:opts] %>'
-
 PATH=<%= node[:etc][:path] %>
 DAEMON=<%= node[:nginx][:basedir] %>/sbin/nginx
 NAME=nginx

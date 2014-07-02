@@ -85,9 +85,6 @@ default[:rabbitmq][:host]                = '127.0.0.1'
 default[:rabbitmq][:pass]                = '***REMOVED***'
 default[:rabbitmq][:user]                = 'wim'
 
-default[:rbx][:baseapi]                  = '2.1'
-default[:rbx][:version]                  = '2.2.10'
-
 default[:redis][:host]                   = '127.0.0.1'
 default[:redis][:port]                   =  6379
 default[:redis][:db][:nginx]             =  1
