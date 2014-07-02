@@ -95,6 +95,7 @@ default[:redis][:db][:rails]             =  2
 default[:redis][:db][:rails_test]        =  3
 default[:redis][:db][:ahn]               =  4
 default[:redis][:db][:numbers]           =  5
+default[:redis][:db][:push]              =  6
 
 default[:rvm][:basedir]                  = '/home/wim/.rvm'
 
