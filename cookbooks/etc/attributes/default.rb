@@ -78,6 +78,8 @@ default[:postfix][:remote_admin]         = 'frank.woeckener@wimdu.com'
 
 default[:puma][:host]                    = '127.0.0.1'
 default[:puma][:port]                    =  9292
+default[:puma_test][:port]               =  8089;
+default[:capybara][:port]                =  8088;
 
 default[:rabbitmq][:host]                = '127.0.0.1'
 default[:rabbitmq][:pass]                = '***REMOVED***'

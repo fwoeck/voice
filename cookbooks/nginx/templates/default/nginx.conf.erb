@@ -47,6 +47,12 @@ http {
     server <%= node[:puma][:host] %>:<%= node[:puma][:port] %> fail_timeout=0;
   }
 
+  <% if node[:roles].include?('desktop') %>
+  upstream puma-test {
+    server <%= node[:puma][:host] %>:<%= node[:puma_test][:port] %> fail_timeout=0;
+  }
+
+  <% end %>
   upstream events {
     server <%= node[:voice_push][:host] %>:<%= node[:voice_push][:port] %> fail_timeout=0;
   }
@@ -97,4 +103,34 @@ http {
       root /var/cache/;
     }
   }
+  <% if node[:roles].include?('desktop') %>
+
+  server {
+    listen <%= node[:capybara][:port] %>;
+    server_name test-<%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>;
+
+    access_log logs/nginx-test.log main;
+
+    root <%= node[:wim][:rails][:basedir] %>/public;
+    try_files $uri/index.html $uri;
+
+    location ~ ^/events {
+      proxy_http_version 1.1;
+      proxy_read_timeout 43200;
+      chunked_transfer_encoding off;
+      proxy_set_header Connection '';
+      proxy_pass http://events;
+      proxy_buffering off;
+      proxy_cache off;
+    }
+
+    location / {
+      proxy_set_header  X-Forwarded-Proto http;
+      proxy_set_header  X-Url-Scheme $scheme;
+      proxy_set_header  Host $http_host;
+      proxy_pass        http://puma-test;
+      proxy_redirect    off;
+    }
+  }
+  <% end %>
 }
