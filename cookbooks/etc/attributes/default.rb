@@ -32,7 +32,7 @@ default[:flashphoner][:basename]         = 'FlashphonerWebCallServer'
 default[:flashphoner][:version]          = '3.0.745'
 default[:flashphoner][:ws_port]          = '8080'
 
-default[:git][:user][:name]              = 'Change Me'         # Set these in you local Vagrantfile
+default[:git][:user][:name]              = 'Change Me'   # Set these in you local Vagrantfile
 default[:git][:user][:email]             = 'change@me.com'
 default[:git][:github][:user]            = 'changeme'
 default[:git][:github][:token]           = 'replaceme'
@@ -78,8 +78,8 @@ default[:postfix][:remote_admin]         = 'frank.woeckener@wimdu.com'
 
 default[:puma][:host]                    = '127.0.0.1'
 default[:puma][:port]                    =  9292
-default[:puma_test][:port]               =  8089;
-default[:capybara][:port]                =  8088;
+default[:puma_test][:port]               =  8089
+default[:capybara][:port]                =  8088
 
 default[:rabbitmq][:host]                = '127.0.0.1'
 default[:rabbitmq][:pass]                = '***REMOVED***'
