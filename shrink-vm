@@ -3,7 +3,7 @@
 # You can convert an existing vmdk-file to vdi like so:
 # > VBoxManage clonehd --format vdi box-disk2.vmdk box-disk2.vdi
 
-ssh root@33.33.33.100 '/root/bin/shrink_disks'
+ssh -i ~/.vagrant.d/insecure_private_key root@33.33.33.100 '/root/bin/shrink_disks'
 vagrant halt
 
 echo 'Now cd into the VMs folder, e.g. cd "$HOME/VirtualBox VMs"'
