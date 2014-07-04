@@ -114,11 +114,12 @@ alias rac='sh -c "/bin/rm -rf public/assets/*"'
 alias psg='ps aux | grep -v grep | grep -v tail | grep -i'
 alias afu="sudo aptitude update && sudo aptitude -y full-upgrade && sudo aptitude clean"
 
-alias   r='rake'
-alias  rt='rake -T'
-alias  rr='rails runner'
-alias  rc='rails console'
-alias  rg='rails generate'
+alias    r='rake'
+alias   rt='rake -T'
+alias   rr='rails runner'
+alias   rc='rails console'
+alias   rg='rails generate'
+alias rdbm='rake db:migrate'
 
 alias   sr='svr $(pwd | cut -d/ -f3)'
 alias  svd='sudo sv down'
