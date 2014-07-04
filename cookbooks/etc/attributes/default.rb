@@ -86,11 +86,11 @@ default[:rabbitmq][:user]                = 'wim'
 
 default[:redis][:host]                   = '127.0.0.1'
 default[:redis][:port]                   =  6379
-default[:redis][:db][:ahn]               =  1
 default[:redis][:db][:nginx]             =  2
 default[:redis][:db][:rails]             =  3
 default[:redis][:db][:numbers]           =  4
 default[:redis][:db][:push]              =  default[:redis][:db][:rails]
+default[:redis][:db][:ahn]               =  default[:redis][:db][:rails]
 
 default[:rvm][:basedir]                  = '/home/wim/.rvm'
 
