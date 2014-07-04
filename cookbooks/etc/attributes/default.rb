@@ -171,8 +171,8 @@ skills:
   helpdesk:   Helpdesk
 
 availability:
-  available:  available
-  offline:    offline
+  ready:      ready
   talking:    talking
+  offline:    offline
   busy:       busy
 EOF
