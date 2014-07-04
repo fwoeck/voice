@@ -151,3 +151,28 @@ default[:wim][:domain_user]              = 'wim'         # Caution: this must ma
 default[:wim][:rails][:basedir]          = '/opt/voice-rails'
 default[:wim][:zshplugs]                 = 'last-working-dir'
 default[:wim][:color]                    = 'red'
+
+default[:agent][:attributes] = <<-EOF
+languages:
+  de:         german
+  en:         english
+  es:         spanish
+  fr:         french
+  it:         italian
+
+roles:
+  agent:      Agent
+  trainer:    Trainer
+  supervisor: Supervisor
+
+skills:
+  billing:    Billing
+  booking:    Booking
+  helpdesk:   Helpdesk
+
+availability:
+  available:  available
+  offline:    offline
+  talking:    talking
+  busy:       busy
+EOF

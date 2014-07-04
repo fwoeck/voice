@@ -16,22 +16,4 @@ redis_port:   <%= node[:redis][:port] %>
 skype_trunk:  <%= node[:skype][:trunk] %>
 sipgate_num:  <%= node[:sipgate][:number] %>
 
-languages:
-  de:         german
-  en:         english
-  es:         spanish
-  fr:         french
-  it:         italian
-
-roles:
-  agent:      Agent
-  supervisor: Supervisor
-
-skills:
-  billing:    billing
-  booking:    booking
-
-availability:
-  available:  available
-  offline:    offline
-  busy:       busy
+<%= node[:agent][:attributes] %>

@@ -1,3 +1,4 @@
+---
 mysql_db:    <%= node[:mysql][:dbname] %>
 mysql_host:  <%= node[:mysql][:host] %>
 mysql_pass:  <%= node[:mysql][:wim_pass] %>
@@ -9,3 +10,5 @@ redis_port:  <%= node[:redis][:port] %>
 rabbit_host: <%= node[:rabbitmq][:host] %>
 rabbit_pass: <%= node[:rabbitmq][:pass] %>
 rabbit_user: <%= node[:rabbitmq][:user] %>
+
+<%= node[:agent][:attributes] %>

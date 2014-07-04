@@ -6,22 +6,4 @@ redis_db:     <%= node[:redis][:db][:rails] %>
 redis_host:   <%= node[:redis][:host] %>
 redis_port:   <%= node[:redis][:port] %>
 
-languages:
-  de:         german
-  en:         english
-  es:         spanish
-  fr:         french
-  it:         italian
-
-roles:
-  agent:      Agent
-  supervisor: Supervisor
-
-skills:
-  billing:    billing
-  booking:    booking
-
-availability:
-  available:  available
-  offline:    offline
-  busy:       busy
+<%= node[:agent][:attributes] %>
