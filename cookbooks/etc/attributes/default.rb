@@ -94,15 +94,17 @@ default[:redis][:db][:ahn]               =  default[:redis][:db][:rails]
 
 default[:rvm][:basedir]                  = '/home/wim/.rvm'
 
+default[:sipgate][:sms][:apihost]        = 'api.sipgate.net'
+default[:sipgate][:sms][:password]       = 'replaceme'
+default[:sipgate][:sms][:user]           = 'replaceme'
+
+default[:sipgate][:activate]             =  false
 default[:sipgate][:pass]                 = 'replaceme'
 default[:sipgate][:proxy]                = 'sipconnect.sipgate.de'
 default[:sipgate][:trunk]                = 'replaceme'
 default[:sipgate][:number]               = 'replaceme'
 
-default[:sipgate][:sms][:apihost]        = 'api.sipgate.net'
-default[:sipgate][:sms][:password]       = 'replaceme'
-default[:sipgate][:sms][:user]           = 'replaceme'
-
+default[:skype][:activate]               =  false
 default[:skype][:pass]                   = 'replaceme'
 default[:skype][:proxy]                  = 'sip.skype.com'
 default[:skype][:trunk]                  = 'replaceme'

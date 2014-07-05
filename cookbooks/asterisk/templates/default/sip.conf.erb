@@ -776,8 +776,10 @@ tlsclientmethod=tlsv1      ; values include tlsv1, sslv3, sslv2.
                                 ; until it accepts the registration
                                 ; Default is 0 tries, continue forever
 
-<% unless node[:roles].include?('desktop') %>
+<% if node[:sipgate][:activate] %>
 register => <%= node[:sipgate][:trunk] %>:<%= node[:sipgate][:pass] %>@<%= node[:sipgate][:proxy] %>/<%= node[:sipgate][:trunk] %>
+<% end %>
+<% if node[:skype][:activate] %>
 register => <%= node[:skype][:trunk] %>:<%= node[:skype][:pass] %>@<%= node[:skype][:proxy] %>/<%= node[:skype][:trunk] %>
 <% end %>
 
@@ -1532,8 +1534,8 @@ jbimpl = adaptive             ; Jitterbuffer implementation, used on the receivi
                                 ; if the nat option is enabled. If a single RTP packet is received Asterisk will know the
                                 ; external IP address of the remote device. If port forwarding is done at the client side
                                 ; then UDPTL will flow to the remote device.
+<% if node[:sipgate][:activate] %>
 
-<% unless node[:roles].include?('desktop') %>
 [<%= node[:sipgate][:proxy] %>]
   type=peer
   host=<%= node[:sipgate][:proxy] %>
@@ -1551,6 +1553,8 @@ jbimpl = adaptive             ; Jitterbuffer implementation, used on the receivi
   allow=speex16
   allow=alaw
   allow=h264
+<% end %>
+<% if node[:skype][:activate] %>
 
 [<%= node[:skype][:proxy] %>]
 	type=friend
