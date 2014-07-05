@@ -139,6 +139,7 @@ default[:voice_push][:logdir]            = default[:etc][:logdir] + '/voice-push
 default[:voice_push][:host]              = '127.0.0.1'
 default[:voice_push][:port]              =  8889
 
+default[:voice_rails][:keybase]          = '***REMOVED***d181d1df9b1678178600bdb572727053497faf086bd87a309f7e0354f8a'
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
 default[:voice_rails][:logdir]           = default[:etc][:logdir] + '/voice-rails'
 

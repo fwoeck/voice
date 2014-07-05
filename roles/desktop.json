@@ -27,6 +27,8 @@
   "run_list": [
     "role[server]",
     "recipe[wim-user-dev]",
+    "recipe[voice-specs]",
+    "recipe[voice-docs]",
     "recipe[phantomjs]",
     "recipe[v4l2]"
   ],
