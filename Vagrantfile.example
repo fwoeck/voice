@@ -46,17 +46,17 @@ Vagrant.configure('2') do |config|
           'user'      => 'changeme',
           'token'     => 'replaceme'
         },
-        'sipgate' => {
-          'activate'  =>  false,
-          'pass'      => 'replaceme',
-          'trunk'     => 'replaceme',
-          'number'    => 'replaceme'
-        },
-        'skype' => {
-          'activate'  =>  false,
-          'pass'      => 'replaceme',
-          'trunk'     => 'replaceme'
-        }
+      },
+      'sipgate' => {
+        'activate'    =>  false,
+        'pass'        => 'replaceme',
+        'trunk'       => 'replaceme',
+        'number'      => 'replaceme'
+      },
+      'skype' => {
+        'activate'    =>  false,
+        'pass'        => 'replaceme',
+        'trunk'       => 'replaceme'
       }
     }
   end
