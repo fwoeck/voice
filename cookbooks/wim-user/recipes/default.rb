@@ -139,19 +139,3 @@ cookbook_file "#{node[:wim][:home]}/.ssh/authorized_keys" do
   group node[:wim][:group]
   mode  00600
 end
-
-cookbook_file "#{node[:wim][:home]}/.ssh/id_rsa" do
-  owner node[:wim][:user]
-  group node[:wim][:group]
-  mode  00400
-
-  not_if { node[:roles].include?('desktop') }
-end
-
-cookbook_file "#{node[:wim][:home]}/.ssh/id_rsa.pub" do
-  owner node[:wim][:user]
-  group node[:wim][:group]
-  mode  00644
-
-  not_if { node[:roles].include?('desktop') }
-end
