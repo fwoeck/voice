@@ -43,45 +43,47 @@ directory node[:voice_rails][:basedir] do
   mode 00755
 end
 
-bash 'install_voice_rails' do
-  user  node[:wim][:user]
-  group node[:wim][:group]
-  cwd   node[:voice_rails][:basedir]
+if node[:roles].include?('desktop')
+  bash 'install_voice_rails' do
+    user  node[:wim][:user]
+    group node[:wim][:group]
+    cwd   node[:voice_rails][:basedir]
 
-  code <<-EOH
-    export HOME=#{node[:wim][:home]}
-    export PATH=#{node[:jdk][:home]}/bin:$PATH
-    export LC_ALL=en_US.UTF-8
-    export LANG=en_US.UTF-8
+    code <<-EOH
+      export HOME=#{node[:wim][:home]}
+      export PATH=#{node[:jdk][:home]}/bin:$PATH
+      export LC_ALL=en_US.UTF-8
+      export LANG=en_US.UTF-8
 
-    source #{node[:rvm][:basedir]}/scripts/rvm
-    rvm use ruby-#{node[:mri][:version]}@global
-    git reset --hard
-    git checkout #{node[:etc][:default_branch]}
-    bundle install --path=vendor/bundle
-  EOH
+      source #{node[:rvm][:basedir]}/scripts/rvm
+      rvm use ruby-#{node[:mri][:version]}@global
+      git reset --hard
+      git checkout #{node[:etc][:default_branch]}
+      bundle install --path=vendor/bundle
+    EOH
 
-  not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/ruby/#{node[:mri][:baseapi]}/gems"
+    not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/ruby/#{node[:mri][:baseapi]}/gems"
+  end
+else
+  bash 'install_voice_rails' do
+    user  node[:wim][:user]
+    group node[:wim][:group]
+    cwd   node[:voice_rails][:basedir]
+
+    code <<-EOH
+      export HOME=#{node[:wim][:home]}
+      export PATH=#{node[:jdk][:home]}/bin:$PATH
+  
+      source #{node[:rvm][:basedir]}/scripts/rvm
+      rvm use jruby-#{node[:jruby][:version]}@global
+      git reset --hard
+      git checkout #{node[:etc][:default_branch]}
+      bundle install --path=vendor/bundle
+    EOH
+
+    not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/jruby/#{node[:jruby][:baseapi]}/gems"
+  end
 end
-
-# bash 'install_voice_rails' do
-#   user  node[:wim][:user]
-#   group node[:wim][:group]
-#   cwd   node[:voice_rails][:basedir]
-# 
-#   code <<-EOH
-#     export HOME=#{node[:wim][:home]}
-#     export PATH=#{node[:jdk][:home]}/bin:$PATH
-# 
-#     source #{node[:rvm][:basedir]}/scripts/rvm
-#     rvm use jruby-#{node[:jruby][:version]}@global
-#     git reset --hard
-#     git checkout #{node[:etc][:default_branch]}
-#     bundle install --path=vendor/bundle
-#   EOH
-# 
-#   not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/jruby/#{node[:jruby][:baseapi]}/gems"
-# end
 
 directory node[:voice_rails][:logdir] do
   mode 00755

@@ -102,8 +102,32 @@ http {
       expires modified +310s;
       root /var/cache/;
     }
+
+<% if node[:roles].include?('desktop') %>
+<% else %>
+    location /images/ {
+      add_header Cache-Control public;
+      add_header ETag "";
+      expires max;
+    }
+
+    location /assets/ {
+      add_header Cache-Control public;
+      add_header ETag "";
+      gzip_static on;
+      expires max;
+    }
+
+    location /index.html {
+      add_header Cache-Control no-cache;
+      expires 0;
+    }
+
+    error_page 500 502 503 504 /500.html;
+    keepalive_timeout 60;
+<% end %>
   }
-  <% if node[:roles].include?('desktop') %>
+<% if node[:roles].include?('desktop') %>
 
   server {
     listen <%= node[:capybara][:port] %>;
@@ -132,5 +156,5 @@ http {
       proxy_redirect    off;
     }
   }
-  <% end %>
+<% end %>
 }
