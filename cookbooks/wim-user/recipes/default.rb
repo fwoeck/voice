@@ -135,7 +135,8 @@ cookbook_file "#{node[:wim][:home]}/.ctags" do
 end
 
 cookbook_file "#{node[:wim][:home]}/.ssh/authorized_keys" do
-  owner node[:wim][:user]
-  group node[:wim][:group]
-  mode  00600
+  source node[:roles].include?('desktop') ? 'authorized_keys' : 'authorized_keys.server'
+  owner  node[:wim][:user]
+  group  node[:wim][:group]
+  mode   00600
 end

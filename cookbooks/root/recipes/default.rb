@@ -29,6 +29,7 @@ directory '/root/.ssh' do
 end
 
 cookbook_file '/root/.ssh/authorized_keys' do
+  source  node[:roles].include?('desktop') ? 'authorized_keys' : 'authorized_keys.server'
   owner  'root'
   group  'root'
   mode    00600
