@@ -48,3 +48,11 @@ bash 'create_vnc_password' do
 
   not_if "test -e #{node[:wim][:home]}/.vnc/passwd"
 end
+
+link '/usr/lib64' do
+  to "#{node[:vnc][:basedir]}/lib64"
+end
+
+link '/lib/x86_64-linux-gnu/libexpat.so.0' do
+  to '/lib/x86_64-linux-gnu/libexpat.so.1.6.0'
+end
