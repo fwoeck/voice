@@ -176,8 +176,11 @@ skills:
 
 availability:
   idle:       "I'm available"
-  talking:    "I'm talking"
-  offline:    "I'm offline"
   away:       "I'm away"
   busy:       "I'm busy"
+
+callstates:
+  offline:    "I'm offline"
+  talking:    "I'm talking"
+  silent:     "I'm not talking"
 EOF
