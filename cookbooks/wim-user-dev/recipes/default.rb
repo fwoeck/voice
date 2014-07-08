@@ -20,9 +20,3 @@ bash 'exportfs' do
 
   action :nothing
 end
-
-template "#{node[:wim][:home]}/bin/update-voice" do
-  source 'update-voice.erb'
-  owner   node[:wim][:user]
-  mode    00750
-end
