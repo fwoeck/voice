@@ -180,7 +180,7 @@ availability:
   busy:       "I'm busy"
 
 callstates:
-  offline:    "I'm offline"
-  talking:    "I'm talking"
-  silent:     "I'm not talking"
+  talking:      "I'm talking"
+  registered:   "I'm online"
+  unregistered: "I'm offline"
 EOF
