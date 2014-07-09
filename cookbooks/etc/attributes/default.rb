@@ -175,7 +175,7 @@ skills:
   other:      "Other questions"
 
 availability:
-  idle:       "I'm available"
+  ready:      "I'm ready"
   away:       "I'm away"
   busy:       "I'm busy"
 
