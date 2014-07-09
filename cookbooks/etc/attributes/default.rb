@@ -157,29 +157,29 @@ default[:wim][:color]                    = 'red'
 
 default[:agent][:attributes] = <<-EOF
 languages:
-  de:         "Ich spreche deutsch"
-  en:         "I speak english"
-  es:         "Hablo español"
-  fr:         "Je parle français"
-  it:         "Parlo italiano"
+  de:            "Ich spreche deutsch"
+  en:            "I speak english"
+  es:            "Hablo español"
+  fr:            "Je parle français"
+  it:            "Parlo italiano"
 
 roles:
-  agent:      Agent
-  trainer:    Trainer
-  supervisor: Supervisor
+  agent:         "Agent"
+  trainer:       "Trainer"
+  supervisor:    "Supervisor"
 
 skills:
-  offers:     "Host offers"
-  billing:    "Billing & refunds"
-  booking:    "Booking support"
-  other:      "Other questions"
+  offers:        "Host offers"
+  billing:       "Billing & refunds"
+  booking:       "Booking support"
+  other:         "Other questions"
 
 availability:
-  ready:      "I'm ready"
-  away:       "I'm away"
-  busy:       "I'm busy"
+  ready:         "I'm ready"
+  away:          "I'm away"
+  busy:          "I'm busy"
 
-callstates:
+agent_states:
   talking:      "I'm talking"
   registered:   "I'm online"
   unregistered: "I'm offline"
