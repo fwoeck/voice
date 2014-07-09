@@ -54,7 +54,7 @@ if node[:roles].include?('desktop')
       rvm use ruby-#{node[:mri][:version]}@global
       git reset --hard
       git checkout #{node[:etc][:default_branch]}
-      bundle install --path=vendor/bundle
+      bundle install --path=vendor/bundle --no-binstubs
     EOH
 
     not_if "test -e #{node[:voice_numbers][:basedir]}/vendor/bundle/ruby/#{node[:mri][:baseapi]}/gems"
@@ -73,7 +73,7 @@ else
       rvm use jruby-#{node[:jruby][:version]}@global
       git reset --hard
       git checkout #{node[:etc][:default_branch]}
-      bundle install --path=vendor/bundle
+      bundle install --path=vendor/bundle --no-binstubs
     EOH
 
     not_if "test -e #{node[:voice_numbers][:basedir]}/vendor/bundle/jruby/#{node[:jruby][:baseapi]}/gems"

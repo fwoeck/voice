@@ -9,6 +9,6 @@ if [[ $response =~ ^(Y|y)$ ]]; then
   echo
   source <%= node[:rvm][:basedir] %>/scripts/rvm
   sudo sv down /etc/service/*
-  ls -1d /opt/voice-* | while read name; do cd $name; git reset --hard; git pull; bundle install; done
+  ls -1d /opt/voice-* | while read name; do cd $name; git reset --hard; git pull; bundle install --no-binstubs; done
   sudo sv up /etc/service/*
 fi
