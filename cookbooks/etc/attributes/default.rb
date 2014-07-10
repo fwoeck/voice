@@ -179,7 +179,7 @@ availability:
   away:          "I'm away"
   busy:          "I'm busy"
 
-agent_states:
+agent_state:
   talking:      "I'm talking"
   registered:   "I'm online"
   unregistered: "I'm offline"
