@@ -20,3 +20,9 @@ bash 'exportfs' do
 
   action :nothing
 end
+
+template "#{node[:wim][:home]}/bin/prepare-release" do
+  source 'prepare-release.erb'
+  owner   node[:wim][:user]
+  mode    00750
+end
