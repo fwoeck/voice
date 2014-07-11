@@ -24,7 +24,8 @@ if [[ $resp1 =~ ^(Y|y)$ ]]; then
   done
 fi
 
-echo "Ok, all went smoothly."
+echo
+echo "Ok, all done."
 read -q "resp2?Do you want to precompile and sync the rails assets? [y/N] "
 if [[ $resp2 =~ ^(Y|y)$ ]]; then
   echo
@@ -35,4 +36,5 @@ if [[ $resp2 =~ ^(Y|y)$ ]]; then
   rm -rf public/assets/*
 fi
 
+echo
 echo "Fine, now go to wim@voice.dokmatic.com and launch update-voice."

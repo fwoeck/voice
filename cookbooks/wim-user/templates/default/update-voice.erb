@@ -1,8 +1,12 @@
 #!/bin/zsh
 
-echo 'This will -> stop all running voice daemons, -> CLEAR'
-echo 'all uncommited changes, -> pull the GH repos, -> bundle'
-echo 'their gems, -> migrate the DB and finally -> restart sv.'
+echo 'Caution, this will'
+echo '* STOP all running voice daemons'
+echo '* CLEAR all uncommited changes'
+echo '* pull the Github repos'
+echo '* bundle the project gems'
+echo '* migrate the Rails sqlDB'
+echo '* START the voice demons'
 
 read -q "response?Are you sure? [y/N] "
 if [[ $response =~ ^(Y|y)$ ]]; then
