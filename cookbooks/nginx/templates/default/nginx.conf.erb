@@ -57,6 +57,10 @@ http {
     server <%= node[:voice_push][:host] %>:<%= node[:voice_push][:port] %> fail_timeout=0;
   }
 
+  upstream flashphoner {
+    server <%= node[:flashphoner][:host] %>:<%= node[:flashphoner][:ws_port] %> fail_timeout=0;
+  }
+
   upstream redisbackend {
     server <%= node[:redis][:host] %>:<%= node[:redis][:port] %> fail_timeout=0;
   }
@@ -98,6 +102,16 @@ http {
       default_type text/html;
       redis_pass redisbackend;
       error_page 404 405 502 504 = @wimdu;
+    }
+
+    location ~ ^/phone_app {
+      proxy_http_version 1.1;
+      proxy_read_timeout 43200;
+      chunked_transfer_encoding off;
+      proxy_set_header Connection '';
+      proxy_pass http://flashphoner;
+      proxy_buffering off;
+      proxy_cache off;
     }
 
     location ~ ^/events {
