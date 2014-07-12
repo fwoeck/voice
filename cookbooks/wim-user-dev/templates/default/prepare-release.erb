@@ -19,7 +19,7 @@ if [[ $resp1 =~ ^(Y|y)$ ]]; then
     git checkout master
     git pull
     git flow release start $newrelease
-    git flow release finish --nobackmerge --fetch --push --message $newrelease --squash $newrelease
+    git flow release finish --fetch --push --message $newrelease --squash $newrelease
     git checkout develop
   done
 fi

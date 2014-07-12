@@ -143,7 +143,7 @@ alias gffp='git flow feature publish'
 alias gfff='git flow feature finish'
 alias  gfr='git flow release'
 alias gfrs='git flow release start'
-alias gfrf='git flow release finish --nobackmerge --push'
+alias gfrf='git flow release finish --fetch --push --squash'
 
 alias    rsvc='rsync --delete -a ./vendor/cache wim01:$PWD/vendor'
 alias   wim01='mosh <%= node[:wim][:domain_user] %>@<%= node[:etc][:domain_hostname] %>'
