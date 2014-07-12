@@ -1,4 +1,5 @@
 ---
+sip_host:     <%= node[:etc][:external_ip] %>
 rabbit_host:  <%= node[:rabbitmq][:host] %>
 rabbit_pass:  <%= node[:rabbitmq][:pass] %>
 rabbit_user:  <%= node[:rabbitmq][:user] %>
