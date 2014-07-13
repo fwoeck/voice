@@ -223,10 +223,6 @@ service 'asterisk' do
   action   [:enable, :start]
 end
 
-remote_directory '/var/lib/asterisk/sounds/wimdu' do
-  files_mode 00644
-end
-
 execute 'restart-asterisk' do
   command 'asterisk -rx "core restart gracefully"'
   action :nothing

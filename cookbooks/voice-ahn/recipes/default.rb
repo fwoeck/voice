@@ -99,3 +99,13 @@ end
 link '/etc/service/voice-ahn' do
   to '/etc/sv/voice-ahn'
 end
+
+bash 'install_voice_sounds' do
+  cwd '/var/lib/asterisk/sounds/wimdu'
+
+  code <<-EOH
+    find #{node[:voice_ahn][:basedir]}/vendor/soundfiles/ -type f | while read name; do file=$(echo $name | cut -d/ -f6); ln -s $name ./$file; done
+  EOH
+
+  not_if 'test -e /var/lib/asterisk/sounds/wimdu/en_welcome_to_wimdu.sln32'
+end
