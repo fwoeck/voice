@@ -170,10 +170,10 @@ roles:
   supervisor:    "Supervisor"
 
 skills:
-  offers:        "Host offers"
-  billing:       "Billing & refunds"
-  booking:       "Booking support"
-  other:         "Other questions"
+  new_booking:   "New bookings"
+  ext_booking:   "Existing bookings"
+  payment:       "Invoices & payments"
+  other:         "General inquiries"
 
 availability:
   ready:         "I'm ready"
