@@ -16,10 +16,11 @@ if [[ $resp1 =~ ^(Y|y)$ ]]; then
   for project in "<%= node[:voice_rails][:basedir] %>" "<%= node[:voice_ahn][:basedir] %>" "<%= node[:voice_push][:basedir] %>" "<%= node[:voice_numbers][:basedir] %>"
   do
     cd $project || :
-    git checkout master
-    git pull
+    git checkout develop
     git flow release start $newrelease
+    sleep 1
     git flow release finish --nobackmerge --fetch --push --message $newrelease --squash $newrelease
+    sleep 1
     git checkout develop
     git merge master -m "Back-merged master from release #{$newrelease}"
   done
