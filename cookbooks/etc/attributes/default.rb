@@ -29,7 +29,7 @@ default[:etc][:logdir]                   = '/opt/log'
 
 default[:flashphoner][:host]             = '127.0.0.1'
 default[:flashphoner][:basename]         = 'FlashphonerWebCallServer'
-default[:flashphoner][:version]          = '3.0.745'
+default[:flashphoner][:version]          = '3.0.885'
 default[:flashphoner][:ws_port]          = '8080'
 
 default[:git][:user][:name]              = 'Change Me'   # Set these in you local Vagrantfile
