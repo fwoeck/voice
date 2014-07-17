@@ -23,6 +23,7 @@ if [[ $resp1 =~ ^(Y|y)$ ]]; then
     sleep 1
     git checkout develop
     git merge master -m "Back-merged master from release #{$newrelease}"
+    git push
   done
 fi
 
