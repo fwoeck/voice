@@ -32,6 +32,10 @@ alias  ot='tail -F <%= node[:voice_rails][:logdir] %>/current <%= node[:voice_pu
 alias tlf='tail -F /usr/local/<%= node[:flashphoner][:basename] %>/logs/server_logs/*.log'
 alias tln='tail -F <%= node[:nginx][:basedir] %>/logs/*.log'
 
+function hangup_all_calls() {
+  sudo asterisk -r -x 'core show channels' | awk '{print $1}' | grep SIP | while read NAME; do sudo asterisk -r -x "channel request hangup $NAME"; done
+}
+
 function mri() {
   rvm ruby-<%= node[:mri][:version] %>@global
 }
