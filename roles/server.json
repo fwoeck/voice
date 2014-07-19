@@ -18,6 +18,7 @@
     "recipe[nodejs]",
     "recipe[redis]",
     "recipe[tmux]",
+    "recipe[sipp]",
     "recipe[wim-user]",
     "recipe[jdk]",
     "recipe[rvm]",

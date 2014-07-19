@@ -38,7 +38,7 @@ default[:git][:github][:user]            = 'changeme'
 default[:git][:github][:token]           = 'replaceme'
 
 default[:jdk][:home]                     = '/opt/jdk'
-default[:jdk][:version]                  = '1.8.0_05'
+default[:jdk][:version]                  = '1.8.0_11'
 default[:jdk][:opts]                     = '-server -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly'
 
 default[:jruby][:baseapi]                = '1.9'
@@ -104,6 +104,8 @@ default[:sipgate][:pass]                 = 'replaceme'
 default[:sipgate][:proxy]                = 'sipconnect.sipgate.de'
 default[:sipgate][:trunk]                = 'replaceme'
 default[:sipgate][:number]               = 'replaceme'
+
+default[:sipp][:version]                 = '3.4.1'
 
 default[:skype][:activate]               =  false
 default[:skype][:pass]                   = 'replaceme'
