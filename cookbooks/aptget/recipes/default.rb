@@ -128,7 +128,7 @@ bash 'remove_apparmor' do
   code <<-EOH
     service apparmor stop
     update-rc.d -f apparmor remove
-    apt-get remove apparmor
+    apt-get -y remove apparmor
   EOH
 
   only_if 'test -e /lib/apparmor/functions'
