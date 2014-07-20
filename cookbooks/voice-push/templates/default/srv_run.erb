@@ -9,4 +9,4 @@ export LC_ALL=en_US.UTF-8
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
 
 cd <%= node[:voice_push][:basedir] %>
-exec chpst -u <%= node[:wim][:user] %> ./goliath.rb -s<% node[:roles].include?('desktop') ? 'v' : '' %> -e production -a <%= node[:voice_push][:host] %> -p <%= node[:voice_push][:port] %> 2>&1
+exec chpst -u <%= node[:wim][:user] %> ./goliath.rb -s<%= node[:roles].include?('desktop') ? 'v' : '' %> -e production -a <%= node[:voice_push][:host] %> -p <%= node[:voice_push][:port] %> 2>&1
