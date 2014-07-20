@@ -124,6 +124,16 @@ bash 'remove_some_packages' do
   only_if 'dpkg -l | grep -q modemmanager'
 end
 
+bash 'remove_apparmor' do
+  code <<-EOH
+    service apparmor stop
+    update-rc.d -f apparmor remove
+    apt-get remove apparmor
+  EOH
+
+  only_if 'test -e /lib/apparmor/functions'
+end
+
 execute 'clear-apt-cache' do
   command 'apt-get clean'
 end
