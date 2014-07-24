@@ -31,7 +31,6 @@ Vagrant.configure('2') do |config|
     chef.validation_client_name = 'wimdu-voice-validator'
     chef.node_name              =  host
     chef.log_level              = :info
-    chef.run_list               = []
 
     chef.json = {
       'etc' => {
