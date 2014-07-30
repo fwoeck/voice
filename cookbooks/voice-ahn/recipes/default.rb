@@ -32,6 +32,18 @@ directory node[:voice_ahn][:basedir] do
   mode 00755
 end
 
+directory '/opt/record' do
+  owner 'asterisk'
+  group  node[:wim][:group]
+  mode   02770
+end
+
+mount '/opt/record' do
+  fstype  'none'
+  device  '/var/punchblock/record'
+  options 'bind'
+end
+
 if node[:roles].include?('desktop')
   bash 'install_voice_ahn' do
     user  node[:wim][:user]

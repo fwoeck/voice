@@ -116,12 +116,15 @@ directory '/var/run/asterisk' do
 end
 
 directory '/var/punchblock' do
-  owner node[:wim][:user]
-  mode 00750
+  owner 'asterisk'
+  group  node[:wim][:group]
+  mode   00750
 end
 
 directory '/var/punchblock/record' do
-  owner node[:wim][:user]
+  owner 'asterisk'
+  group  node[:wim][:group]
+  mode   02770
 end
 
 directory '/var/spool/asterisk' do
