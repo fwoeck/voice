@@ -64,6 +64,7 @@ end
   libsasl2-modules
   libsox-fmt-alsa
   libsox-fmt-base
+  libsox-fmt-mp3
   libsox2
   libspeex-dev
   libspeexdsp-dev
