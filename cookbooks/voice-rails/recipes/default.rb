@@ -116,9 +116,3 @@ directory "#{node[:voice_rails][:basedir]}/public/record" do
   group  node[:wim][:group]
   mode   02770
 end
-
-mount "#{node[:voice_rails][:basedir]}/public/record" do
-  fstype  'none'
-  device  '/var/punchblock/record'
-  options 'bind'
-end

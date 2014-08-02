@@ -16,6 +16,8 @@ redis_host:   <%= node[:redis][:host] %>
 redis_port:   <%= node[:redis][:port] %>
 skype_trunk:  <%= node[:skype][:trunk] %>
 sipgate_num:  <%= node[:sipgate][:number] %>
+mp3_source:   /var/punchblock/record
+mp3_target:   <%= node[:voice_rails][:basedir] %>/public/record
 locked:       false
 
 <%= node[:agent][:attributes] %>
