@@ -1,5 +1,5 @@
 daemon           on;
-user             <%= node[:wim][:user] %>;
+user             <%= node[:wim][:user] %> <%= node[:wim][:group] %>;
 error_log        logs/error.log warn;
 worker_processes 1;
 
@@ -144,6 +144,12 @@ http {
 
 <% if node[:roles].include?('desktop') %>
 <% else %>
+    location /record/ {
+      add_header Cache-Control public;
+      add_header ETag "";
+      expires max;
+    }
+
     location /images/ {
       add_header Cache-Control public;
       add_header ETag "";
