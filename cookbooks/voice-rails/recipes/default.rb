@@ -110,3 +110,15 @@ end
 link '/etc/service/voice-rails' do
   to '/etc/sv/voice-rails'
 end
+
+directory "#{node[:voice_rails][:basedir]}/public/record" do
+  owner 'asterisk'
+  group  node[:wim][:group]
+  mode   02770
+end
+
+mount "#{node[:voice_rails][:basedir]}/public/record" do
+  fstype  'none'
+  device  '/var/punchblock/record'
+  options 'bind'
+end
