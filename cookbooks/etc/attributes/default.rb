@@ -158,6 +158,10 @@ default[:wim][:rails][:basedir]          = '/opt/voice-rails'
 default[:wim][:zshplugs]                 = 'last-working-dir'
 default[:wim][:color]                    = 'red'
 
+default[:zendesk][:user]                 = '***REMOVED***'
+default[:zendesk][:pass]                 = '***REMOVED***'
+default[:zendesk][:domain]               = 'dokmatic'
+
 default[:agent][:attributes] = <<-EOF
 languages:
   de:            "Ich spreche deutsch"
