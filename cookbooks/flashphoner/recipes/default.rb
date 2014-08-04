@@ -77,3 +77,9 @@ end
 link '/etc/service/flashphoner' do
   to '/etc/sv/flashphoner'
 end
+
+cron 'purge_flashphoner_logs' do
+  minute  '37'
+  hour    '3'
+  command %Q{find /usr/local/#{tar_name}/logs/*/201* -type d -mtime +7 -exec rm -rf {} \; 2>/dev/null}
+end
