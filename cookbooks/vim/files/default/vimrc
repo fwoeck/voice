@@ -211,7 +211,8 @@ xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 xmap <silent> ie <Plug>CamelCaseMotion_ie
 
-nnoremap <CR> :let @/ = ""<CR>
+nnoremap <leader><CR> :let @/ = ""<CR>
+autocmd QuickFixCmdPost *grep* cwindow
 hi CursorLine ctermbg=black cterm=NONE
 
 augroup CursorLine
