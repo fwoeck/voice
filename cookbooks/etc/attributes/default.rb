@@ -165,10 +165,10 @@ default[:zendesk][:domain]               = 'dokmatic'
 default[:agent][:attributes] = <<-EOF
 languages:
   de:            "Ich spreche deutsch"
-  en:            "I speak english"
-  es:            "Hablo español"
   fr:            "Je parle français"
+  en:            "I speak english"
   it:            "Parlo italiano"
+  es:            "Hablo español"
 
 roles:
   agent:         "Agent"
@@ -182,12 +182,16 @@ skills:
   other:         "General inquiries"
 
 availability:
-  ready:         "I'm ready"
-  away:          "I'm away"
-  busy:          "I'm busy"
+  ready:         "I'm ready for calls"
+  away:          "I'm away from desk"
+  busy:          "I'm currently busy"
 
 agent_state:
-  talking:      "I'm talking"
-  registered:   "I'm online"
-  unregistered: "I'm offline"
+  talking:       "I'm talking"
+  ringing:       "I'm ringing"
+  silent:        "I'm silent"
+
+agent_reg:
+  registered:    "I'm online"
+  unregistered:  "I'm offline"
 EOF
