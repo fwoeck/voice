@@ -186,7 +186,7 @@ availability:
   away:          "I'm away from desk"
   busy:          "I'm currently busy"
 
-agent_state:
+activity:
   talking:       "I'm talking"
   ringing:       "I'm ringing"
   silent:        "I'm silent"
