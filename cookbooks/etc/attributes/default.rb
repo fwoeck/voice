@@ -191,7 +191,7 @@ agent_state:
   ringing:       "I'm ringing"
   silent:        "I'm silent"
 
-agent_reg:
-  registered:    "I'm online"
-  unregistered:  "I'm offline"
+visibility:
+  offline:       "I'm offline"
+  online:        "I'm online"
 EOF
