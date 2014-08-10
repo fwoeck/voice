@@ -36,7 +36,7 @@ bash 'install_nginx' do
 
     cd #{nginx_name}
     ./configure --prefix=#{node[:nginx][:basedir]} \
-      --with-http_gzip_static_module \
+      --with-http_gzip_static_module --with-http_ssl_module \
       --with-http_spdy_module --with-http_realip_module \
       --add-module=#{node[:wim][:home]}/ngx_http_redis-#{node[:nginx][:redis][:version]} \
       --add-module=#{node[:wim][:home]}/headers-more-nginx-module-#{node[:nginx][:headers][:version]} \
@@ -64,9 +64,14 @@ template '/etc/init.d/nginx' do
   mode    00755
 end
 
-service 'nginx' do
-  supports restart: true, stop: true, start: true
-  action :enable
+cookbook_file "#{node[:nginx][:basedir]}/conf/server.key" do
+  owner node[:wim][:user]
+  mode 00600
+end
+
+cookbook_file "#{node[:nginx][:basedir]}/conf/server.crt" do
+  owner node[:wim][:user]
+  mode 00600
 end
 
 template "#{node[:nginx][:basedir]}/conf/nginx.conf" do
@@ -75,4 +80,9 @@ template "#{node[:nginx][:basedir]}/conf/nginx.conf" do
   mode    00644
 
   notifies :restart, 'service[nginx]', :immediately
+end
+
+service 'nginx' do
+  supports restart: true, stop: true, start: true
+  action :enable
 end
