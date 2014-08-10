@@ -38,7 +38,6 @@ rtcachefriends=yes
 autodomain=yes
 allowexternaldomains=yes
 
-realm=<%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>
 externaddr=<%= node[:etc][:external_ip] %>
 
 domain=<%= node[:etc][:external_ip] %>
