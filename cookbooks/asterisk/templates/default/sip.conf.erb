@@ -23,21 +23,23 @@ tlscertfile=/etc/asterisk/asterisk.pem
 tlscafile=/etc/asterisk/ca.crt
 tlscipher=ALL
 tlsclientmethod=tlsv1
-
 <% if node[:sipgate][:activate] %>
+
 register => <%= node[:sipgate][:trunk] %>:<%= node[:sipgate][:pass] %>@<%= node[:sipgate][:proxy] %>/<%= node[:sipgate][:trunk] %>
 <% end %>
 <% if node[:skype][:activate] %>
+
 register => <%= node[:skype][:trunk] %>:<%= node[:skype][:pass] %>@<%= node[:skype][:proxy] %>/<%= node[:skype][:trunk] %>
 <% end %>
-
-externaddr=<%= node[:etc][:external_ip] %>
 
 directmedia=no
 nat=force_rport,comedia
 rtcachefriends=yes
 autodomain=yes
 allowexternaldomains=yes
+
+realm=<%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>
+externaddr=<%= node[:etc][:external_ip] %>
 
 domain=<%= node[:etc][:external_ip] %>
 domain=<%= node[:etc][:domain] %>
