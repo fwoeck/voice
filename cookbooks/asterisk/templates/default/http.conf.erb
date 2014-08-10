@@ -1,0 +1,7 @@
+[general]
+enabled=yes
+bindaddr=0.0.0.0
+bindport=<%= node[:asterisk][:ws_port] %>
+tlsenable=yes
+tlsbindaddr=0.0.0.0:<%= node[:asterisk][:wss_port] %>
+tlscertfile=/etc/asterisk/asterisk.pem

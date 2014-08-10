@@ -211,6 +211,22 @@ template '/etc/asterisk/sip.conf' do
   notifies :run, 'execute[restart-asterisk]', :delayed
 end
 
+template '/etc/asterisk/http.conf' do
+  source 'http.conf.erb'
+  owner  'asterisk'
+  mode    00640
+
+  notifies :run, 'execute[restart-asterisk]', :delayed
+end
+
+template '/etc/asterisk/rtp.conf' do
+  source 'rtp.conf.erb'
+  owner  'asterisk'
+  mode    00640
+
+  notifies :run, 'execute[restart-asterisk]', :delayed
+end
+
 cookbook_file '/etc/asterisk/asterisk.pem' do
   source 'asterisk.pem'
   owner  'asterisk'

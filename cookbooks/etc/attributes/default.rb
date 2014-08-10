@@ -6,6 +6,11 @@ default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com
 
 default[:asterisk][:version]             = '11.11.0'
 default[:asterisk][:g729_checksum]       = '8bbd222c2b1f7883d16387809ad7bfdc85f8e32a7fb5b73e499b1740a93664b1'
+default[:asterisk][:stun_server]         = 'stun.l.google.com:19302'
+default[:asterisk][:rtp_start]           =  10000
+default[:asterisk][:rtp_end]             =  20000
+default[:asterisk][:wss_port]            =  8009
+default[:asterisk][:ws_port]             =  8008
 
 default[:etc][:domain]                   = 'wimdu.com'
 default[:etc][:domain_hostname]          = 'wim01.wimdu.com' # This is the main deployment target
