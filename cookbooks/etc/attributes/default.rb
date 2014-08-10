@@ -169,34 +169,51 @@ default[:zendesk][:domain]               = 'dokmatic'
 
 default[:agent][:attributes] = <<-EOF
 languages:
-  de:            "Ich spreche deutsch"
-  fr:            "Je parle français"
-  en:            "I speak english"
-  it:            "Parlo italiano"
-  es:            "Hablo español"
+  de:          "Ich spreche deutsch"
+  fr:          "Je parle français"
+  en:          "I speak english"
+  it:          "Parlo italiano"
+  es:          "Hablo español"
 
 roles:
-  agent:         "Agent"
-  trainer:       "Trainer"
-  supervisor:    "Supervisor"
+  agent:       "Agent"
+  trainer:     "Trainer"
+  supervisor:  "Supervisor"
 
 skills:
-  new_booking:   "New bookings"
-  ext_booking:   "Existing bookings"
-  payment:       "Invoices & payment"
-  other:         "General inquiries"
+  new_booking: "New bookings"
+  ext_booking: "Existing bookings"
+  payment:     "Invoices & payment"
+  other:       "General inquiries"
 
 availability:
-  ready:         "I'm ready for calls"
-  away:          "I'm away from desk"
-  busy:          "I'm currently busy"
+  ready:       "I'm ready for calls"
+  away:        "I'm away from desk"
+  busy:        "I'm currently busy"
 
 activity:
-  talking:       "I'm talking"
-  ringing:       "I'm ringing"
-  silent:        "I'm silent"
+  talking:     "I'm talking"
+  ringing:     "I'm ringing"
+  silent:      "I'm silent"
 
 visibility:
-  offline:       "I'm offline"
-  online:        "I'm online"
+  offline:     "I'm offline"
+  online:      "I'm online"
+EOF
+
+default[:agent][:menu] = <<-EOF
+language_menu:
+  1: de
+  2: en
+  3: es
+  4: fr
+  5: it
+  d: en
+
+skill_menu:
+  1: new_booking
+  2: ext_booking
+  3: payment
+  4: other
+  d: other
 EOF
