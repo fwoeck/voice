@@ -183,7 +183,7 @@ roles:
 skills:
   new_booking:   "New bookings"
   ext_booking:   "Existing bookings"
-  payment:       "Invoices & payments"
+  payment:       "Invoices & payment"
   other:         "General inquiries"
 
 availability:
