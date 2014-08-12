@@ -3,4 +3,5 @@ require 'wirble'
 
 if defined?(Rails)
   Hirb.enable
+  Signal.trap('SIGWINCH', proc { c, r = Readline.get_screen_size; Hirb::View.resize(r, c) })
 end
