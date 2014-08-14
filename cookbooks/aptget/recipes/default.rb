@@ -134,7 +134,3 @@ bash 'remove_apparmor' do
 
   only_if 'test -e /lib/apparmor/functions'
 end
-
-execute 'clear-apt-cache' do
-  command 'apt-get clean'
-end
