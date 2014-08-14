@@ -1,5 +1,4 @@
-/.chef/*.pem
-/.chef/*.rb
+/.chef/*
 /.vagrant
 /Vagrantfile
 /.Trash*
