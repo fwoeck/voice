@@ -1,0 +1,28 @@
+{
+  "etc": {
+    "domain_host": true,
+    "external_ip": "123.123.123.123"
+  },
+  "git": {
+    "user": {
+      "name":  "Your Name",
+      "email": "someone@mail.com"
+    },
+    "github": {
+      "user":  "yourname",
+      "token": "replaceme"
+    }
+  },
+  "sipgate": {
+    "activate": false,
+    "pass":     "s4cr4t",
+    "trunk":    "1111111t0",
+    "number":   "1111111111"
+  },
+  "skype": {
+    "activate": false,
+    "pass":     "s4cr4t",
+    "trunk":    "11111111111111"
+  },
+  "run_list": ["role[server]"]
+}
