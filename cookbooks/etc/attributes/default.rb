@@ -133,7 +133,6 @@ default[:vnc][:display]                  =  0
 default[:vnc][:version]                  = '1.3.1'
 default[:vnc][:basedir]                  = '/opt/tigervnc'
 
-default[:voice_docs][:basedir]           = '/opt/voice-docs'
 default[:voice_specs][:basedir]          = '/opt/voice-specs'
 
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
