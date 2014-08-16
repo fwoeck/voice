@@ -1,3 +1,5 @@
+package 'librrd-dev'
+
 git node[:voice_numbers][:basedir] do
   repository "git@#{node[:wim][:gitbase]}/voice-numbers.git"
   revision    node[:etc][:default_branch]
