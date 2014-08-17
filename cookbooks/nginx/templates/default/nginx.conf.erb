@@ -114,6 +114,10 @@ http {
       proxy_redirect    off;
     }
 
+    location /data/ {
+      add_header Cache-Control no-cache;
+    }
+
     location /munin/www/ {
       expires modified +310s;
       root /var/cache/;
