@@ -9,6 +9,6 @@ redis_port:      <%= node[:redis][:port] %>
 zendesk_user:    <%= node[:zendesk][:user] %>
 zendesk_pass:    <%= node[:zendesk][:pass] %>
 zendesk_domain:  <%= node[:zendesk][:domain] %>
-stats_image:     <%= node[:voice_numbers][:stats_img] %>
+stats_image_url: <%= node[:voice_numbers][:stats_url] %>
 
 <%= node[:agent][:attributes] %>

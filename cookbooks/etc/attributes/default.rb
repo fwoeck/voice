@@ -150,7 +150,8 @@ default[:voice_rails][:logdir]           = default[:etc][:logdir] + '/voice-rail
 
 default[:voice_numbers][:basedir]        = '/opt/voice-numbers'
 default[:voice_numbers][:logdir]         = default[:etc][:logdir] + '/voice-numbers'
-default[:voice_numbers][:stats_img]      = default[:voice_rails][:basedir] + '/public/data/queue-stats.png'
+default[:voice_numbers][:stats_url]      = '/data/queue-stats.png'
+default[:voice_numbers][:stats_img]      = default[:voice_rails][:basedir] + '/public' + default[:voice_numbers][:stats_url]
 default[:voice_numbers][:stats_rrd]      = default[:voice_numbers][:basedir] + '/data/queue_stats.rrd'
 
 default[:v4l2][:basedir]                 = '/opt/v4l2'
