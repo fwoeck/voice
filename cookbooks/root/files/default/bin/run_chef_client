@@ -1,3 +1,0 @@
-#!/bin/bash
-
-chef-client -j /etc/chef/client.json

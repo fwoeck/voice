@@ -20,15 +20,8 @@ alias   o='cd /opt'
 alias   e='exit'
 alias   t='htop'
 
-alias    psg='ps aux | grep -v grep | grep -v tail | grep -i'
-alias    chc='chef-client -j /etc/chef/client.json'
-alias     vr='service varnish restart'
-
-alias dgc='docker rm $(docker ps -a -q) 2>/dev/null; docker rmi $(docker images -a | grep "^<none>" | awk "{print \$3}") 2>/dev/null'
-alias dps='docker ps'
-alias  di='docker images'
-alias  dk='docker kill'
-alias  dr='docker rmi'
+alias psg='ps aux | grep -v grep | grep -v tail | grep -i'
+alias  cs='chef-solo'
 
 function gg() {
   git grep -n "$*"
