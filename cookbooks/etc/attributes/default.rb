@@ -43,7 +43,7 @@ default[:git][:github][:user]            = 'changeme'
 default[:git][:github][:token]           = 'replaceme'
 
 default[:jdk][:home]                     = '/opt/jdk'
-default[:jdk][:version]                  = '1.8.0_11'
+default[:jdk][:version]                  = '1.8.0_20'
 default[:jdk][:opts]                     = '-server -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly'
 
 default[:jruby][:baseapi]                = '1.9'
