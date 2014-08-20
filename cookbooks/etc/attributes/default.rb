@@ -4,7 +4,7 @@ default[:ahn][:ami_host]                 = '127.0.0.1'
 
 default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com/wimdu'
 
-default[:asterisk][:version]             = '11.11.0'
+default[:asterisk][:version]             = '11.12.0'
 default[:asterisk][:g729_checksum]       = '8bbd222c2b1f7883d16387809ad7bfdc85f8e32a7fb5b73e499b1740a93664b1'
 default[:asterisk][:stun_server]         = 'stun.l.google.com:19302'
 default[:asterisk][:rtp_start]           =  10000
