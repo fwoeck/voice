@@ -12,6 +12,7 @@ zendesk_domain:  <%= node[:zendesk][:domain] %>
 stats_image_url: <%= node[:voice_numbers][:stats_url] %>
 admin_fullname:  <%= node[:voice_rails][:admin][:fullname] %>
 admin_password:  <%= node[:voice_rails][:admin][:password] %>
+admin_secret:    <%= node[:voice_rails][:admin][:secret] %>
 admin_email:     <%= node[:voice_rails][:admin][:email] %>
 admin_name:      <%= node[:voice_rails][:admin][:name] %>
 

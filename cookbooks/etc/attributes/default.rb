@@ -151,6 +151,7 @@ default[:voice_rails][:logdir]           = default[:etc][:logdir] + '/voice-rail
 default[:voice_rails][:admin][:email]    = 'frank.woeckener@wimdu.com'
 default[:voice_rails][:admin][:fullname] = 'Frank Wöckener'
 default[:voice_rails][:admin][:password] = 'P4ssw0rd'
+default[:voice_rails][:admin][:secret]   = '0000'
 default[:voice_rails][:admin][:name]     = '999'
 
 default[:voice_numbers][:basedir]        = '/opt/voice-numbers'
