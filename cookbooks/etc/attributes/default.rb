@@ -182,6 +182,7 @@ roles:
   agent:       "Agent"
   trainer:     "Trainer"
   supervisor:  "Supervisor"
+  admin:       "Administrator"
 
 skills:
   new_booking: "New bookings"
