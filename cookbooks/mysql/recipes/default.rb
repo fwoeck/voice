@@ -21,8 +21,6 @@ bash 'create_wim_environment' do
     CREATE USER '#{node[:mysql][:wim_user]}'@'%' IDENTIFIED BY '#{node[:mysql][:wim_pass]}';
     GRANT ALL PRIVILEGES ON *.* TO '#{node[:mysql][:wim_user]}'@'%' WITH GRANT OPTION;
     FLUSH PRIVILEGES;
-
-    CREATE DATABASE asterisk CHARACTER SET utf8 COLLATE utf8_general_ci;
   EOS
 
   code <<-EOH
@@ -42,6 +40,7 @@ bash 'create_asterisk_schema' do
   user 'root'
 
   code <<-EOH
+    mysql -uroot -p#{node[:mysql][:root_pass]} -e 'CREATE DATABASE asterisk CHARACTER SET utf8 COLLATE utf8_general_ci;' 2>/dev/null
     mysql asterisk -uroot -p#{node[:mysql][:root_pass]} < /etc/mysql/asterisk.sql
   EOH
 

@@ -92,6 +92,7 @@ bash 'seed_admin_user' do
     code <<-EOH
       source #{node[:rvm][:basedir]}/scripts/rvm
       cd #{node[:voice_rails][:basedir]}
+      bundle exec rake db:migrate
       bundle exec rails runner User.seed_admin_user
     EOH
 
