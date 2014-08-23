@@ -18,6 +18,7 @@ skype_trunk:  <%= node[:skype][:trunk] %>
 sipgate_num:  <%= node[:sipgate][:number] %>
 mp3_source:   /var/punchblock/record
 mp3_target:   <%= node[:voice_rails][:basedir] %>/public/record
+admin_name:   <%= node[:voice_rails][:admin][:name] %>
 locked:       false
 
 <%= node[:agent][:attributes] %>

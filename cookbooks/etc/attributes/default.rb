@@ -148,6 +148,11 @@ default[:voice_rails][:keybase]          = '***REMOVED***d181d1df9b1678178600bdb
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
 default[:voice_rails][:logdir]           = default[:etc][:logdir] + '/voice-rails'
 
+default[:voice_rails][:admin][:email]    = 'frank.woeckener@wimdu.com'
+default[:voice_rails][:admin][:fullname] = 'Frank Wöckener'
+default[:voice_rails][:admin][:password] = 'P4ssw0rd'
+default[:voice_rails][:admin][:name]     = '999'
+
 default[:voice_numbers][:basedir]        = '/opt/voice-numbers'
 default[:voice_numbers][:logdir]         = default[:etc][:logdir] + '/voice-numbers'
 default[:voice_numbers][:stats_url]      = '/data/queue-stats.svg'
