@@ -1,24 +1,24 @@
 ---
-rails_env:    <%= node[:etc][:railsenv] %>
-ami_pass:     <%= node[:ahn][:ami_pass] %>
-ami_host:     <%= node[:ahn][:ami_host] %>
-ami_user:     <%= node[:ahn][:ami_user] %>
-mysql_db:     <%= node[:mysql][:dbname] %>
-mysql_host:   <%= node[:mysql][:host] %>
-mysql_pass:   <%= node[:mysql][:wim_pass] %>
-mysql_port:   <%= node[:mysql][:port] %>
-mysql_user:   <%= node[:mysql][:wim_user] %>
-rabbit_host:  <%= node[:rabbitmq][:host] %>
-rabbit_pass:  <%= node[:rabbitmq][:pass] %>
-rabbit_user:  <%= node[:rabbitmq][:user] %>
-redis_db:     <%= node[:redis][:db][:ahn] %>
-redis_host:   <%= node[:redis][:host] %>
-redis_port:   <%= node[:redis][:port] %>
-skype_trunk:  <%= node[:skype][:trunk] %>
-sipgate_num:  <%= node[:sipgate][:number] %>
-mp3_source:   /var/punchblock/record
-mp3_target:   <%= node[:voice_rails][:basedir] %>/public/record
-admin_name:   <%= node[:voice_rails][:admin][:name] %>
+rails_env:    "<%= node[:etc][:railsenv] %>"
+ami_pass:     "<%= node[:ahn][:ami_pass] %>"
+ami_host:     "<%= node[:ahn][:ami_host] %>"
+ami_user:     "<%= node[:ahn][:ami_user] %>"
+mysql_db:     "<%= node[:mysql][:dbname] %>"
+mysql_host:   "<%= node[:mysql][:host] %>"
+mysql_pass:   "<%= node[:mysql][:wim_pass] %>"
+mysql_port:   "<%= node[:mysql][:port] %>"
+mysql_user:   "<%= node[:mysql][:wim_user] %>"
+rabbit_host:  "<%= node[:rabbitmq][:host] %>"
+rabbit_pass:  "<%= node[:rabbitmq][:pass] %>"
+rabbit_user:  "<%= node[:rabbitmq][:user] %>"
+redis_db:     "<%= node[:redis][:db][:ahn] %>"
+redis_host:   "<%= node[:redis][:host] %>"
+redis_port:   "<%= node[:redis][:port] %>"
+skype_trunk:  "<%= node[:skype][:trunk] %>"
+sipgate_num:  "<%= node[:sipgate][:number] %>"
+mp3_source:   "/var/punchblock/record"
+mp3_target:   "<%= node[:voice_rails][:basedir] %>/public/record"
+admin_name:   "<%= node[:voice_rails][:admin][:name] %>"
 locked:       false
 
 <%= node[:agent][:attributes] %>
