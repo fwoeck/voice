@@ -85,6 +85,21 @@ else
   end
 end
 
+bash 'seed_admin_user' do
+    user  node[:wim][:user]
+    group node[:wim][:group]
+
+    code <<-EOH
+      source #{node[:rvm][:basedir]}/scripts/rvm
+      cd #{node[:voice_rails][:basedir]}
+      bundle exec rails runner User.seed_admin_user
+    EOH
+
+  not_if {
+    `mysql #{node[:mysql][:dbname]} -u#{node[:mysql][:wim_user]} -p#{node[:mysql][:wim_pass]} -e 'SELECT COUNT(*) FROM users INNER JOIN users_roles ON users_roles.user_id = users.id INNER JOIN roles ON roles.id = users_roles.role_id WHERE roles.name = "admin"' | grep 1 | wc -l`.to_i == 1
+  }
+end
+
 directory node[:voice_rails][:logdir] do
   mode 00755
 end
