@@ -43,3 +43,15 @@ bash 'install_mozilla_java_plugin' do
 
   not_if "test -e #{node[:wim][:home]}/.mozilla/plugins/libnpjp2.so"
 end
+
+jmc_config = "#{node[:jdk][:home]}/lib/missioncontrol/configuration/config.ini"
+
+ruby_block 'edit_mission_control' do
+  block do
+    file = Chef::Util::FileEdit.new(jmc_config)
+    file.insert_line_if_no_match(/mozilla/, 'org.eclipse.swt.browser.DefaultType=mozilla')
+    file.write_file
+  end
+
+  not_if "grep -q mozilla #{jmc_config}"
+end
