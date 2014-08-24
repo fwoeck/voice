@@ -12,4 +12,4 @@ export AHN_ENV=<%= node[:etc][:railsenv] %>
 export RACK_ENV=<%= node[:etc][:railsenv] %>
 
 cd <%= node[:voice_ahn][:basedir] %>
-exec chpst -u <%= node[:wim][:user] %> <%= node[:voice_ahn][:basedir] %>/bin/ahn start . --no-console 2>&1
+exec chpst -u <%= node[:wim][:user] %>:admin <%= node[:voice_ahn][:basedir] %>/bin/ahn start . --no-console 2>&1
