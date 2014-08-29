@@ -47,7 +47,7 @@ default[:jdk][:version]                  = '1.8.0_20'
 default[:jdk][:opts]                     = '-server -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly'
 
 default[:jruby][:baseapi]                = '1.9'
-default[:jruby][:version]                = '1.7.13'
+default[:jruby][:version]                = '1.7.14'
 default[:jruby][:opts]                   = '-J-XX:+UseCodeCacheFlushing -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify'
 
 default[:mongodb][:db][:development]     = 'voice_development'
