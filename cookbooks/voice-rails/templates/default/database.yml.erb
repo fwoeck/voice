@@ -5,7 +5,7 @@ default: &default
   username: <%= node[:mysql][:wim_user] %>
   password: <%= node[:mysql][:wim_pass] %>
   socket:   <%= node[:mysql][:socket] %>
-  pool:     10
+  pool:     64
 
 development:
   <<: *default
