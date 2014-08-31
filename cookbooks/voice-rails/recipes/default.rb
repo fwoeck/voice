@@ -128,7 +128,7 @@ link '/etc/service/voice-rails' do
 end
 
 directory "#{node[:voice_rails][:basedir]}/public/record" do
-  owner 'asterisk'
+  owner  node[:wim][:user]
   group  node[:wim][:group]
   mode   02770
 end
