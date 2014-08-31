@@ -123,7 +123,7 @@ end
 
 directory '/var/punchblock/record' do
   owner 'asterisk'
-  group  node[:wim][:group]
+  group 'admin'
   mode   02770
 end
 
