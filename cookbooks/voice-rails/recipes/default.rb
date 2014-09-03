@@ -17,6 +17,7 @@ end
 
 template "#{node[:voice_rails][:basedir]}/.bundle/config" do
   source   'bundle.config.erb'
+  cookbook 'etc'
   owner     node[:wim][:user]
   group     node[:wim][:group]
 end
