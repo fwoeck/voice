@@ -7,7 +7,7 @@ export TZ=UTC
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
-export JAVA_OPTS='-Xms512m -Xmx2096m -Djava.net.preferIPv4Stack=true'
+export JAVA_OPTS='-Xms512m -Xmx2096m -Djava.net.preferIPv4Stack=true -Dcom.sun.management.jmxremote'
 
 export AHN_ENV=<%= node[:etc][:railsenv] %>
 export RACK_ENV=<%= node[:etc][:railsenv] %>
