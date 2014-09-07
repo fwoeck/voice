@@ -28,12 +28,13 @@ alias vi='vim'
 alias ea='vim ~/.bash_aliases'
 alias ra='source ~/.bash_aliases'
 
-alias  ot='tail -F <%= node[:voice_rails][:logdir] %>/current <%= node[:voice_push][:logdir] %>/current <%= node[:voice_ahn][:logdir] %>/current <%= node[:voice_numbers][:logdir] %>/current'
+alias  ot='tail -F <%= node[:voice_rails][:logdir] %>/current <%= node[:voice_push][:logdir] %>/current <%= node[:voice_custom][:logdir] %>/current <%= node[:voice_ahn][:logdir] %>/current <%= node[:voice_numbers][:logdir] %>/current'
 alias tlf='tail -F /usr/local/<%= node[:flashphoner][:basename] %>/logs/server_logs/*.log'
 alias tlx='tail -F <%= node[:nginx][:basedir] %>/logs/*.log'
 
 alias tla='tail -F <%= node[:voice_ahn][:logdir] %>/current'
 alias tlp='tail -F <%= node[:voice_push][:logdir] %>/current'
+alias tlc='tail -F <%= node[:voice_custom][:logdir] %>/current'
 alias tln='tail -F <%= node[:voice_numbers][:logdir] %>/current'
 alias tlr='tail -F <%= node[:voice_rails][:basedir] %>/log/*.log <%= node[:voice_rails][:logdir] %>/current'
 
@@ -63,10 +64,11 @@ alias   e='exit'
 alias   t='htop'
 
 alias va='cd <%= node[:voice_ahn][:basedir] %>'
-alias vc='cd <%= node[:voice_chef][:basedir] %>'
+alias vv='cd <%= node[:voice_chef][:basedir] %>'
 alias vp='cd <%= node[:voice_push][:basedir] %>'
 alias vr='cd <%= node[:voice_rails][:basedir] %>'
 alias vs='cd <%= node[:voice_specs][:basedir] %>'
+alias vc='cd <%= node[:voice_custom][:basedir] %>'
 alias vn='cd <%= node[:voice_numbers][:basedir] %>'
 
 function gc() {

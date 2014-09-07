@@ -137,16 +137,20 @@ default[:voice_specs][:basedir]          = '/opt/voice-specs'
 default[:voice_chef][:basedir]           = '/opt/voice-chef'
 
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
-default[:voice_ahn][:logdir]             = default[:etc][:logdir] + '/voice-ahn'
+default[:voice_ahn][:logdir]             =  default[:etc][:logdir] + '/voice-ahn'
+
+default[:voice_custom][:basedir]         = '/opt/voice-custom'
+default[:voice_custom][:logdir]          =  default[:etc][:logdir] + '/voice-custom'
+default[:voice_custom][:port]            =  4567
 
 default[:voice_push][:basedir]           = '/opt/voice-push'
-default[:voice_push][:logdir]            = default[:etc][:logdir] + '/voice-push'
+default[:voice_push][:logdir]            =  default[:etc][:logdir] + '/voice-push'
 default[:voice_push][:host]              = '127.0.0.1'
 default[:voice_push][:port]              =  8889
 
 default[:voice_rails][:keybase]          = '***REMOVED***d181d1df9b1678178600bdb572727053497faf086bd87a309f7e0354f8a'
 default[:voice_rails][:basedir]          = '/opt/voice-rails'
-default[:voice_rails][:logdir]           = default[:etc][:logdir] + '/voice-rails'
+default[:voice_rails][:logdir]           =  default[:etc][:logdir] + '/voice-rails'
 
 default[:voice_rails][:admin][:email]    = 'frank.woeckener@wimdu.com'
 default[:voice_rails][:admin][:fullname] = 'Frank Wöckener'
@@ -155,10 +159,10 @@ default[:voice_rails][:admin][:secret]   = '0000'
 default[:voice_rails][:admin][:name]     = '999'
 
 default[:voice_numbers][:basedir]        = '/opt/voice-numbers'
-default[:voice_numbers][:logdir]         = default[:etc][:logdir] + '/voice-numbers'
+default[:voice_numbers][:logdir]         =  default[:etc][:logdir] + '/voice-numbers'
 default[:voice_numbers][:stats_url]      = '/data/queue-stats.svg'
-default[:voice_numbers][:stats_img]      = default[:voice_rails][:basedir] + '/public' + default[:voice_numbers][:stats_url]
-default[:voice_numbers][:stats_rrd]      = default[:voice_numbers][:basedir] + '/data/queue_stats.rrd'
+default[:voice_numbers][:stats_img]      =  default[:voice_rails][:basedir] + '/public' + default[:voice_numbers][:stats_url]
+default[:voice_numbers][:stats_rrd]      =  default[:voice_numbers][:basedir] + '/data/queue_stats.rrd'
 
 default[:v4l2][:basedir]                 = '/opt/v4l2'
 

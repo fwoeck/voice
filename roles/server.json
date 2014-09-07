@@ -28,6 +28,7 @@
     "recipe[voice-push]",
     "recipe[voice-rails]",
     "recipe[voice-specs]",
+    "recipe[voice-custom]",
     "recipe[voice-numbers]",
     "recipe[flashphoner]",
     "recipe[tigervnc]",
