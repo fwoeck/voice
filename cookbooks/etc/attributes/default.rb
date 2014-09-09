@@ -142,7 +142,6 @@ default[:voice_ahn][:logdir]             =  default[:etc][:logdir] + '/voice-ahn
 
 default[:voice_custom][:basedir]         = '/opt/voice-custom'
 default[:voice_custom][:logdir]          =  default[:etc][:logdir] + '/voice-custom'
-default[:voice_custom][:port]            =  4567
 
 default[:voice_push][:basedir]           = '/opt/voice-push'
 default[:voice_push][:logdir]            =  default[:etc][:logdir] + '/voice-push'
