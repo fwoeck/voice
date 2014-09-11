@@ -31,6 +31,7 @@ alias ra='source ~/.bash_aliases'
 alias  ot='tail -F <%= node[:voice_rails][:logdir] %>/current <%= node[:voice_push][:logdir] %>/current <%= node[:voice_custom][:logdir] %>/current <%= node[:voice_ahn][:logdir] %>/current <%= node[:voice_numbers][:logdir] %>/current'
 alias tlf='tail -F /usr/local/<%= node[:flashphoner][:basename] %>/logs/server_logs/*.log'
 alias tlx='tail -F <%= node[:nginx][:basedir] %>/logs/*.log'
+alias tal='sudo truncate -s0 /opt/log/*/current /opt/voice-*/log/*.log'
 
 alias tla='tail -F <%= node[:voice_ahn][:logdir] %>/current'
 alias tlp='tail -F <%= node[:voice_push][:logdir] %>/current'
