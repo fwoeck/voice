@@ -15,7 +15,12 @@ if [[ $resp1 =~ ^(Y|y)$ ]]; then
 
   for project in "<%= node[:voice_rails][:basedir] %>" "<%= node[:voice_ahn][:basedir] %>" "<%= node[:voice_custom][:basedir] %>" "<%= node[:voice_push][:basedir] %>" "<%= node[:voice_numbers][:basedir] %>"
   do
+    echo
+    echo ">> Preparing $project"
+    echo
     cd $project || :
+    git checkout master
+    git pull
     git checkout develop
     git flow release start $newrelease
     sleep 1
