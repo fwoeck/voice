@@ -180,13 +180,6 @@ default[:zendesk][:user]                 = '***REMOVED***'
 default[:zendesk][:pass]                 = '***REMOVED***'
 default[:zendesk][:domain]               = 'dokmatic'
 
-# ! Caution
-#
-# -> Singular fields MUST end with a "y" (e.g. availability),
-#    whereas fields with multiple values MUST NOT (e.g. role).
-#    This is due to the (de-)serialization, we use during
-#    the message transfer and Redis-storage.
-#
 # -> We need "admin" to be one of the roles. Admins have
 #    special rights.
 #
