@@ -98,7 +98,7 @@ bash 'seed_admin_user' do
     EOH
 
   not_if {
-    `mysql #{node[:mysql][:dbname]} -u#{node[:mysql][:wim_user]} -p#{node[:mysql][:wim_pass]} -e 'SELECT COUNT(*) FROM users INNER JOIN users_roles ON users_roles.user_id = users.id INNER JOIN roles ON roles.id = users_roles.role_id WHERE roles.name = "admin"' | grep '[0-9]\+'`.to_i > 0
+    `mysql #{node[:mysql][:dbname]} -u#{node[:mysql][:wim_user]} -p#{node[:mysql][:wim_pass]} -e 'SELECT COUNT(*) FROM users INNER JOIN users_roles ON users_roles.user_id = users.id INNER JOIN roles ON roles.id = users_roles.role_id WHERE roles.name = "admin"' | grep '[0-9]'`.to_i > 0
   }
 end
 
