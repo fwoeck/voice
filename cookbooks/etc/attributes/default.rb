@@ -180,9 +180,9 @@ default[:crm_provider][:name]            = 'Zendesk'
 default[:crm_provider][:user]            = '***REMOVED***'
 default[:crm_provider][:pass]            = '***REMOVED***'
 default[:crm_provider][:domain]          = 'dokmatic'
-default[:crm_provider][:api_url]         = "https://#{default[:crm_provider][:domain]}.crm_provider.com/api/v2"
-default[:crm_provider][:user_url]        = "https://#{default[:crm_provider][:domain]}.crm_provider.com/agent/#/users/USERID/requested_tickets"
-default[:crm_provider][:ticket_url]      = "https://#{default[:crm_provider][:domain]}.crm_provider.com/agent/#/tickets/TID"
+default[:crm_provider][:api_url]         = "https://#{default[:crm_provider][:domain]}.zendesk.com/api/v2"
+default[:crm_provider][:user_url]        = "https://#{default[:crm_provider][:domain]}.zendesk.com/agent/#/users/USERID/requested_tickets"
+default[:crm_provider][:ticket_url]      = "https://#{default[:crm_provider][:domain]}.zendesk.com/agent/#/tickets/TID"
 
 # -> We need "admin" to be one of the roles. Admins have
 #    special rights.
