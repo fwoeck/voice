@@ -179,6 +179,9 @@ default[:wim][:color]                    = 'red'
 default[:zendesk][:user]                 = '***REMOVED***'
 default[:zendesk][:pass]                 = '***REMOVED***'
 default[:zendesk][:domain]               = 'dokmatic'
+default[:zendesk][:api_url]              = "https://#{default[:zendesk][:domain]}.zendesk.com/api/v2"
+default[:zendesk][:user_url]             = "https://#{default[:zendesk][:domain]}.zendesk.com/agent/#/users/USERID/requested_tickets"
+default[:zendesk][:ticket_url]           = "https://#{default[:zendesk][:domain]}.zendesk.com/agent/#/tickets/TID"
 
 # -> We need "admin" to be one of the roles. Admins have
 #    special rights.
