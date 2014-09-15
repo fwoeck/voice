@@ -220,6 +220,12 @@ activity:
 visibility:
   offline:     "I'm offline"
   online:      "I'm online"
+
+default_tags:
+  open:        "Open"
+  solved:      "Solved"
+  closed:      "Closed"
+  pending:     "Pending"
 EOF
 
 default[:agent][:menu] = <<-EOF
