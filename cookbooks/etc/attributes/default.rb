@@ -184,6 +184,11 @@ default[:crm_provider][:api_url]         = "https://#{default[:crm_provider][:do
 default[:crm_provider][:user_url]        = "https://#{default[:crm_provider][:domain]}.zendesk.com/agent/#/users/USERID/requested_tickets"
 default[:crm_provider][:ticket_url]      = "https://#{default[:crm_provider][:domain]}.zendesk.com/agent/#/tickets/TID"
 
+
+# -> For the time being, singular keys (e.g. availability)
+#    MUST end with a "y", whereas plural keys (e.g. skills)
+#    must NOT.
+#
 # -> We need "admin" to be one of the roles. Admins have
 #    special rights.
 #
