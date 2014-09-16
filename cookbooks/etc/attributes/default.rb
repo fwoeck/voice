@@ -231,6 +231,7 @@ default_tags:
   solved:      "Solved"
   closed:      "Closed"
   pending:     "Pending"
+  mailbox:     "Mailbox"
 EOF
 
 default[:agent][:menu] = <<-EOF
