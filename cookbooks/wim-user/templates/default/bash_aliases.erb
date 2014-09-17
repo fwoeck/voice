@@ -37,6 +37,7 @@ alias tla='tail -F <%= node[:voice_ahn][:logdir] %>/current'
 alias tlp='tail -F <%= node[:voice_push][:logdir] %>/current'
 alias tlc='tail -F <%= node[:voice_custom][:logdir] %>/current'
 alias tln='tail -F <%= node[:voice_numbers][:logdir] %>/current'
+alias tle='tail -F <%= node[:etc][:logdir] %>/elasticsearch/current'
 alias tlr='tail -F <%= node[:voice_rails][:basedir] %>/log/*.log <%= node[:voice_rails][:logdir] %>/current'
 
 function show_all_calls() {

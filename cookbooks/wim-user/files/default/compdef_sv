@@ -1,5 +1,5 @@
 #compdef sv
 
 _arguments \
-  "1: :(restart status up down)" \
-  "2: :(voice-ahn voice-rails voice-push voice-numbers voice-custom flashphoner)"
+  "1: :(restart status up down stop start force-stop force-restart)" \
+  "2: :(voice-ahn voice-rails voice-push voice-numbers voice-custom flashphoner elasticsearch)"
