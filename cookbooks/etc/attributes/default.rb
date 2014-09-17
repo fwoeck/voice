@@ -32,6 +32,9 @@ default[:etc][:skel_sum]                 = '7230bf9bbb54a032a4cc4d33535d0ff0885b
 default[:etc][:path]                     = '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
 default[:etc][:logdir]                   = '/opt/log'
 
+default[:elasticsearch][:basedir]        = '/opt/elasticsearch'
+default[:elasticsearch][:version]        = '1.3.2'
+
 default[:flashphoner][:host]             = '127.0.0.1'
 default[:flashphoner][:basename]         = 'FlashphonerWebCallServer'
 default[:flashphoner][:version]          = '3.0.885'

@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+export JDK_HOME=<%= node[:jdk][:home] %>
+export JAVA_HOME=<%= node[:jdk][:home] %>
+export JAVA_OPTS='-Dfile.encoding=UTF-8 -server'
+
+cd <%= node[:elasticsearch][:basedir] %>
+exec chpst -u <%= node[:wim][:user] %> ./bin/elasticsearch 2>&1

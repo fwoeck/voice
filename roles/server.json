@@ -30,6 +30,7 @@
     "recipe[voice-specs]",
     "recipe[voice-custom]",
     "recipe[voice-numbers]",
+    "recipe[elasticsearch]",
     "recipe[flashphoner]",
     "recipe[tigervnc]",
     "recipe[nginx]",
