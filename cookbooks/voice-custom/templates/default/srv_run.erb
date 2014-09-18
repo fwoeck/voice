@@ -4,6 +4,7 @@ set -e
 source <%= node[:rvm][:basedir] %>/scripts/rvm
 
 export TZ=UTC
+export SUBSCRIBE_AMQP=1
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
