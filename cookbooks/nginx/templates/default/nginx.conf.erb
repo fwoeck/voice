@@ -76,7 +76,7 @@ http {
     root <%= node[:wim][:rails][:basedir] %>/public;
     set_from_accept_language $lang en de;
 
-    try_files $uri/index.html $uri @redis;
+    try_files $uri/index.html $uri @wimdu;
 
     location @redis {
       set $redis_db "<%= node[:redis][:db][:nginx] %>";
@@ -104,14 +104,6 @@ http {
       proxy_pass http://events;
       proxy_buffering off;
       proxy_cache off;
-    }
-
-    location / {
-      proxy_set_header  X-Forwarded-Proto https;
-      proxy_set_header  X-Url-Scheme $scheme;
-      proxy_set_header  Host $http_host;
-      proxy_pass        http://puma;
-      proxy_redirect    off;
     }
 
     location /data/ {
@@ -155,7 +147,15 @@ http {
 
     error_page 500 502 503 504 /500.html;
     keepalive_timeout 60;
+
 <% end %>
+    location @wimdu {
+      proxy_set_header  X-Forwarded-Proto https;
+      proxy_set_header  X-Url-Scheme $scheme;
+      proxy_set_header  Host $http_host;
+      proxy_pass        http://puma;
+      proxy_redirect    off;
+    }
   }
 <% if node[:roles].include?('desktop') %>
 
