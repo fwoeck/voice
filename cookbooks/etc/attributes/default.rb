@@ -72,7 +72,7 @@ default[:mysql][:socket]                 = '/var/run/mysqld/mysqld.sock'
 
 default[:nginx][:basedir]                = '/opt/nginx'
 default[:nginx][:fe_port]                =  443
-default[:nginx][:version]                = '1.7.4'
+default[:nginx][:version]                = '1.7.5'
 default[:nginx][:language][:checksum]    = '4609c52787e10a86d0bf25b524b91eaa3e8bb80d4208eaa2de8a9db14002f551'
 default[:nginx][:headers][:version]      = '0.25'
 default[:nginx][:redis][:version]        = '0.3.7'
