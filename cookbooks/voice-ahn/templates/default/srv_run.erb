@@ -8,7 +8,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export JAVA_OPTS='-Xms512m -Xmx2096m'
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
-export JRUBY_OPTS='<%= node[:jruby][:opts] %> -J-Djruby.compile.invokedynamic=true -J-Djruby.management.enabled=true'
+export JRUBY_OPTS='<%= node[:jruby][:opts] %> -J-Djruby.management.enabled=true'
 
 export AHN_ENV=<%= node[:etc][:railsenv] %>
 export RACK_ENV=<%= node[:etc][:railsenv] %>

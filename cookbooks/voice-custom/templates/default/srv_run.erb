@@ -7,9 +7,9 @@ export TZ=UTC
 export SUBSCRIBE_AMQP=1
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export JAVA_OPTS='-Xms512m -Xmx2096m'
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
-export JRUBY_OPTS='<%= node[:jruby][:opts] %> -J-Djruby.compile.invokedynamic=true'
-export JAVA_OPTS='-Xms512m -Xmx2096m -Djava.net.preferIPv4Stack=true'
+export JRUBY_OPTS='<%= node[:jruby][:opts] %>'
 
 cd <%= node[:voice_custom][:basedir] %>
 exec chpst -u <%= node[:wim][:user] %> ./custom.rb 2>&1
