@@ -3,10 +3,10 @@ BUNDLE_JOBS=4
 LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 LANGUAGE=en_US.UTF-8
-CFLAGS="-march=native -O3"
+CFLAGS='-march=native -O3'
 JDK_HOME=<%= node[:jdk][:home] %>
 JAVA_HOME=<%= node[:jdk][:home] %>
 AHN_ENV=<%= node[:etc][:railsenv] %>
 RAILS_ENV=<%= node[:etc][:railsenv] %>
-JRUBY_OPTS="-J-XX:+UseCodeCacheFlushing"
-PATH="<%= node[:jdk][:home] %>/bin:<%= node[:etc][:path] %>"
+JRUBY_OPTS='<%= node[:jruby][:opts] %>'
+PATH='<%= node[:jdk][:home] %>/bin:<%= node[:etc][:path] %>'

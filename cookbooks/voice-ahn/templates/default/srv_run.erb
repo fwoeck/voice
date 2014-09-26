@@ -6,9 +6,9 @@ source <%= node[:rvm][:basedir] %>/scripts/rvm
 export TZ=UTC
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export JAVA_OPTS='-Xms512m -Xmx2096m'
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
-export JRUBY_OPTS='<%= node[:jruby][:opts] %>'
-export JAVA_OPTS='-Xms512m -Xmx2096m -Djava.net.preferIPv4Stack=true -Dcom.sun.management.jmxremote'
+export JRUBY_OPTS='<%= node[:jruby][:opts] %> -J-Djruby.compile.invokedynamic=true -J-Djruby.management.enabled=true'
 
 export AHN_ENV=<%= node[:etc][:railsenv] %>
 export RACK_ENV=<%= node[:etc][:railsenv] %>
