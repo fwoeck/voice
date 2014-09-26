@@ -51,7 +51,7 @@ default[:jdk][:opts]                     = '-server -Djava.awt.headless=true -XX
 
 default[:jruby][:baseapi]                = '1.9'
 default[:jruby][:version]                = '1.7.15'
-default[:jruby][:opts]                   = '-J-XX:+UseCodeCacheFlushing -J-Djruby.jit.background=false -J-Dfile.encoding=UTF-8 -J-Djruby.jit.threshold=5 -J-Djruby.compile.mode=JIT -J-server'
+default[:jruby][:opts]                   = '-J-XX:+UseCodeCacheFlushing -J-Djruby.cext.enabled=false -J-Djruby.compat.version=1.9 -J-Dfile.encoding=UTF-8 -J-Djruby.jit.threshold=5 -J-Djruby.compile.mode=JIT -J-server -J-XX:+UseConcMarkSweepGC'
 
 default[:mongodb][:db][:development]     = 'voice_development'
 default[:mongodb][:db][:production]      = 'voice_production'
