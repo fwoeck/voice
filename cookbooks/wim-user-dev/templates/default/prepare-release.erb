@@ -24,7 +24,7 @@ if [[ $resp1 =~ ^(Y|y)$ ]]; then
     git checkout develop
     git flow release start $newrelease
     sleep 1
-    git flow release finish --nobackmerge --fetch --push --message $newrelease --squash $newrelease
+    git flow release finish --nobackmerge --fetch --push --message $newrelease $newrelease
     sleep 1
     git checkout develop
     git merge master -m "Back-merged master from release #{$newrelease}"
