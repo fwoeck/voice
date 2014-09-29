@@ -7,7 +7,7 @@ export TZ=UTC
 export SUBSCRIBE_AMQP=1
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export JAVA_OPTS='-Xms512m -Xmx2096m'
+export JAVA_OPTS='<%= node[:jdk][:memory] %>'
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
 export JRUBY_OPTS='<%= node[:jruby][:opts] %>'
 <% unless node[:roles].include?('desktop') %>
