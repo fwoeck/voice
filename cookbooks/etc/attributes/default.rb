@@ -47,12 +47,11 @@ default[:git][:github][:token]           = 'replaceme'
 
 default[:jdk][:home]                     = '/opt/jdk'
 default[:jdk][:version]                  = '1.8.0_20'
-default[:jdk][:memory]                   = '-Xmn512m -Xms2048m -Xmx2048m'
-default[:jdk][:opts]                     = '-server -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly'
+default[:jdk][:opts]                     = '-Xmn512m -Xms2048m -Xmx2048m -server -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly'
 
 default[:jruby][:baseapi]                = '1.9'
 default[:jruby][:version]                = '1.7.15'
-default[:jruby][:opts]                   = '-J-XX:+UseCodeCacheFlushing -J-Djruby.thread.pooling=true -J-Djruby.cext.enabled=false -J-Djruby.compat.version=1.9 -J-Dfile.encoding=UTF-8 -J-Djruby.jit.threshold=5 -J-Djruby.compile.mode=JIT -J-server -J-XX:+UseConcMarkSweepGC'
+default[:jruby][:opts]                   = '-J-XX:+UseCodeCacheFlushing -J-Djruby.thread.pooling=true -J-Djruby.cext.enabled=false -J-Djruby.compat.version=1.9 -J-Dfile.encoding=UTF-8 -J-Djruby.jit.threshold=5 -J-Djruby.compile.mode=JIT -J-server'
 
 default[:mongodb][:db][:development]     = 'voice_development'
 default[:mongodb][:db][:production]      = 'voice_production'

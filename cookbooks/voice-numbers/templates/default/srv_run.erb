@@ -6,7 +6,7 @@ source <%= node[:rvm][:basedir] %>/scripts/rvm
 export TZ=UTC
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export JAVA_OPTS='<%= node[:jdk][:memory] %>'
+export JAVA_OPTS='<%= node[:jdk][:opts] %>'
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
 export JRUBY_OPTS='<%= node[:jruby][:opts] %>'
 
