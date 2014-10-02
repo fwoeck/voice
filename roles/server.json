@@ -32,6 +32,7 @@
     "recipe[voice-numbers]",
     "recipe[elasticsearch]",
     "recipe[flashphoner]",
+    "recipe[duplicity]",
     "recipe[tigervnc]",
     "recipe[nginx]",
     "recipe[vim]"

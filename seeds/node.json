@@ -24,5 +24,11 @@
     "pass":     "s4cr4t",
     "trunk":    "11111111111111"
   },
+  "aws": {
+    "gpg_pass":  "for-aes-encryption",
+    "key_id":    "your-aws-key-id",
+    "secret":    "your-aws-secret",
+    "s3_backup": "s3-eu-west-1.amazonaws.com/<bucket-name>"
+  },
   "run_list": ["role[server]"]
 }

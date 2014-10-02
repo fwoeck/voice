@@ -3,6 +3,10 @@ default[:ahn][:ami_user]                 = 'ahn_ami'
 default[:ahn][:ami_host]                 = '127.0.0.1'
 
 default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com/wimdu'
+default[:aws][:gpg_pass]                 = '' # Set these in /etc/chef/client.json
+default[:aws][:key_id]                   = '' #
+default[:aws][:secret]                   = '' #
+default[:aws][:s3_backup]                = '' #
 
 default[:asterisk][:version]             = '11.13.0'
 default[:asterisk][:g729_checksum]       = '8bbd222c2b1f7883d16387809ad7bfdc85f8e32a7fb5b73e499b1740a93664b1'

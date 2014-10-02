@@ -1,0 +1,14 @@
+- /dev
+- /home/*/.cache
+- /lost+found
+- /media
+- /mnt
+- /proc
+- /root/.cache
+- /run
+- /sys
+- /tmp
+- /var/cache/*/*
+- /var/log
+- /var/run
+- /var/tmp
