@@ -31,8 +31,8 @@
     "s3_backup": "s3-eu-west-1.amazonaws.com/<bucket-name>"
   },
   "smtp": {
-    "address": "email-smtp.eu-west-1.amazonaws.com",
-    "port":    "25",
+    "address":  "email-smtp.eu-west-1.amazonaws.com",
+    "port":     "25",
     "username": "your-smtp-user",
     "password": "your-smtp-pass"
   },
