@@ -86,6 +86,8 @@ default[:opus][:version]                 = '1.1'
 default[:phantomjs][:version]            = '1.9.8'
 default[:phantomjs][:basedir]            = '/usr/local/bin'
 
+default[:postfix][:mail_domain]          = 'dokmatic.com'
+default[:postfix][:local_admin]          = 'frank.woeckener@wimdu.com'
 default[:postfix][:remote_admin]         = 'frank.woeckener@wimdu.com'
 
 default[:puma][:host]                    = '127.0.0.1'

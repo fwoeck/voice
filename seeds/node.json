@@ -30,5 +30,11 @@
     "secret":    "your-aws-secret",
     "s3_backup": "s3-eu-west-1.amazonaws.com/<bucket-name>"
   },
+  "smtp": {
+    "address": "email-smtp.eu-west-1.amazonaws.com",
+    "port":    "25",
+    "username": "your-smtp-user",
+    "password": "your-smtp-pass"
+  },
   "run_list": ["role[server]"]
 }

@@ -24,6 +24,7 @@
     "recipe[rvm]",
     "recipe[mri]",
     "recipe[jruby]",
+    "recipe[postfix]",
     "recipe[voice-ahn]",
     "recipe[voice-push]",
     "recipe[voice-rails]",
