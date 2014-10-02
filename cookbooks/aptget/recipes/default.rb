@@ -86,7 +86,6 @@ end
   mercurial
   module-assistant
   mosh
-  munin
   mysql-server
   mytop
   ngrep

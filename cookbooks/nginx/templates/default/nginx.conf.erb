@@ -110,15 +110,6 @@ http {
       add_header Cache-Control no-cache;
     }
 
-    location /munin/www/ {
-      expires modified +310s;
-      root /var/cache/;
-      <% unless node[:roles].include?('desktop') %>
-      allow 127.0.0.1;
-      deny all;
-      <% end %>
-    }
-
 <% if node[:roles].include?('desktop') %>
 <% else %>
     location /record/ {
