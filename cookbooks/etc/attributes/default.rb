@@ -236,8 +236,6 @@ default_tags:
   solved:      "Solved"
   closed:      "Closed"
   pending:     "Pending"
-  mailbox:     "Mailbox"
-  outbound:    "Outbound"
 EOF
 
 # The frontend supports up to six different languages/skills.
