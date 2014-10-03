@@ -100,6 +100,10 @@ link '/etc/service/voice-ahn' do
   to '/etc/sv/voice-ahn'
 end
 
+directory '/var/lib/asterisk/sounds/wimdu' do
+  mode 00755
+end
+
 bash 'install_voice_sounds' do
   cwd '/var/lib/asterisk/sounds/wimdu'
 
