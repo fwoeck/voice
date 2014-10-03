@@ -130,7 +130,7 @@ end
 cron 'purge_old_wav_records' do
   minute  '35'
   hour    '3'
-  command %Q{find /var/punchblock/record -type f -mtime +7 -exec rm -f {} \; 2>/dev/null}
+  command %Q{find /var/punchblock/record -type f -mtime +7 -exec rm -f {} \\; 2>/dev/null}
 end
 
 directory '/var/spool/asterisk' do

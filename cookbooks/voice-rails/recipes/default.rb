@@ -137,5 +137,5 @@ end
 cron 'purge_old_mp3_records' do
   minute  '36'
   hour    '3'
-  command %Q{find #{node[:voice_rails][:basedir]}/public/record -type f -mtime +30 -exec rm -f {} \; 2>/dev/null}
+  command %Q{find #{node[:voice_rails][:basedir]}/public/record -type f -mtime +30 -exec rm -f {} \\; 2>/dev/null}
 end
