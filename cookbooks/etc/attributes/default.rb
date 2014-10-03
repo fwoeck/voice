@@ -20,14 +20,8 @@ default[:etc][:domain]                   = 'wimdu.com'
 default[:etc][:domain_hostname]          = 'wim01.wimdu.com' # This is the main deployment target
 default[:etc][:domain_host]              =  false            # Set this to true in /etc/chef/client.json, if we are wim01
 default[:etc][:ext_interface]            = 'eth0'
-default[:etc][:ip_blacklist]             = [ # Last update 2014-06-15
-                                             '23.250.10.130',   # !
-                                             '37.8.0.0/16',     # !
-                                             '37.59.0.0/16',    # !
-                                             '37.75.0.0/16',    # !
-                                             '37.187.0.0/16',   # !
-                                             '64.23.56.18'
-                                           ]
+default[:etc][:ip_blacklist]             = ['23.250.10.130', '37.8.0.0/16', '37.59.0.0/16', '37.75.0.0/16', '37.187.0.0/16']
+default[:etc][:ip_whitelist]             = []
 default[:etc][:external_ip]              = ''            # Set this in the Vagrantfile or /etc/chef/client.json
 default[:etc][:internal_ip]              = '127.0.1.1'   # Caution: changing this will break things
 default[:etc][:railsenv]                 = 'production'
