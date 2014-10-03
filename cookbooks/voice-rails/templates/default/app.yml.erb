@@ -1,4 +1,5 @@
 ---
+hostname:        "<%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>"
 sip_host:        "<%= node[:etc][:external_ip] %>"
 rabbit_host:     "<%= node[:rabbitmq][:host] %>"
 rabbit_pass:     "<%= node[:rabbitmq][:pass] %>"
