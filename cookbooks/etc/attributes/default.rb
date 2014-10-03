@@ -142,6 +142,7 @@ default[:voice_chef][:basedir]           = '/opt/voice-chef'
 
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
 default[:voice_ahn][:logdir]             =  default[:etc][:logdir] + '/voice-ahn'
+default[:voice_ahn][:record]             = '/var/punchblock'
 
 default[:voice_custom][:basedir]         = '/opt/voice-custom'
 default[:voice_custom][:logdir]          =  default[:etc][:logdir] + '/voice-custom'

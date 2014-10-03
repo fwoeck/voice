@@ -115,13 +115,13 @@ directory '/var/run/asterisk' do
   owner 'asterisk'
 end
 
-directory '/var/punchblock' do
+directory node[:voice_ahn][:record] do
   owner 'asterisk'
   group 'admin'
   mode   00750
 end
 
-directory '/var/punchblock/record' do
+directory "#{node[:voice_ahn][:record]}/record" do
   owner 'asterisk'
   group 'admin'
   mode   02770
@@ -130,7 +130,7 @@ end
 cron 'purge_old_wav_records' do
   minute  '35'
   hour    '3'
-  command %Q{find /var/punchblock/record -type f -mtime +7 -exec rm -f {} \\; 2>/dev/null}
+  command %Q{find #{node[:voice_ahn][:record]}/record -type f -mtime +7 -exec rm -f {} \\; 2>/dev/null}
 end
 
 directory '/var/spool/asterisk' do
