@@ -1,0 +1,61 @@
+SHA1 Fingerprint=D3:80:1D:D0:15:0D:77:4F:16:F4:2C:E3:28:72:88:B1:A6:56:70:84
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            9c:b7:92:0b:71:12:38:4d
+        Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=DE, ST=Berlin, L=Berlin, O=Wimdu, OU=Voice, CN=*.wimdu.com/emailAddress=frank.woeckener@wimdu.com
+        Validity
+            Not Before: Oct  3 04:32:56 2014 GMT
+            Not After : Sep 30 04:32:56 2024 GMT
+        Subject: C=DE, ST=Berlin, L=Berlin, O=Wimdu, OU=Voice, CN=*.wimdu.com/emailAddress=frank.woeckener@wimdu.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+            RSA Public Key: (2048 bit)
+                Modulus (2048 bit):
+                    00:e4:a6:96:b8:77:da:a9:e8:c0:1b:a5:9d:30:5f:
+                    b7:50:95:bc:f9:c0:c1:04:3b:51:5b:55:ac:4b:df:
+                    21:81:c0:78:25:83:3e:e0:66:d7:aa:ef:c5:d3:d0:
+                    9c:cd:80:15:22:8a:d2:29:d0:02:c7:02:c0:7c:6a:
+                    1e:67:47:85:3e:c3:b1:61:f5:cd:9e:fd:9f:5d:41:
+                    fa:3a:9f:f6:1b:02:17:89:36:4e:d7:47:eb:6b:7a:
+                    e9:ad:5d:6e:0e:9e:51:b2:ac:95:ae:82:78:6f:b2:
+                    a8:12:e9:7c:36:b8:c9:19:60:b1:2f:78:cf:e3:0a:
+                    ae:03:70:46:0e:d3:ff:7b:c6:cd:e1:0c:c2:42:46:
+                    92:ad:7b:36:10:8d:eb:b0:be:46:c0:41:aa:fb:0a:
+                    c5:63:37:fe:0d:a1:7a:bc:17:cb:68:78:91:84:81:
+                    cd:30:9f:e9:c7:e0:79:93:84:e1:ba:56:63:d8:11:
+                    9b:ef:1b:a6:d4:ff:72:ab:40:bb:f5:68:b3:9e:0b:
+                    c6:ff:fa:30:fd:16:07:42:bb:cf:98:5d:a5:3a:cd:
+                    aa:bf:e2:4a:5f:47:ee:e0:40:47:33:a7:b5:3c:b7:
+                    38:eb:38:07:51:5a:74:fa:bf:8c:58:0d:e0:ce:62:
+                    31:79:23:2d:12:e7:27:5a:f1:59:d7:37:4b:c2:3c:
+                    6e:15
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                37:B3:19:35:58:C5:4D:8B:00:6B:9B:65:FA:80:83:AB:E8:A9:E8:A3
+            X509v3 Authority Key Identifier: 
+                keyid:37:B3:19:35:58:C5:4D:8B:00:6B:9B:65:FA:80:83:AB:E8:A9:E8:A3
+                DirName:/C=DE/ST=Berlin/L=Berlin/O=Wimdu/OU=Voice/CN=*.wimdu.com/emailAddress=frank.woeckener@wimdu.com
+                serial:9C:B7:92:0B:71:12:38:4D
+
+            X509v3 Basic Constraints: 
+                CA:TRUE
+    Signature Algorithm: sha1WithRSAEncryption
+        1a:03:d3:39:3c:5e:93:8c:36:de:53:79:58:ef:4e:df:a4:21:
+        88:ff:36:d2:0d:d4:e6:05:db:04:c8:3c:1c:b1:67:17:dc:44:
+        10:54:f6:57:d0:a9:c4:06:64:3f:71:60:41:29:f2:ec:fb:91:
+        f2:c6:41:90:7f:4e:29:1a:c3:30:77:7a:6d:10:99:03:67:d6:
+        6c:1d:19:77:a5:04:b0:85:80:08:69:c4:06:46:e9:56:e6:a2:
+        9f:de:9a:a4:77:42:04:20:a4:95:16:7e:3e:a5:f7:b4:41:4d:
+        f3:28:23:f8:75:f9:e5:11:95:83:cb:e9:75:01:b4:4c:55:18:
+        87:4d:7a:00:7a:18:ad:c0:0f:62:d8:a9:b0:ee:42:13:12:7e:
+        d2:fd:a1:34:83:57:7e:07:fa:f6:28:39:18:50:c3:d6:09:33:
+        e3:0e:40:cf:9d:cd:19:4c:f4:43:0d:cd:35:41:9d:30:e8:93:
+        53:fd:44:81:a9:ef:99:21:81:70:6c:e0:13:6f:0e:7c:ff:5e:
+        e2:ea:c6:31:88:35:58:6b:a2:89:c1:93:25:62:1d:99:d8:a2:
+        c1:f2:06:ec:03:15:5b:0d:e6:3a:8c:03:1b:29:e5:a1:c5:3a:
+        52:09:f7:35:6a:e8:71:2e:dc:b8:56:ea:72:de:e0:35:2b:a6:
+        83:bf:1d:8d
