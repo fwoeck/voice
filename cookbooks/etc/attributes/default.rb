@@ -238,6 +238,10 @@ default_tags:
   mailbox:     "Mailbox"
 EOF
 
+# The frontend supports up to six different languages/skills.
+# If you don't require multiple options, you may remove all
+# alternatives but the "d"-entry, which is used as default.
+#
 default[:agent][:menu] = <<-EOF
 language_menu:
   1: de
