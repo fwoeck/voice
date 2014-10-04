@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf /var/lib/backup/mongodump
+mongodump --quiet --out /var/lib/backup/mongodump
+/usr/bin/duply <%= node[:hostname][/[^.]+/] %> backup >/dev/null

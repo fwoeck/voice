@@ -9,6 +9,7 @@
 - /sys
 - /tmp
 - /var/cache/*/*
+- /var/lib/mongodb
 - /var/log
 - /var/run
 - /var/tmp

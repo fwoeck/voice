@@ -23,11 +23,16 @@ template "/root/.duply/#{node[:hostname][/[^.]+/]}/conf" do
   mode    00644
 end
 
+template '/root/bin/s3_backup' do
+  source 's3_backup.erb'
+  mode    00755
+end
+
 cron 'weekly_s3_backup' do
   minute  '38'
   hour    '4'
   weekday '0'
 
-  command "/usr/bin/duply #{node[:hostname][/[^.]+/]} backup >/dev/null"
+  command '/root/bin/s3_backup'
   not_if { node[:roles].include?('desktop') }
 end
