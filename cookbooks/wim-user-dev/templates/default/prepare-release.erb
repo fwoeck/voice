@@ -3,7 +3,7 @@ set -e
 
 cd <%= node[:voice_rails][:basedir] %> || :
 source <%= node[:rvm][:basedir] %>/scripts/rvm
-newrelease=0.0.$(($(git tag | sort | tail -1 | cut -d. -f3)+1))
+newrelease=0.1.`printf "%02d" $(($(git tag | sort | tail -1 | cut -d. -f3)+1))`
 
 echo "This will create the release version $newrelease for all projects."
 echo "Make sure, you have no uncommitted changes in VR, VA, VN or VP and"
