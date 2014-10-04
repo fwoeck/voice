@@ -13,3 +13,4 @@
 - /var/log
 - /var/run
 - /var/tmp
+- /opt/log
