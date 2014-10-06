@@ -212,10 +212,18 @@ roles:
   admin:       "Administrator"
 
 skills:
-  new_booking: "New bookings"
-  ext_booking: "Existing bookings"
-  payment:     "Invoices & payment"
-  other:       "General inquiries"
+  new_booking:
+    en:        "New booking"
+    de:        "Neue Buchung"
+  ext_booking:
+    en:        "Existing booking"
+    de:        "Bestehende Buchung"
+  payment:
+    en:        "Invoices & payment"
+    de:        "Rechnungen & Zahlung"
+  other:
+    en:        "General inquiries"
+    de:        "Andere Anliegen"
 
 availability:
   ready:       "I'm ready for calls"
