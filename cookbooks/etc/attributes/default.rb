@@ -205,6 +205,10 @@ languages:
   it:          "Parlo italiano"
   es:          "Hablo español"
 
+ui_locales:
+  -            "en"
+  -            "de"
+
 roles:
   agent:       "Agent"
   trainer:     "Trainer"
