@@ -27,6 +27,7 @@ end
   expect
   exuberant-ctags
   fail2ban
+  firefox
   flex
   freetds-dev
   g++
@@ -98,7 +99,6 @@ end
   python-numpy
   python-pyinotify
   python-software-properties
-  remmina
   runit
   s3cmd
   scons

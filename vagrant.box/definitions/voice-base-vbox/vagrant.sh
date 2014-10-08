@@ -2,13 +2,10 @@ set -ex
 
 date > /etc/vagrant_box_build_time
 
-# Setup sudo to allow no-password sudo for "sudo"
 usermod -a -G sudo vagrant
 
-# Set root password
 echo 'root:vagrant' | chpasswd
 
-# Installing vagrant keys
 mkdir -p /home/vagrant/.ssh
 chmod 700 /home/vagrant/.ssh
 cd /home/vagrant/.ssh
