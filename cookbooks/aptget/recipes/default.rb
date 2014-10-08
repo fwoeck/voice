@@ -83,7 +83,6 @@ end
   linux-lowlatency
   logwatch
   mailutils
-  mercurial
   module-assistant
   mosh
   mysql-server
