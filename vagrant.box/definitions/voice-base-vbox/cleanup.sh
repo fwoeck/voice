@@ -1,5 +1,6 @@
 set -ex
 
+dpkg -l | grep '\-3.13.0' | grep -v $(uname -r | sed 's/.low.*$//') | awk '{print $2}' | xargs apt-get -y purge
 apt-get -y autoremove
 apt-get clean
 
