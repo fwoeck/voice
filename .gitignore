@@ -4,3 +4,5 @@
 /.Trash*
 /*.xz
 /opt
+/vagrant.box/iso/*
+/vagrant.box/vendor/*

@@ -1,0 +1,39 @@
+require 'tmpdir'
+
+['voice-base'].each do |distro_release|
+
+	desc "Build VirtualBox box file & import it into Vagrant"
+	task "virtualbox:#{distro_release}:all" => [
+		"virtualbox:#{distro_release}:build_image",
+		"virtualbox:#{distro_release}:build_box",
+		"virtualbox:#{distro_release}:import_box"
+	]
+
+	desc "Build VirtualBox image"
+	task "virtualbox:#{distro_release}:build_image" do
+		sh "bundle exec veewee vbox build #{distro_release}-vbox --force --auto"
+		sh "bundle exec veewee vbox ssh #{distro_release}-vbox 'sudo poweroff'"
+		puts "Sleeping a few seconds, waiting for the VM to power off."
+		sh "sleep 30"
+	end
+
+	desc "Build VirtualBox box file"
+	task "virtualbox:#{distro_release}:build_box" do
+		require 'nokogiri'
+		sh "bundle exec veewee vbox export #{distro_release}-vbox --force"
+		sh "rm -rf tmp && mkdir tmp && cd tmp && tar xf ../#{distro_release}-vbox.box"
+		doc = Nokogiri.XML(File.open("tmp/box.ovf", "r"))
+		(doc / "StorageControllers > StorageController[name='IDE Controller'] > AttachedDevice[port='1']").remove
+		(doc / "SharedFolder").remove
+		File.open("tmp/box.ovf", "w") do |f|
+			doc.write_xml_to(f)
+		end
+		sh "cd tmp && tar -cf ../#{distro_release}-vbox.box *"
+		sh "rm -rf tmp"
+	end
+
+	desc "Import VirtualBox box file into Vagrant"
+	task "virtualbox:#{distro_release}:import_box" do
+		sh "vagrant box add voice-vbox #{distro_release}-vbox.box --force"
+	end
+end
