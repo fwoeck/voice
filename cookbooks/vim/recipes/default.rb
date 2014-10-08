@@ -1,20 +1,15 @@
-bash 'clone_vim' do
-  user 'root'
-  cwd   Chef::Config['file_cache_path']
-
-  code <<-EOH
-    rm -rf vim
-    hg clone https://vim.googlecode.com/hg/ vim
-  EOH
-
-  not_if { File.exists?('/usr/local/bin/vim') }
-end
-
-cookbook_file Chef::Config['file_cache_path'] + "/vim/src/Makefile" do
+cookbook_file Chef::Config['file_cache_path'] + "/vim.makefile" do
   owner  'root'
   source 'Makefile'
 
   not_if { File.exists?('/usr/local/bin/vim') }
+end
+
+tar_name = "vim-#{node[:vim][:version]}"
+
+remote_file "#{Chef::Config['file_cache_path']}/#{tar_name}.tgz" do
+  source "#{node[:aws][:cdn]}/#{tar_name}.tgz"
+  notifies :run, 'bash[install_vim]', :immediately
 end
 
 directory "#{node[:wim][:home]}/.vim" do
@@ -41,7 +36,9 @@ bash 'install_vim' do
   cwd   Chef::Config['file_cache_path']
 
   code <<-EOH
-    cd vim/src
+    tar -zxf #{tar_name}.tgz
+    cp -f vim.makefile #{tar_name}/src/Makefile
+    cd #{tar_name}/src
     make -j3
     make install
     cd ../..

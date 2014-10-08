@@ -127,6 +127,7 @@ default[:smtp][:username]                = 'replaceme'
 default[:smtp][:password]                = 'replaceme'
 
 default[:tmux][:version]                 = '1.9a'
+default[:vim][:version]                  = '7-4-465'
 
 default[:vagrant][:gateway]              = '33.33.33.1'
 default[:vagrant][:local_net]            = '192.168.10.0'
