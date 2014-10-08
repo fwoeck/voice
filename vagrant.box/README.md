@@ -2,6 +2,11 @@
 
 ## Downloads a prebuilt base box:
 
+Prerequisites:
+- VirtualBox with Extension Pack
+- Vagrant with vagrant-omnibus Plugin
+- ruby2 for building the Vagrant box
+
 ```
 > git clone git@github.com:fwoeck/voice-chef.git voice
 > cd voice
