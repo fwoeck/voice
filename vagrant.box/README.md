@@ -14,6 +14,6 @@
 ```
 > cd vagrant.box
 > bundle install --path=vendor
-> chmod 400 vagrant_insecure.key
+> chmod 600 vagrant_insecure.key
 > bundle exec rake virtualbox:voice-base:all
 ```

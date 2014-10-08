@@ -16,7 +16,6 @@ echo "pre-up sleep 2" >> /etc/network/interfaces
 rm -f /home/vagrant/*.sh
 rm -f /home/vagrant/*.gz
 rm -f /home/vagrant/*.iso
-rm -f /home/vagrant/_*
 
 dd if=/dev/zero of=/EMPTY bs=1M || true
 rm -f /EMPTY
