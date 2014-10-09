@@ -195,8 +195,8 @@ default[:crm_provider][:ticket_url]      = "https://#{default[:crm_provider][:do
 #    MUST end with a "y", whereas plural keys (e.g. skills)
 #    must NOT.
 #
-# -> We need "admin" to be one of the roles. Admins have
-#    special rights.
+# -> We need "admin" and "agent" to be among the roles.
+#    Admins have special rights, agents receive calls.
 #
 default[:agent][:attributes] = <<-EOF
 languages:
