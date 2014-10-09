@@ -58,7 +58,7 @@ default[:mongodb][:host]                 = '127.0.0.1'
 default[:mongodb][:port]                 =  27017
 
 default[:mri][:baseapi]                  = '2.1.0'
-default[:mri][:version]                  = '2.1.2'
+default[:mri][:version]                  = '2.1.3'
 
 default[:mysql][:wim_pass]               = '***REMOVED***'
 default[:mysql][:wim_user]               = 'astrealtime'
