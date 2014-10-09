@@ -1,5 +1,5 @@
 git node[:voice_rails][:basedir] do
-  repository "git@#{node[:wim][:gitbase]}/voice-rails.git"
+  repository "#{node[:wim][:gitbase]}/voice-rails.git"
   revision    node[:etc][:default_branch]
   action     :sync
   user        node[:wim][:user]
