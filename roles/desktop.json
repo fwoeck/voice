@@ -1,6 +1,6 @@
 {
   "name": "desktop",
-  "description": "local Voice dev-host setup",
+  "description": "local Voice dev setup",
   "json_class": "Chef::Role",
   "default_attributes": {
   },

@@ -33,35 +33,96 @@ Vagrant.configure('2') do |config|
     chef.add_role('desktop')
 
     chef.json = {
+      'ahn' => {
+        'ami_pass' => 's3cr3t'
+      },
+      'aws' => {
+        'gpg_pass'  => 's3cr3t',
+        'key_id'    => '<your-aws-key-id>',
+        'secret'    => '<your-aws-secret>',
+        's3_backup' => 's3-eu-west-1.amazonaws.com/<bucket-name>'
+      },
+      'crm_provider' => {
+        'name'       => 'Zendesk',
+        'user'       => '<your-email>',
+        'pass'       => 's3cr3t',
+        'domain'     => '<zendesk-domain>',
+        'api_url'    => 'https://<zendesk-domain>.zendesk.com/api/v2',
+        'user_url'   => 'https://<zendesk-domain>.zendesk.com/agent/#/users/USERID/requested_tickets',
+        'ticket_url' => 'https://<zendesk-domain>.zendesk.com/agent/#/tickets/TID'
+      },
       'etc' => {
-        'external_ip' => ipaddress
+        'domain_host'     => true,
+        'domain'          => '<your-domain-name>',
+        'domain_hostname' => '<your-host-name>',
+        'ext_interface'   => 'eth0',
+        'external_ip'     => ipaddress,
+        'ip_blacklist'    => ['23.250.10.130', '37.8.0.0/16', '37.59.0.0/16', '37.75.0.0/16', '37.187.0.0/16'],
+        'ip_whitelist'    => []
+      },
+      'mysql' => {
+        'wim_pass'  => 's3cr3t',
+        'root_pass' => 's3cr3t'
+      },
+      'postfix' => {
+        'mail_domain'  => '<your-mail-domain>',
+        'local_admin'  => 'local@email.com',
+        'remote_admin' => 'remote@email.com'
+      },
+      'rabbitmq' => {
+        'pass' => 's3cr3t'
+      },
+      'sipgate' => {
+        'activate'   => false,
+        'pass'       => 's3cr3t',
+        'trunk'      => '1111111t0',
+        'number'     => '1111111111',
+        'sms' => {
+          'apihost'  => 'api.sipgate.net',
+          'password' => 's3cr3t',
+          'user'     => '<your-sms-user>'
+        },
+        'proxy'      => 'sipconnect.sipgate.de'
+      },
+      'skype' => {
+        'activate' => false,
+        'pass'     => 's3cr3t',
+        'trunk'    => '11111111111111',
+        'proxy'    => 'sip.skype.com'
       },
       'smtp' => {
-        'address'     => 'email-smtp.eu-west-1.amazonaws.com',
-        'port'        => '25',
-        'username'    => 'changeme',
-        'password'    => 'changeme'
+        'address'  => 'email-smtp.eu-west-1.amazonaws.com',
+        'port'     => '25',
+        'username' => '<your-smtp-user>',
+        'password' => 's3cr3t'
+      },
+      'vagrant' => {
+        'gateway'    => '33.33.33.1',
+        'local_net'  => '192.168.50.0',
+        'local_mask' => '255.255.255.0'
+      },
+      'vnc' => {
+        'password' => 's3cr3t'
+      },
+      'voice_rails' => {
+        'keybase'    => 's3cr3t',
+        'admin' => {
+          'email'    => 'admin@email.com',
+          'fullname' => 'Your Name',
+          'password' => 'P4ssw0rd',
+          'secret'   => '0000',
+          'name'     => '999'
+        }
       },
       'git' => {
         'user' => {
-          'name'      => 'Change Me',
-          'email'     => 'change@me.com'
+          'name'  => '<Your Name>',
+          'email' => '<your-git-email>'
         },
         'github' => {
-          'user'      => 'changeme',
-          'token'     => 'replaceme'
-        },
-      },
-      'sipgate' => {
-        'activate'    =>  false,
-        'pass'        => 'replaceme',
-        'trunk'       => 'replaceme',
-        'number'      => 'replaceme'
-      },
-      'skype' => {
-        'activate'    =>  false,
-        'pass'        => 'replaceme',
-        'trunk'       => 'replaceme'
+          'user'  => '<your-github-user>',
+          'token' => 's3cr3t'
+        }
       }
     }
   end
