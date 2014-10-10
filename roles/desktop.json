@@ -1,29 +1,30 @@
 {
   "name": "desktop",
-  "description": "local Wimdu dev-machine setup",
+  "description": "local Voice dev-host setup",
   "json_class": "Chef::Role",
   "default_attributes": {
   },
   "override_attributes": {
     "etc": {
-      "railsenv": "development",
+      "railsenv":       "development",
       "default_branch": "develop"
     },
     "wim": {
-      "user": "vagrant",
-      "group": "vagrant",
-      "home": "/home/vagrant",
-      "branch": "develop",
-      "color": "green"
+      "user":    "vagrant",
+      "group":   "vagrant",
+      "home":    "/home/vagrant",
+      "gitbase": "git@github.com:fwoeck",
+      "branch":  "develop",
+      "color":   "green"
     },
     "rvm": {
       "basedir": "/home/vagrant/.rvm"
     },
     "jruby": {
-      "opts": "-J-Dfile.encoding=utf8"
+      "opts": "-J-Djruby.cext.enabled=false -J-Djruby.compat.version=1.9 -J-Dfile.encoding=UTF-8"
     }
   },
-  "chef_type": "role",
+  "chef_type":   "role",
   "run_list": [
     "role[server]",
     "recipe[wim-user-dev]",

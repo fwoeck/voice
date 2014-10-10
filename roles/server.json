@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "description": "external Wimdu voice setup",
+  "description": "Voice server setup",
   "json_class": "Chef::Role",
   "default_attributes": {
   },

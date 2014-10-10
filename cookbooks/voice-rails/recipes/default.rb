@@ -80,6 +80,7 @@ else
       git reset --hard
       git checkout #{node[:etc][:default_branch]}
       bundle install --path=vendor/bundle --no-binstubs
+      RAILS_ENV=production bundle exec rake assets:precompile 2>/dev/null
     EOH
 
     not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/jruby/#{node[:jruby][:baseapi]}/gems"
