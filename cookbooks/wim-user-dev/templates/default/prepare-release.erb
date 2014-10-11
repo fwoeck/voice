@@ -34,15 +34,12 @@ fi
 
 echo
 echo "Ok, all done."
-read -q "resp2?Do you want to precompile and sync the rails assets? [y/N] "
+read -q "resp2?Do you want to deploy this release now? [y/N] "
 if [[ $resp2 =~ ^(Y|y)$ ]]; then
   echo
 
   cd <%= node[:voice_rails][:basedir] %> || :
   RAILS_ENV=production rake assets:precompile
-  rsync --delete -a ./public/assets wim@voice.dokmatic.com:<%= node[:voice_rails][:basedir] %>/public
+  rsync --delete -a ./public/assets voice:<%= node[:voice_rails][:basedir] %>/public
   rm -rf public/assets/*
 fi
-
-echo
-echo "Fine, now go to wim@voice.dokmatic.com and launch update-voice."

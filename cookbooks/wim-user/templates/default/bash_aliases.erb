@@ -160,11 +160,6 @@ alias  gfr='git flow release'
 alias gfrs='git flow release start'
 alias gfrf='git flow release finish --fetch --push --squash'
 
-alias    rsvc='rsync --delete -a ./vendor/cache wim01:$PWD/vendor'
-alias   wim01='mosh <%= node[:wim][:domain_user] %>@<%= node[:etc][:domain_hostname] %>'
-alias wim01-r='mosh root@<%= node[:etc][:domain_hostname] %>'
-alias wim01-p='ssh root@<%= node[:etc][:domain_hostname] %> "chef-client -j /etc/chef/client.json"'
-
 alias   ct='ctags -R app/* config/* lib/* spec/* --exclude=app/views'
 alias  rap='rake assets:precompile'
 alias v4l2='gst-launch-0.10 videotestsrc ! v4l2sink device=/dev/video0'
