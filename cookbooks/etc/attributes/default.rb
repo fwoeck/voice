@@ -115,7 +115,6 @@ default[:voice_numbers][:stats_rrd]      =  default[:voice_numbers][:basedir] + 
 
 default[:v4l2][:basedir]                 = '/opt/v4l2'
 
-default[:wim][:gitbase]                  = 'git://github.com/fwoeck'
 default[:wim][:user]                     = 'wim'
 default[:wim][:group]                    = 'wim'
 default[:wim][:home]                     = '/home/wim'

@@ -90,5 +90,8 @@
       "name":     "999"
     }
   },
+  "wim": {
+    "gitbase": "git://github.com/fwoeck"
+  },
   "run_list": ["role[server]"]
 }

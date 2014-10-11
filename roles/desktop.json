@@ -10,12 +10,11 @@
       "default_branch": "develop"
     },
     "wim": {
-      "user":    "vagrant",
-      "group":   "vagrant",
-      "home":    "/home/vagrant",
-      "gitbase": "git@github.com:fwoeck",
-      "branch":  "develop",
-      "color":   "green"
+      "user":   "vagrant",
+      "group":  "vagrant",
+      "home":   "/home/vagrant",
+      "branch": "develop",
+      "color":  "green"
     },
     "rvm": {
       "basedir": "/home/vagrant/.rvm"
