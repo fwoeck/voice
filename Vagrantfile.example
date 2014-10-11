@@ -56,7 +56,7 @@ Vagrant.configure('2') do |config|
         'ext_interface'   => 'eth0',
         'external_ip'     => ipaddress,
         'ip_blacklist'    => ['23.250.10.130', '37.8.0.0/16', '37.59.0.0/16', '37.75.0.0/16', '37.187.0.0/16'],
-        'ip_whitelist'    => []
+        'ip_whitelist'    => ['33.33.33.1']
       },
       'mysql' => {
         'wim_pass'  => '<password>',
