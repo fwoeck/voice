@@ -90,7 +90,6 @@ default[:vnc][:version]                  = '1.3.1'
 default[:vnc][:basedir]                  = '/opt/tigervnc'
 
 default[:voice_specs][:basedir]          = '/opt/voice-specs'
-default[:voice_chef][:basedir]           = '/opt/voice-chef'
 
 default[:voice_ahn][:basedir]            = '/opt/voice-ahn'
 default[:voice_ahn][:logdir]             =  default[:etc][:logdir] + '/voice-ahn'
