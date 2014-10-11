@@ -13,7 +13,7 @@ read -q "resp1?Should we proceed? [y/N] "
 if [[ $resp1 =~ ^(Y|y)$ ]]; then
   echo
 
-  for project in "<%= node[:voice_rails][:basedir] %>" "<%= node[:voice_ahn][:basedir] %>" "<%= node[:voice_custom][:basedir] %>" "<%= node[:voice_push][:basedir] %>" "<%= node[:voice_numbers][:basedir] %>"
+  for project in "<%= node[:voice_rails][:basedir] %>" "<%= node[:voice_ahn][:basedir] %>" "<%= node[:voice_custom][:basedir] %>" "<%= node[:voice_push][:basedir] %>" "<%= node[:voice_numbers][:basedir] %>" "<%= node[:voice_specs][:basedir] %>"
   do
     echo
     echo ">> Preparing $project"
