@@ -24,14 +24,20 @@ alias psg='ps aux | grep -v grep | grep -v tail | grep -i'
 alias  cs='chef-solo'
 
 function gg() {
-  git grep -n "$*"
+  git grep -Iin "$*"
 }
 
-alias  gb='git branch'
-alias gba='git branch -a'
+alias gfa='git fetch --all'
+alias grh='git reset --hard'
+alias  gs='git show'
+alias  gt='git tag'
+alias   g='git status --short'
+alias  gr='git repack -a -d -f --depth=250 --window=250'
+alias gll='git pull'
 alias gco='git checkout'
 alias  gd='git diff'
 alias   g='git status --short'
+alias  gl='git log'
 
 alias  j='jobs'
 alias ,,='fg %+'
