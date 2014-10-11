@@ -8,7 +8,7 @@ Prerequisites:
 - ruby2 for building the Vagrant box
 
 ```
-> git clone git@github.com:fwoeck/voice-chef.git voice
+> git clone git://github.com/fwoeck/voice.git
 > cd voice
 > cp Vagrantfile.example Vagrantfile
 > vagrant up
