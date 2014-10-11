@@ -1,5 +1,5 @@
 local user='%{$fg[<%= node[:wim][:color] %>]%}%n@%{$fg[<%= node[:wim][:color] %>]%}%m%{$reset_color%}'
-local pwd='%{$fg[cyan]%}%~%{$reset_color%}'
+local pwd='%{$fg[cyan]%}$(pwd)%{$reset_color%}'
 local rvm='[%{$fg[magenta]%}$(rvm-prompt i v g)%{$reset_color%}]'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local git_branch='[$(git_prompt_info)%{$reset_color%}$(git_prompt_status)%{$reset_color%}]'
