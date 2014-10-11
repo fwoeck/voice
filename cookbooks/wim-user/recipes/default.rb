@@ -134,13 +134,6 @@ cookbook_file "#{node[:wim][:home]}/.ctags" do
   group   node[:wim][:group]
 end
 
-cookbook_file "#{node[:wim][:home]}/.ssh/authorized_keys" do
-  source node[:roles].include?('desktop') ? 'authorized_keys' : 'authorized_keys.server'
-  owner  node[:wim][:user]
-  group  node[:wim][:group]
-  mode   00600
-end
-
 template "#{node[:wim][:home]}/bin/update-voice" do
   source 'update-voice.erb'
   owner   node[:wim][:user]
