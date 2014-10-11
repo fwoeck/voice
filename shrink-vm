@@ -1,10 +1,17 @@
 #!/bin/bash
 
-# You can convert an existing vmdk-file to vdi like so:
-# > VBoxManage clonehd --format vdi box-disk2.vmdk box-disk2.vdi
+# Convert an existing vmdk-file to vdi-format:
+
+# VM='voice01_voice01_1413015011139_20291'
+# cd /path-to/$VM
+#
+# vboxmanage storageattach $VM --storagectl 'SATA Controller' --port 0 --device 0 --type hdd --medium none
+# vboxmanage clonehd --format vdi box-disk1.vmdk box-disk1.vdi
+# vboxmanage closemedium disk box-disk1.vmdk --delete
+# vboxmanage storageattach $VM --storagectl 'SATA Controller' --port 0 --device 0 --type hdd --medium box-disk1.vdi
+# vboxmanage modifyhd box-disk1.vdi --compact
 
 ssh -i ~/.vagrant.d/insecure_private_key root@33.33.33.100 '/root/bin/shrink_disks'
 vagrant halt
 
-echo 'Now cd into the VMs folder, e.g. cd "$HOME/VirtualBox VMs"'
-echo 'and lauch "VBoxManage modifyhd box-disk2.vdi --compact"'
+echo 'Ok, now lauch "vboxmanage modifyhd box-disk1.vdi --compact" from within the VM folder.'

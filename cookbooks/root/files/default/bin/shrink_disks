@@ -2,22 +2,28 @@
 set -x
 
 sv d /etc/service/*
+
 service cron stop
-service asterisk stop
+service cups stop
 service nginx stop
 service mysql stop
 service mongod stop
-service rabbitmq-server stop
-service redis-server stop
-service fail2ban stop
 service postfix stop
-service cups stop
+service fail2ban stop
+service asterisk stop
+service redis-server stop
+service rabbitmq-server stop
 
+SD=$(swapon -s | grep dev | awk '{print $1}')
 swapoff -a
-dd if=/dev/zero of=/dev/sda5 bs=1M
-mkswap /dev/sda5
+
+dd if=/dev/zero of=$SD bs=1M
+mkswap $SD
 
 dd if=/dev/zero of=/empty.file bs=1M
+dd if=/dev/zero of=/boot/empty.file bs=1M
 sync
+
 rm /empty.file
+rm /boot/empty.file
 sync
