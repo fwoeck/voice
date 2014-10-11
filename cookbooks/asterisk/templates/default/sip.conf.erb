@@ -23,9 +23,9 @@ tlscertfile=/etc/asterisk/asterisk.pem
 tlscafile=/etc/asterisk/ca.crt
 tlscipher=ALL
 tlsclientmethod=tlsv1
-<% if node[:sipgate][:activate] %>
+<% if node[:sip_provider][:activate] %>
 
-register => <%= node[:sipgate][:trunk] %>:<%= node[:sipgate][:pass] %>@<%= node[:sipgate][:proxy] %>/<%= node[:sipgate][:trunk] %>
+register => <%= node[:sip_provider][:trunk] %>:<%= node[:sip_provider][:pass] %>@<%= node[:sip_provider][:proxy] %>/<%= node[:sip_provider][:trunk] %>
 <% end %>
 <% if node[:skype][:activate] %>
 
@@ -60,17 +60,17 @@ dtlscafile=/etc/asterisk/ca.crt
 dtlssetup=actpass
 
 [authentication]
-<% if node[:sipgate][:activate] %>
+<% if node[:sip_provider][:activate] %>
 
-[<%= node[:sipgate][:proxy] %>]
+[<%= node[:sip_provider][:proxy] %>]
   type=peer
-  host=<%= node[:sipgate][:proxy] %>
-  outboundproxy=<%= node[:sipgate][:proxy] %>
+  host=<%= node[:sip_provider][:proxy] %>
+  outboundproxy=<%= node[:sip_provider][:proxy] %>
   port=5060
-  defaultuser=<%= node[:sipgate][:trunk] %>
-  fromuser=<%= node[:sipgate][:trunk] %>
-  fromdomain=<%= node[:sipgate][:proxy] %>
-  secret=<%= node[:sipgate][:pass] %>
+  defaultuser=<%= node[:sip_provider][:trunk] %>
+  fromuser=<%= node[:sip_provider][:trunk] %>
+  fromdomain=<%= node[:sip_provider][:proxy] %>
+  secret=<%= node[:sip_provider][:pass] %>
   dtmfmode=rfc2833
   insecure=port,invite
   canreinvite=no

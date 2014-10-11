@@ -47,7 +47,7 @@
   "rabbitmq": {
     "pass": "<password>"
   },
-  "sipgate": {
+  "sip_provider": {
     "activate":   false,
     "pass":       "<password>",
     "trunk":      "1111111t0",
