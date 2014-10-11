@@ -42,4 +42,7 @@ if [[ $resp2 =~ ^(Y|y)$ ]]; then
   RAILS_ENV=production rake assets:precompile
   rsync --delete -a ./public/assets voice:<%= node[:voice_rails][:basedir] %>/public
   rm -rf public/assets/*
+  ssh -t voice '~/bin/update-voice'
+else
+  echo
 fi

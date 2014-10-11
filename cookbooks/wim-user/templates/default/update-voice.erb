@@ -17,4 +17,6 @@ if [[ $response =~ ^(Y|y)$ ]]; then
   cd <%= node[:voice_rails][:basedir] %>
   rake db:migrate
   sudo sv start /etc/service/voice-*
+else
+  echo
 fi
