@@ -19,6 +19,7 @@ cookbook_file '/etc/postfix/cacert.pem' do
   mode    00640
 
   notifies :restart, 'service[postfix]', :delayed
+  not_if { File.exists?('/etc/postfix/cacert.pem') }
 end
 
 template '/etc/aliases' do

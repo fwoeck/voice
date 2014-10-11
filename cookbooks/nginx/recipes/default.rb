@@ -67,11 +67,15 @@ end
 cookbook_file "#{node[:nginx][:basedir]}/conf/server.key" do
   owner node[:wim][:user]
   mode 00600
+
+  not_if { File.exists?("#{node[:nginx][:basedir]}/conf/server.key") }
 end
 
 cookbook_file "#{node[:nginx][:basedir]}/conf/server.crt" do
   owner node[:wim][:user]
   mode 00600
+
+  not_if { File.exists?("#{node[:nginx][:basedir]}/conf/server.crt") }
 end
 
 template "#{node[:nginx][:basedir]}/conf/nginx.conf" do

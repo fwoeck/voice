@@ -233,6 +233,7 @@ cookbook_file '/etc/asterisk/asterisk.pem' do
   mode 00600
 
   notifies :run, 'execute[restart-asterisk]', :delayed
+  not_if { File.exists?('/etc/asterisk/asterisk.pem') }
 end
 
 cookbook_file '/etc/asterisk/ca.crt' do
@@ -241,6 +242,7 @@ cookbook_file '/etc/asterisk/ca.crt' do
   mode 00644
 
   notifies :run, 'execute[restart-asterisk]', :delayed
+  not_if { File.exists?('/etc/asterisk/ca.crt') }
 end
 
 service 'asterisk' do
