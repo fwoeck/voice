@@ -1,7 +1,7 @@
 {
-  "name": "desktop",
+  "name":        "desktop",
   "description": "local Voice dev setup",
-  "json_class": "Chef::Role",
+  "json_class":  "Chef::Role",
   "default_attributes": {
   },
   "override_attributes": {
@@ -18,9 +18,6 @@
     },
     "rvm": {
       "basedir": "/home/vagrant/.rvm"
-    },
-    "jruby": {
-      "opts": "-J-Djruby.cext.enabled=false -J-Djruby.compat.version=1.9 -J-Dfile.encoding=UTF-8"
     }
   },
   "chef_type":   "role",

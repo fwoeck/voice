@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name":        "server",
   "description": "Voice server setup",
-  "json_class": "Chef::Role",
+  "json_class":  "Chef::Role",
   "default_attributes": {
   },
   "override_attributes": {

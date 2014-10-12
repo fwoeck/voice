@@ -2,7 +2,7 @@
 set -e
 
 export LD_LIBRARY_PATH=/usr/local/FlashphonerWebCallServer/lib/so
-export JAVA_OPTS='-Dfile.encoding=UTF-8 -server'
+export JAVA_OPTS='<%= node[:jdk][:opts] %>'
 export JAVA_HOME=/opt/jdk
 export JDK_HOME=/opt/jdk
 
