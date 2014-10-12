@@ -16,7 +16,7 @@
 #
 # and include the certs/server.crt with your SSL-key management.
 #
-# Be aware, that the provided SSL certificate is self-signed and gives
+# Be aware, that the provided SSL certificate is publicly available and gives
 # no real security. You can easily replace it by copying your own server
 # certificate to the following places after the first provisioning:
 #
