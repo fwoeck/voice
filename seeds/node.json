@@ -45,8 +45,8 @@
   },
   "postfix": {
     "mail_domain":  "<your-mx-host>",
-    "local_admin":  "admin@mail.com",
-    "remote_admin": "admin@mail.com"
+    "local_admin":  "<system-from-address>",
+    "remote_admin": "<system-to-address>"
   },
   "rabbitmq": {
     "pass": "<password>"

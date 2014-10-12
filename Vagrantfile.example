@@ -1,20 +1,40 @@
-# Compulsory parameters - start
+### Compulsory parameters - START
 
-host      = 'voice01'                 # Host name of this node
-domain    = 'wimdu.com'               # Domain name of this node
-fqdn      = "#{host}.#{domain}"
+# These are the minimal required options to be set before the initial provisioning.
+# It's typically not possible to change them later on w/o manual interaction.
+#
+# For easy interaction with the VM, add it's IP address and hostname to your
+# /etc/hosts file, to your ~/.ssh/config file and include the certs/server.crt
+# to your SSL-key management.
 
-ipaddress = '33.33.33.100'            # Ip address of external interface
-gateway   = '33.33.33.1'              # Ip address of gateway
-interface = 'eth0'                    # External interface
+host            = 'voice01'                 # Host name of the new virtual node
+domain          = 'wimdu.com'               # Domain name of this node
+fqdn            = "#{host}.#{domain}"
 
-localnet  = '192.168.178.0'           # Environmental local net
-netmask   = '255.255.255.0'           # Netmask of environment
+ipaddress       = '33.33.33.100'            # Ip address of external VM interface
+gateway         = '33.33.33.1'              # Ip address of VM gateway
+interface       = 'eth0'                    # External interface name in VM
 
-chef_role = 'desktop'                 # Set to 'server' for production-environment
-gitbase   = 'git://github.com/fwoeck' # Set to 'git@github.com:<gh-user>' for private forks
+localnet        = '192.168.178.0'           # Environmental local net, used for routing
+netmask         = '255.255.255.0'           # Netmask of environmental local net
 
-# Compulsory parameters - end
+chef_role       = 'desktop'                 # Set to 'server' for production-environments
+gitbase         = 'git://github.com/fwoeck' # Set to 'git@github.com:<gh-user>' for private forks
+
+ami_pass        = '<password>'              # Used to communicate with the Asterisk AMI
+mysql_wim_pass  = '<password>'              # Used for regular DB connections
+mysql_root_pass = '<password>'              # Used for root access to MySQL
+rabbitmq_pass   = '<password>'              # Used to access the AMQP-queue and it's FE
+vnc_pass        = '<password>'              # Used to connect to the local VNC server
+
+rails_keybase   = '<a-long-unique-key>'     # Used for rails' session management
+admin_email     = '<your-email-address>'    # Serves as admin login to the rails FE
+admin_fullname  = '<your-full-name>'        # The admin's full name
+admin_password  = '<password>'              # Used as password for FE-login
+admin_secret    = '0000'                    # Used as SIP secret for asterisk login
+admin_name      = '999'                     # The admin's SIP extension/name
+
+### Compulsory parameters - FINISH
 
 
 Vagrant.configure('2') do |config|
@@ -49,7 +69,7 @@ Vagrant.configure('2') do |config|
 
     chef.json = {
       'ahn' => {
-        'ami_pass' => '<password>'
+        'ami_pass' => ami_pass
       },
       'aws' => {
         'gpg_pass'  => '<password>',
@@ -89,16 +109,16 @@ Vagrant.configure('2') do |config|
         }
       },
       'mysql' => {
-        'wim_pass'  => '<password>',
-        'root_pass' => '<password>'
+        'wim_pass'  => mysql_wim_pass,
+        'root_pass' => mysql_root_pass
       },
       'postfix' => {
         'mail_domain'  => '<your-mx-host>',
-        'local_admin'  => 'admin@mail.com',
-        'remote_admin' => 'admin@mail.com'
+        'local_admin'  => '<system-from-address>',
+        'remote_admin' => '<system-to-address>'
       },
       'rabbitmq' => {
-        'pass' => '<password>'
+        'pass' => rabbitmq_pass
       },
       'sip_provider' => {
         'activate'   => false,
@@ -125,16 +145,16 @@ Vagrant.configure('2') do |config|
         'password' => '<password>'
       },
       'vnc' => {
-        'password' => '<password>'
+        'password' => vnc_pass
       },
       'voice_rails' => {
-        'keybase'    => '<a-very-long-unique-key>',
+        'keybase'    => rails_keybase,
         'admin' =>
-          'email'    => 'admin@email.com',
-          'fullname' => 'Admin User',
-          'password' => 'P4ssw0rd',
-          'secret'   => '0000',
-          'name'     => '999'
+          'email'    => admin_email,
+          'fullname' => admin_fullname,
+          'password' => admin_password,
+          'secret'   => admin_secret,
+          'name'     => admin_name
         }
       }
     }
