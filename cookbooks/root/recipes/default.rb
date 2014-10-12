@@ -27,3 +27,9 @@ directory '/root/.ssh' do
   group 'root'
   mode   00700
 end
+
+directory '/etc/chef' do
+  owner 'root'
+  group 'root'
+  mode   00700
+end
