@@ -149,7 +149,7 @@ Vagrant.configure('2') do |config|
       },
       'voice_rails' => {
         'keybase'    => rails_keybase,
-        'admin' =>
+        'admin' => {
           'email'    => admin_email,
           'fullname' => admin_fullname,
           'password' => admin_password,
