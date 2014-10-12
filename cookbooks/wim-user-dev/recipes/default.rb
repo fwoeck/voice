@@ -7,7 +7,7 @@ file '/opt/.metadata_never_index' do
 end
 
 file '/etc/exports' do
-  content "/opt #{node[:vagrant][:gateway]}(rw,async,insecure,no_subtree_check,all_squash,anonuid=1000,anongid=1000)\n"
+  content "/opt #{node[:etc][:gateway]}(rw,async,insecure,no_subtree_check,all_squash,anonuid=1000,anongid=1000)\n"
   notifies :run, 'bash[exportfs]', :immediately
 end
 

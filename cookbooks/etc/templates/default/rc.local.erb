@@ -26,5 +26,5 @@ su - -c '<%= node[:wim][:home] %>/bin/vnc' <%= node[:wim][:user] %>
 service fail2ban restart
 <% if node[:roles].include?('desktop') %>
 
-route add -net <%= node[:vagrant][:local_net] %> netmask <%= node[:vagrant][:local_mask] %> gw <%= node[:vagrant][:gateway] %>
+route add -net <%= node[:etc][:local_net] %> netmask <%= node[:etc][:local_mask] %> gw <%= node[:etc][:gateway] %>
 <% end %>
