@@ -119,7 +119,6 @@ default[:wim][:user]                     = 'wim'
 default[:wim][:group]                    = 'wim'
 default[:wim][:home]                     = '/home/wim'
 default[:wim][:domain_user]              = 'wim'
-default[:wim][:rails][:basedir]          = '/opt/voice-rails'
 default[:wim][:zshplugs]                 = 'last-working-dir'
 default[:wim][:color]                    = 'red'
 

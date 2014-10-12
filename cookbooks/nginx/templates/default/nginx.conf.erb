@@ -73,7 +73,7 @@ http {
 
     access_log logs/nginx.log main;
 
-    root <%= node[:wim][:rails][:basedir] %>/public;
+    root <%= node[:voice_rails][:basedir] %>/public;
     set_from_accept_language $lang en de;
 
     try_files $uri/index.html $uri @wimdu;
@@ -156,7 +156,7 @@ http {
 
     access_log logs/nginx-test.log main;
 
-    root <%= node[:wim][:rails][:basedir] %>/public;
+    root <%= node[:voice_rails][:basedir] %>/public;
     try_files $uri/index.html $uri;
 
     location ~ ^/events {

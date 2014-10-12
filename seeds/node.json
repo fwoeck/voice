@@ -29,6 +29,7 @@
     "local_mask":      "255.255.255.0"
   },
   "git": {
+    "gitbase": "git://github.com/fwoeck",
     "user": {
       "name":  "<your-name>",
       "email": "<your-git-email>"
@@ -86,9 +87,6 @@
       "secret":   "0000",
       "name":     "999"
     }
-  },
-  "wim": {
-    "gitbase": "git://github.com/fwoeck"
   },
   "run_list": ["role[server]"]
 }

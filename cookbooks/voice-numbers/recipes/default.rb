@@ -1,7 +1,7 @@
 package 'librrd-dev'
 
 git node[:voice_numbers][:basedir] do
-  repository "#{node[:wim][:gitbase]}/voice-numbers.git"
+  repository "#{node[:git][:gitbase]}/voice-numbers.git"
   revision    node[:etc][:default_branch]
   action     :sync
   user        node[:wim][:user]

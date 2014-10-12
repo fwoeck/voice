@@ -79,6 +79,7 @@ Vagrant.configure('2') do |config|
         'local_mask'      => netmask
       },
       'git' => {
+        'gitbase' => gitbase,
         'user' => {
           'name'  => '<your-name>',
           'email' => '<your-git-email>'
@@ -136,9 +137,6 @@ Vagrant.configure('2') do |config|
           'secret'   => '0000',
           'name'     => '999'
         }
-      },
-      'wim' => {
-        'gitbase' => gitbase
       }
     }
   end
