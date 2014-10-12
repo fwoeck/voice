@@ -27,3 +27,26 @@ template "#{node[:voice_specs][:basedir]}/.bundle/config" do
   owner     node[:wim][:user]
   group     node[:wim][:group]
 end
+
+bash 'install_voice_specs' do
+  user  node[:wim][:user]
+  group node[:wim][:group]
+  cwd   node[:voice_specs][:basedir]
+
+  code <<-EOH
+    export HOME=#{node[:wim][:home]}
+    export PATH=#{node[:jdk][:home]}/bin:$PATH
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+
+    source #{node[:rvm][:basedir]}/scripts/rvm
+    rvm use ruby-#{node[:mri][:version]}@global
+    git reset --hard
+    git checkout #{node[:etc][:default_branch]}
+    git submodule init
+    git submodule update
+    bundle install --path=vendor/bundle --no-binstubs
+  EOH
+
+  not_if "test -e #{node[:voice_specs][:basedir]}/vendor/bundle/ruby/#{node[:mri][:baseapi]}/gems"
+end
