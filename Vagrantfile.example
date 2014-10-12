@@ -1,19 +1,38 @@
 ### Compulsory parameters - START
 
 # These are the minimal required options to be set before the initial provisioning.
-# It's typically not possible to change them later on w/o manual interaction.
+# It might not be possible to change them later on without manual tweaking.
 #
-# For easy interaction with the VM, add it's IP address and hostname to your
-# /etc/hosts file, to your ~/.ssh/config file and include the certs/server.crt
-# to your SSL-key management.
+# For easy interaction with the VM, add it's IP address and hostname:
+#
+# - to your /etc/hosts file:
+#   33.33.33.100 voice01.wimdu.com
+#
+# - to your ~/.ssh/config file:
+#   Host voice01
+#     HostName voice01.wimdu.com
+#     IdentityFile ~/.vagrant.d/insecure_private_key
+#     User vagrant
+#
+# and include the certs/server.crt with your SSL-key management.
+#
+# Be aware, that the provided SSL certificate is self-signed and gives
+# no real security. You can easily replace it by copying your own server
+# certificate to the following places after the first provisioning:
+#
+#   /etc/asterisk/asterisk.pem
+#   /etc/asterisk/ca.crt
+#   /opt/nginx/conf/server.key
+#   /opt/nginx/conf/server.crt
+#   /etc/postfix/cacert.pem
 
 host            = 'voice01'                 # Host name of the new virtual node
-domain          = 'wimdu.com'               # Domain name of this node
-fqdn            = "#{host}.#{domain}"
+domain          = 'wimdu.com'               # Domain name of the VM
+fqdn            = "#{host}.#{domain}"       # Used for Asterisk- and Nginx access
 
 ipaddress       = '33.33.33.100'            # Ip address of external VM interface
 gateway         = '33.33.33.1'              # Ip address of VM gateway
-interface       = 'eth0'                    # External interface name in VM
+interface       = 'eth0'                    # External interface of the VM
 
 localnet        = '192.168.178.0'           # Environmental local net, used for routing
 netmask         = '255.255.255.0'           # Netmask of environmental local net
