@@ -3,4 +3,4 @@ postmaster:    root
 mailer-daemon: root
 nobody:        root
 root:          <%= node[:postfix][:remote_admin] %>
-<%= node[:wim][:user] %>:       <%= node[:postfix][:remote_admin] %>
+<%= node[:wim][:user] %>:           <%= node[:postfix][:remote_admin] %>

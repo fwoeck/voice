@@ -18,8 +18,8 @@ template '/etc/cron.daily/00logwatch' do
   mode 00755
 end
 
-cookbook_file '/usr/share/logwatch/default.conf/logwatch.conf' do
-  source 'logwatch.conf'
+template '/usr/share/logwatch/default.conf/logwatch.conf' do
+  source 'logwatch.conf.erb'
   mode 00644
 end
 
