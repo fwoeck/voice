@@ -73,7 +73,7 @@
   },
   "smtp": {
     "address":  "email-smtp.eu-west-1.amazonaws.com",
-    "port":     "25",
+    "port":     "587",
     "username": "<your-smtp-user>",
     "password": "<password>"
   },

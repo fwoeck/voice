@@ -1,1 +1,1 @@
-<%= node[:smtp][:address] %>:587 <%= node[:smtp][:username] %>:<%= node[:smtp][:password] %>
+<%= node[:smtp][:address] %>:<%= node[:smtp][:port] %> <%= node[:smtp][:username] %>:<%= node[:smtp][:password] %>
