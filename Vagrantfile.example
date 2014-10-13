@@ -98,7 +98,8 @@ Vagrant.configure('2') do |config|
         'gpg_pass'  => '<password>',
         'key_id'    => '<your-aws-key-id>',
         'secret'    => '<your-aws-secret>',
-        's3_backup' => 's3-eu-west-1.amazonaws.com/<bucket-name>'
+        's3_backup' => false,
+        's3_bucket' => 's3-eu-west-1.amazonaws.com/<bucket-name>'
       },
       'crm_provider' => {
         'name'       => 'Zendesk',

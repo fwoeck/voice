@@ -34,5 +34,5 @@ cron 'weekly_s3_backup' do
   weekday '0'
 
   command '/root/bin/s3_backup'
-  not_if { node[:roles].include?('desktop') }
+  only_if { node[:aws][:s3_backup] }
 end
