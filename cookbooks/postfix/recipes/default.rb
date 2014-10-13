@@ -2,7 +2,7 @@ bash 'install_postfix' do
   user 'root'
 
   code <<-EOH
-    DEBIAN_FRONTEND=noninteractive apt-get -y install dovecot-postfix
+    DEBIAN_FRONTEND=noninteractive apt-get -y install dovecot-postfix postfix-pcre
   EOH
 
   not_if "test -e /etc/postfix"
@@ -59,6 +59,13 @@ end
 
 template '/etc/postfix/sender_canonical' do
   source 'sender_canonical.erb'
+  mode    00644
+
+  notifies :run, 'bash[compile_postfix_configuration]', :immediately
+end
+
+template '/etc/postfix/mydestinations' do
+  source 'destinations.erb'
   mode    00644
 
   notifies :run, 'bash[compile_postfix_configuration]', :immediately
