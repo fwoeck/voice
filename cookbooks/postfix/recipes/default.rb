@@ -1,12 +1,4 @@
-bash 'install_postfix' do
-  user 'root'
-
-  code <<-EOH
-    DEBIAN_FRONTEND=noninteractive apt-get -y install dovecot-postfix postfix-pcre
-  EOH
-
-  not_if "test -e /etc/postfix"
-end
+package 'postfix-pcre'
 
 service 'postfix' do
   supports restart: true, stop: true, start: true
