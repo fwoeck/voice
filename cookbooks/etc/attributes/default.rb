@@ -120,6 +120,7 @@ default[:wim][:group]                    = 'wim'
 default[:wim][:home]                     = '/home/wim'
 default[:wim][:domain_user]              = 'wim'
 default[:wim][:zshplugs]                 = 'last-working-dir'
+default[:wim][:sudoer]                   =  false
 default[:wim][:color]                    = 'red'
 
 

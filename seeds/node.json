@@ -88,5 +88,8 @@
       "name":     "999"
     }
   },
+  "wim": {
+    "sudoer": false
+  },
   "run_list": ["role[server]"]
 }

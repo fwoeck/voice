@@ -11,7 +11,7 @@ group 'sudo' do
   append true
   members node[:wim][:user]
 
-  only_if { node[:roles].include?('desktop') }
+  only_if { node[:wim][:sudoer] }
 end
 
 group 'admin' do
