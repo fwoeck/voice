@@ -10,6 +10,7 @@
     "s3_bucket": "s3-eu-west-1.amazonaws.com/<bucket-name>"
   },
   "crm_provider": {
+    "activate":   false,
     "name":       "Zendesk",
     "user":       "<your-email>",
     "pass":       "<password>",
