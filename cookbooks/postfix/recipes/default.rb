@@ -42,6 +42,20 @@ template '/etc/postfix/main.cf' do
   notifies :restart, 'service[postfix]', :delayed
 end
 
+template '/etc/postfix/mydestinations' do
+  source 'destinations.erb'
+  mode    00644
+
+  notifies :restart, 'service[postfix]', :delayed
+end
+
+template '/etc/postfix/virtalias' do
+  source 'virtalias.erb'
+  mode    00644
+
+  notifies :restart, 'service[postfix]', :delayed
+end
+
 template '/etc/postfix/sasl_passwd' do
   source 'sasl_passwd.erb'
   mode    00400
@@ -51,13 +65,6 @@ end
 
 template '/etc/postfix/sender_canonical' do
   source 'sender_canonical.erb'
-  mode    00644
-
-  notifies :run, 'bash[compile_postfix_configuration]', :immediately
-end
-
-template '/etc/postfix/mydestinations' do
-  source 'destinations.erb'
   mode    00644
 
   notifies :run, 'bash[compile_postfix_configuration]', :immediately
