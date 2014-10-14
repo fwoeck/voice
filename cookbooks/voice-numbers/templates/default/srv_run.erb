@@ -11,4 +11,4 @@ export RAILS_ENV=<%= node[:etc][:railsenv] %>
 export JRUBY_OPTS='<%= node[:jruby][:opts] %>'
 
 cd <%= node[:voice_numbers][:basedir] %>
-exec chpst -u <%= node[:wim][:user] %> ./numbers.rb 2>&1
+exec chpst -n 10 -u <%= node[:wim][:user] %> ./numbers.rb 2>&1
