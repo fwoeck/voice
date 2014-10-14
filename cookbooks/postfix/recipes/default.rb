@@ -1,4 +1,4 @@
-package 'dovecot-common'
+package 'dovecot-core'
 package 'postfix-pcre'
 
 service 'postfix' do
