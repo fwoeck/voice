@@ -1,8 +1,14 @@
+package 'dovecot-common'
 package 'postfix-pcre'
 
 service 'postfix' do
   supports restart: true, stop: true, start: true
   action   [:enable, :start]
+end
+
+directory '/var/mail' do
+  owner node[:wim][:user]
+  mode  00750
 end
 
 cookbook_file '/etc/postfix/cacert.pem' do
@@ -51,6 +57,13 @@ end
 
 template '/etc/postfix/virtual' do
   source 'virtual.erb'
+  mode    00644
+
+  notifies :restart, 'service[postfix]', :delayed
+end
+
+template '/etc/postfix/virtual_domains' do
+  source 'virtual_domains.erb'
   mode    00644
 
   notifies :restart, 'service[postfix]', :delayed

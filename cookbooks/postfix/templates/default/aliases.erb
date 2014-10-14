@@ -1,5 +1,7 @@
 postmaster:    root
 mailer-daemon: root
 nobody:        root
+<% if node[:smtp][:activate] %>
 root:          <%= node[:smtp][:mail_to] %>
 <%= node[:wim][:user] %>:           <%= node[:smtp][:mail_to] %>
+<% end %>
