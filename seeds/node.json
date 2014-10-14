@@ -45,11 +45,6 @@
     "wim_pass":  "<password>",
     "root_pass": "<password>"
   },
-  "postfix": {
-    "mail_domain":  "<your-mx-host>",
-    "local_admin":  "<system-from-address>",
-    "remote_admin": "<system-to-address>"
-  },
   "rabbitmq": {
     "pass": "<password>"
   },
@@ -72,11 +67,14 @@
     "proxy":    "sip.skype.com"
   },
   "smtp": {
-    "activate": false,
-    "address":  "email-smtp.eu-west-1.amazonaws.com",
-    "port":     "587",
-    "username": "<your-smtp-user>",
-    "password": "<password>"
+    "activate":     false,
+    "mail_domain":  "<local-mx-host>",
+    "local_admin":  "<system-from-address>",
+    "remote_admin": "<system-to-address>",
+    "address":      "email-smtp.eu-west-1.amazonaws.com",
+    "port":         "587",
+    "username":     "<your-smtp-user>",
+    "password":     "<password>"
   },
   "vnc": {
     "password": "<password>"

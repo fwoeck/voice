@@ -2,6 +2,4 @@
 /^localhost.localdomain$/ ACCEPT
 /^localhost$/ ACCEPT
 /^<%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>$/ ACCEPT
-<% else %>
-/^.*$/ ACCEPT
 <% end %>

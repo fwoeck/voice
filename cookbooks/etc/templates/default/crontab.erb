@@ -1,8 +1,8 @@
 SHELL=/bin/bash
 PATH=<%= node[:etc][:path] %>
 HOME=/
-MAILTO=<%= node[:postfix][:remote_admin] %>
-MAILFROM=<%= node[:postfix][:local_admin] %>
+MAILTO=<%= node[:smtp][:remote_admin] %>
+MAILFROM=<%= node[:smtp][:local_admin] %>
 
 # m h dom mon dow user	command
 17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly

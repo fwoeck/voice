@@ -49,8 +49,8 @@ template '/etc/postfix/mydestinations' do
   notifies :restart, 'service[postfix]', :delayed
 end
 
-template '/etc/postfix/virtalias' do
-  source 'virtalias.erb'
+template '/etc/postfix/virtual' do
+  source 'virtual.erb'
   mode    00644
 
   notifies :restart, 'service[postfix]', :delayed

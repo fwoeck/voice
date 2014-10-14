@@ -32,7 +32,7 @@ Encode = none
 # Default person to mail reports to.  Can be a local account or a
 # complete email address.  Variable Output should be set to mail, or
 # --output mail should be passed on command line to enable mail feature.
-MailTo = <%= node[:postfix][:remote_admin] %>
+MailTo = <%= node[:smtp][:remote_admin] %>
 # WHen using option --multiemail, it is possible to specify a different
 # email recipient per host processed.  For example, to send the report
 # for hostname host1 to user@example.com, use:
@@ -41,7 +41,7 @@ MailTo = <%= node[:postfix][:remote_admin] %>
 
 # Default person to mail reports from.  Can be a local account or a
 # complete email address.
-MailFrom = <%= node[:postfix][:local_admin] %>
+MailFrom = <%= node[:smtp][:local_admin] %>
 
 # if set, the results will be saved in <filename> instead of mailed
 # or displayed. Be sure to set Output = file also.

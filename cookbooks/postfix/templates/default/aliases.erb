@@ -1,6 +1,5 @@
-# See man 5 aliases for format
 postmaster:    root
 mailer-daemon: root
 nobody:        root
-root:          <%= node[:postfix][:remote_admin] %>
-<%= node[:wim][:user] %>:           <%= node[:postfix][:remote_admin] %>
+root:          <%= node[:smtp][:remote_admin] %>
+<%= node[:wim][:user] %>:           <%= node[:smtp][:remote_admin] %>
