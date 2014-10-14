@@ -67,14 +67,14 @@
     "proxy":    "sip.skype.com"
   },
   "smtp": {
-    "activate":     false,
-    "mail_domain":  "<local-mx-host>",
-    "local_admin":  "<system-from-address>",
-    "remote_admin": "<system-to-address>",
-    "address":      "email-smtp.eu-west-1.amazonaws.com",
-    "port":         "587",
-    "username":     "<your-smtp-user>",
-    "password":     "<password>"
+    "activate":    false,
+    "mail_domain": "<local-mx-host>",
+    "mail_from":   "<system-from-address>",
+    "mail_to":     "<system-to-address>",
+    "address":     "email-smtp.eu-west-1.amazonaws.com",
+    "port":        "587",
+    "username":    "<your-smtp-user>",
+    "password":    "<password>"
   },
   "vnc": {
     "password": "<password>"

@@ -1,5 +1,5 @@
 postmaster:    root
 mailer-daemon: root
 nobody:        root
-root:          <%= node[:smtp][:remote_admin] %>
-<%= node[:wim][:user] %>:           <%= node[:smtp][:remote_admin] %>
+root:          <%= node[:smtp][:mail_to] %>
+<%= node[:wim][:user] %>:           <%= node[:smtp][:mail_to] %>
