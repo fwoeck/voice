@@ -1,5 +1,6 @@
 <% if node[:smtp][:activate] %>
+/^<%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>$/ ACCEPT
+/^<%= node[:smtp][:mail_domain] %>$/ ACCEPT
 /^localhost.localdomain$/ ACCEPT
 /^localhost$/ ACCEPT
-/^<%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>$/ ACCEPT
 <% end %>
