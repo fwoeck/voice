@@ -45,11 +45,6 @@ cookbook_file "#{Chef::Config['file_cache_path']}/asterisk-opus.diff" do
   notifies :run, 'bash[install_asterisk]', :delayed
 end
 
-remote_file "#{Chef::Config['file_cache_path']}/ast-sounds.tgz" do
-  source "#{node[:aws][:cdn]}/ast-sounds.tgz"
-  not_if "test -e #{Chef::Config['file_cache_path']}/ast-sounds.tgz"
-end
-
 bash 'install_asterisk' do
   user 'root'
   cwd   Chef::Config['file_cache_path']
@@ -78,19 +73,6 @@ bash 'install_asterisk' do
     File.exists?('/usr/sbin/asterisk') &&
     `/usr/sbin/asterisk -V`[/#{node[:asterisk][:version]}/]
   }
-end
-
-bash 'install_soundfiles' do
-  user 'root'
-
-  code <<-EOH
-    cd /var/lib/asterisk
-    rm -rf sounds
-    tar -zxf #{Chef::Config['file_cache_path']}/ast-sounds.tgz
-  EOH
-
-  not_if  'test -e /var/lib/asterisk/sounds/en'
-  only_if 'test -e /var/lib/asterisk'
 end
 
 cookbook_file '/etc/init.d/asterisk' do
