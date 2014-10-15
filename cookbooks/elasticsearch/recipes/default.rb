@@ -23,8 +23,6 @@ bash 'install_elasticsearch' do
     if [ -e #{Chef::Config['file_cache_path']}/data ]; then
       mv #{Chef::Config['file_cache_path']}/data #{node[:elasticsearch][:basedir]}
     fi
-
-    ln -s #{node[:elasticsearch][:basedir]}/logs #{node[:elasticsearch][:basedir]}/log
   EOH
 
   action :nothing

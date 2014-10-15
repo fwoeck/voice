@@ -19,7 +19,7 @@ default[:etc][:path]                     = '/usr/local/sbin:/usr/local/bin:/sbin
 default[:etc][:logdir]                   = '/opt/log'
 
 default[:elasticsearch][:basedir]        = '/opt/elasticsearch'
-default[:elasticsearch][:version]        = '1.3.2'
+default[:elasticsearch][:version]        = '1.3.4'
 
 default[:flashphoner][:host]             = '127.0.0.1'
 default[:flashphoner][:basename]         = 'FlashphonerWebCallServer'
@@ -27,7 +27,7 @@ default[:flashphoner][:version]          = '3.0.885'
 default[:flashphoner][:ws_port]          = '8080'
 
 default[:jdk][:home]                     = '/opt/jdk'
-default[:jdk][:version]                  = '1.8.0_20'
+default[:jdk][:version]                  = '1.8.0_25'
 default[:jdk][:opts]                     = '-Xmn512m -Xms2048m -Xmx2048m -server -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+UseCodeCacheFlushing'
 
 default[:jruby][:baseapi]                = '1.9'
@@ -51,7 +51,7 @@ default[:mysql][:socket]                 = '/var/run/mysqld/mysqld.sock'
 
 default[:nginx][:basedir]                = '/opt/nginx'
 default[:nginx][:fe_port]                =  443
-default[:nginx][:version]                = '1.7.5'
+default[:nginx][:version]                = '1.7.6'
 default[:nginx][:language][:checksum]    = '4609c52787e10a86d0bf25b524b91eaa3e8bb80d4208eaa2de8a9db14002f551'
 default[:nginx][:headers][:version]      = '0.25'
 default[:nginx][:redis][:version]        = '0.3.7'
