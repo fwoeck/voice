@@ -89,7 +89,7 @@ There are two distinct [Chef-roles](/roles) the VM can be configured for. The "d
 the "server"-role is meant for production use. The two environments are almost identical, except for these things:
 
 * "desktop" uses MRI ruby 2.1 for shorter response cycles during development
-* "server" uses jRuby for better instrumentation and memory control
+* "server" uses jRuby 1.7 for GIL-less threading and better instrumentation
 * "desktop" uses the "vagrant"-user as primary actor whereas "server" uses "wim"
 
 We recommend to go with the "desktop"-default unless you want to conduct some smoke tests with the production environment.
