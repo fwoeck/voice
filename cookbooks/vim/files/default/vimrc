@@ -132,8 +132,8 @@ hi link localWhitespaceError Error
 au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
 au Syntax * syn match localWhitespaceError / \+\ze\t/ display
 
-map <leader>+ :cn<CR>
-map <leader>- :cp<CR>
+map <leader>. :cn<CR>
+map <leader>m :cp<CR>
 
 let NERDTreeChDirMode=2
 let NERDTreeWinSize=40
@@ -141,9 +141,6 @@ let NERDTreeIgnore=['\.git', '^\._', '^\..*\.swp$', '\~$']
 nnoremap <leader>p :NERDTreeToggle<CR>
 
 nmap <leader>r :CtrlPClearCache<cr>
-
-map <leader>. g,
-map <leader>m g;
 
 nmap <C-k> [e
 nmap <C-j> ]e

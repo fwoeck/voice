@@ -1,8 +1,9 @@
-# How to build a VirtualBox base-image for Voice
+## How to build a VirtualBox base-image for Voice
 
-## Downloads a prebuilt base box:
+### Downloads a prebuilt base box:
 
 Prerequisites:
+
 - VirtualBox with Extension Pack (v 4.3.18)
 - Vagrant with vagrant-omnibus Plugin (v 1.6.5, plugin 1.4.1)
 - ruby2.1 for building the Vagrant box
@@ -16,7 +17,7 @@ Prerequisites:
 > vagrant up
 ```
 
-## Build the base box on your own:
+### Build the base box on your own:
 
 ```
 > cd vagrant.box

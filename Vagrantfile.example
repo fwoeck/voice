@@ -43,7 +43,7 @@ gitbase         = 'git://github.com/fwoeck' # Set to 'git@github.com:<gh-user>' 
 ami_pass        = '<password>'              # Used to communicate with the Asterisk AMI
 mysql_wim_pass  = '<password>'              # Used for regular DB connections
 mysql_root_pass = '<password>'              # Used for root access to MySQL
-rabbitmq_pass   = '<password>'              # Used to access the AMQP-queue and it's FE
+rabbitmq_pass   = '<password>'              # Used to access the AMQP-queue and its FE
 vnc_pass        = '<password>'              # Used to connect to the local VNC server
 
 rails_keybase   = '<a-long-unique-key>'     # Used for rails' session management
