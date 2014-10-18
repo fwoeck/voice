@@ -11,7 +11,7 @@ These are the key functionalities of the Voice stack:
 
 * The server can be connected to an external SIP provider/Skype to receive calls and dial out.
 * Callers/customers are led by an IVR that allows to choose among different languages and topics.
-* Customers are connected to those agents, that match the customer's requirements.
+* Customers are scheduled to those agents, that match the requested skills and are currently idle.
 * Agents can configure the language- and topic-support according to their individual skills.
 * The platform creates customer records and history entries and shows them during the call.
 * Calls can be tagged and remarked for later callbacks and post processing.
@@ -26,7 +26,7 @@ Some technical characteristics:
 * Configuration is fully driven by Opscode Chef, so installation and customization is easy.
 * The platform can be automatically deployed to a Virtualbox VM for development end testing.
 * To get started, only a handful of options have to be set, no external SIP provider is required.
-* The supported languages and topics/skills can be freely chosen (sound samples required).
+* The supported languages and topics/skills can be freely changed (sound samples required).
 * The linux OS provides service supervision, firewall protection, logging and backup facilities.
 
 These are some of the core technologies in use:
