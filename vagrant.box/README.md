@@ -1,28 +1,16 @@
-## How to build a VirtualBox base-image for Voice
+### How to build a VirtualBox base-image for the Voice platform
 
-### Downloads a prebuilt base box:
-
-Prerequisites:
-
-- VirtualBox with Extension Pack (v 4.3.18)
-- Vagrant with vagrant-omnibus Plugin (v 1.6.5, plugin 1.4.1)
-- ruby2.1 for building the Vagrant box
+For the prerequisites, please refer to the [Voice main-repo](https://github.com/fwoeck/voice#prerequisites).
+Also, you'll need a MRI ruby 2.1 for the Veewee-gem installation.
 
 ```
 > git clone git://github.com/fwoeck/voice.git
-> cd voice
-> cp Vagrantfile.example Vagrantfile
-> vi Vagrantfile
-> vagrant plugin install vagrant-omnibus
-> vagrant up
-```
-
-### Build the base box on your own:
-
-```
-> cd vagrant.box
+> cd voice/vagrant.box
 > bundle install --path=vendor
 > chmod 600 vagrant_insecure.key
 > vagrant box remove voice-base
 > bundle exec rake virtualbox:voice-base:all
 ```
+
+These steps will download the Ubuntu 14.04 distribution, compile the Voice base-image and register it with
+Vagrant, so that it's used when you start the initial VM provisioning.

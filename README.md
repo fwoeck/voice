@@ -24,7 +24,7 @@ Some technical characteristics:
 
 * The distribution is based on Ubuntu 14.04 LTS and is tailored to run on one machine/host.
 * Configuration is fully driven by Opscode Chef, so installation and customization is easy.
-* The platform can be automatically deployed to a Virtualbox VM for development and testing.
+* The platform can be automatically deployed to a VirtualBox VM for development and testing.
 * To get started, only a handful of options have to be set, no external SIP provider is required.
 * The supported languages and topics/skills can be freely changed (sound samples required).
 * The linux OS provides service supervision, firewall protection, logging and backup facilities.
@@ -74,14 +74,14 @@ As the installation is fully driven by [Chef](https://www.getchef.com/chef/), tr
 Its as simple as cloning this repo, customizing one file and typing "vagrant up".
 
 
-### Installation to a Virtualbox VM via Vagrant
+### Installation to a VirtualBox VM via Vagrant
 
 #### Prerequisites
 
 It's recommended to have at least a recent quad-core machine with 8Gbyte of free ram for things to run smoothly. Installations are
 tested with OsX 10.9.5 and Ubuntu 14.04.
 
-* Grab the latest copy of [Virtualbox](https://www.virtualbox.org/wiki/Downloads) (currently 4.3.18), including the Extension Pack.
+* Grab the latest copy of [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (currently 4.3.18), including the Extension Pack.
 * Also, you'll need to install [Vagrant](https://www.vagrantup.com/downloads.html) (currently 1.6.5).
 
 * Now get the [vagrant-omnibus](https://github.com/opscode/vagrant-omnibus) plugin that helps us keeping the Chef client up to date:
@@ -114,14 +114,14 @@ the local environment to reduce the likelihood of network conflicts. This should
 The host and domain names don't really matter, as you'll add them to your /etc/hosts file.
 Of course, you may choose a DNS controlled name and use your own SSL certificates later on.
 
-There are two distinct [Chef-roles](/roles) the VM can be configured for. The "desktop"-role is intended for local development of the Voice stack and
-the "server"-role is meant for production use. The two environments are almost identical, except for these things:
+There are two distinct [Chef-roles](/roles) the VM can be configured for. The *desktop*-role is intended for local development of the Voice stack and
+the *server*-role is meant for production use. The two environments are almost identical, except for these things:
 
-* "desktop" uses MRI ruby 2.1 for shorter response cycles during development
-* while "server" uses jRuby 1.7 for GIL-less threading and better instrumentation
-* "desktop" uses the "vagrant"-user as primary actor whereas "server" uses "wim"
+* *desktop* uses MRI ruby 2.1 for shorter response cycles during development,
+* while *server* uses jRuby 1.7 for GIL-less threading and better instrumentation
+* *desktop* uses the *vagrant*-user as primary actor whereas *server* uses *wim*
 
-We recommend to go with the "desktop"-default unless you want to conduct some smoke tests with the production environment.
+We recommend to go with the *desktop*-default unless you want to conduct some smoke tests with the production environment.
 Please refer to the [Vagrantfile.example](/Vagrantfile.example) for more available options including Zendesk support and VoIP
 provider settings.
 
@@ -181,9 +181,13 @@ Congratulations, you have the fully operational Voice platform at hand! Please h
 [Voice wiki](https://github.com/fwoeck/voice/wiki) to see how you can register your SIP phones and make the first test calls.
 
 
-#### Building the base box with [Veewee](https://github.com/jedi4ever/veewee) (optional)
+#### Building the Ubuntu base image with Veewee (optional)
 
-tbd.
+If you already installed the VM, you may have noticed that Vagrant downloaded a voice-base image (~500MB) at the beginning. This is a minimal
+Ubuntu installation that we provide on our CDN to accelerate the installation.
+
+However, the steps to compile this box are automated with [Veewee](https://github.com/jedi4ever/veewee) and you can use the
+[/vagrant.box](/vagrant.box)-scripts to build you own, if you wish.
 
 
 ### Installation on a physical host
@@ -196,7 +200,8 @@ You can follow the [Veewee](https://github.com/jedi4ever/veewee)-scripts in [/va
 that were used to prepare a base image for Vagrant. To get the Chef-client configured, copy the [/seeds](/seeds)
 contents to /etc/chef/ on the host and modify node.json and solo.rb according to your needs.
 
-tbd.
+Please refer to the [Voice wiki](https://github.com/fwoeck/voice/wiki) for detailed instructions on how to install the Voice stack
+on an external production host (tbd.).
 
 
 ## The platform service structure
@@ -207,8 +212,8 @@ Apart from the underlying Ubuntu linux, the Voice stack consists of these ruby s
 * [Voice-Custom](https://github.com/fwoeck/voice-custom): provides the basic CRM service, history/tagging and fulltext search.
 * [Voice-Numbers](https://github.com/fwoeck/voice-numbers): calculates realtime statistics and aggregates the call logs.
 * [Voice-Push](https://github.com/fwoeck/voice-push): sends push notifications for current events to the agent's browsers.
-* [Voice-Rails](https://github.com/fwoeck/voice-rails): delivers the frontend application for agents and supervisors.
-* [Voice-Specs](https://github.com/fwoeck/voice-specs): not a service per se, but a tool collection for burn-in testing.
+* [Voice-Rails](https://github.com/fwoeck/voice-rails): delivers the browser application for agents and supervisors.
+* [Voice-Specs](https://github.com/fwoeck/voice-specs): not a service per se, but a tool collection for integration testing.
 
 See the [voice-infrastructure.pdf](https://github.com/fwoeck/voice/blob/master/docs/voice-infrastructure.pdf?raw=true) for an overview of the communication flow and storage engines.
 
