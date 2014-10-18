@@ -7,7 +7,36 @@ like the SIP server and a modern, easy to use web interface.
 
 ## Overview
 
-tbd.
+These are the key functionalities of the Voice stack:
+
+* The server can be connected to an external SIP provider/Skype to receive calls and dial out.
+* Callers/customers are led by an IVR that allows to choose among different languages and topics.
+* Customers are connected to those agents, that match the customer's requirements.
+* Agents can configure the language- and topic-support according to their individual skills.
+* The platform creates customer records and history entries and shows them during the call.
+* Calls can be tagged and remarked for later callbacks and post processing.
+* The history can be searched for unfinished tasks and serves as starting point for outbound calls.
+* Customers can be connected to Zendesk and their current tickets can by synchronized.
+* Agents can use SIP phones (hardware/software) or the browser's WebRTC (license required).
+* The platform provides realtime statistics and aggregated logging and charts for accounting.
+
+Some technical characteristics:
+
+* The distribution is based on Ubuntu 14.04 LTS and is tailored to run on one machine/host.
+* Configuration is fully driven by Opscode Chef, so installation and customization is easy.
+* The platform can be automatically deployed to a Virtualbox VM for development end testing.
+* To get started, only a handful of options have to be set, no external SIP provider is required.
+* The supported languages and topics/skills can be freely chosen (sound samples required).
+* The linux OS provides service supervision, firewall protection, logging and backup facilities.
+
+These are some of the core technologies in use:
+
+[Adhearsion](http://www.adhearsion.com), [Asterisk](http://www.asterisk.org), [Celluloid](https://celluloid.io), [Chef-solo](https://www.getchef.com/chef/), 
+[Duplicity](http://duplicity.nongnu.org), [Elasticsearch](http://www.elasticsearch.org), [Ember.js](http://emberjs.com), 
+[Java JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html), [MRI ruby](https://www.ruby-lang.org/) & [jRuby](http://jruby.org), 
+[MongoDB](http://www.mongodb.org), [MySQL](http://www.mysql.com), [Nginx](http://nginx.org), [RabbitMQ](http://www.rabbitmq.com), 
+[Rails](http://rubyonrails.org), [Redis](http://redis.io), [Ubuntu](http://www.ubuntu.com), [Vagrant](https://www.vagrantup.com), 
+[VirtualBox](https://www.virtualbox.org)
 
 
 ## Screenshots
