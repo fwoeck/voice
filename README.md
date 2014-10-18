@@ -24,7 +24,7 @@ Some technical characteristics:
 
 * The distribution is based on Ubuntu 14.04 LTS and is tailored to run on one machine/host.
 * Configuration is fully driven by Opscode Chef, so installation and customization is easy.
-* The platform can be automatically deployed to a Virtualbox VM for development end testing.
+* The platform can be automatically deployed to a Virtualbox VM for development and testing.
 * To get started, only a handful of options have to be set, no external SIP provider is required.
 * The supported languages and topics/skills can be freely changed (sound samples required).
 * The linux OS provides service supervision, firewall protection, logging and backup facilities.
@@ -64,8 +64,8 @@ The supported languages and skills are freely customizable.
 
 ## Project Status
 
-We don't consider the Voice platform production ready at this point. It's being tested internally and will
-very likely be modified as we see fit. As soon as things stabilize, we'll hit 1.0 and will switch to semantic versioning.
+**We don't consider the Voice platform production ready at this point.** It's being tested internally and will
+very likely be modified as we see fit. As soon as things stabilize, we'll hit 1.0 and switch to semantic versioning.
 
 
 ## Getting Started
@@ -118,7 +118,7 @@ There are two distinct [Chef-roles](/roles) the VM can be configured for. The "d
 the "server"-role is meant for production use. The two environments are almost identical, except for these things:
 
 * "desktop" uses MRI ruby 2.1 for shorter response cycles during development
-* "server" uses jRuby 1.7 for GIL-less threading and better instrumentation
+* while "server" uses jRuby 1.7 for GIL-less threading and better instrumentation
 * "desktop" uses the "vagrant"-user as primary actor whereas "server" uses "wim"
 
 We recommend to go with the "desktop"-default unless you want to conduct some smoke tests with the production environment.
@@ -177,8 +177,8 @@ You can easily replace it by your own after the initial provisioning, if you wis
 Now you should be able to open the [Voice platform frontend](https://voice01.wimdu.com) with your browser and log in as admin user.
 For the time being, only the latest versions of Chrome and Firefox are supported, because we make use of their WebRTC- and SSE-features.
 
-Please head over to the [Voice wiki](https://github.com/fwoeck/voice/wiki) to see
-how you can register your SIP phones and make the first test calls!
+Congratulations, you have the fully operational Voice platform at hand! Please head over to the
+[Voice wiki](https://github.com/fwoeck/voice/wiki) to see how you can register your SIP phones and make the first test calls.
 
 
 #### Building the base box with [Veewee](https://github.com/jedi4ever/veewee) (optional)
@@ -188,8 +188,8 @@ tbd.
 
 ### Installation on a physical host
 
-Although running the Voice stack in a VM is handy to get a first impression, it's not sufficient for production use -
-primarily for performance reasons.
+Although running the Voice stack in a VM is handy to get a first impression, it's usually not sufficient for production use -
+primarily for performance and timing reasons.
 
 Setting up the Voice stack on a physical host is not much different than the installation to a VM.
 You can follow the [Veewee](https://github.com/jedi4ever/veewee)-scripts in [/vagrant.box](/vagrant.box),
@@ -199,11 +199,18 @@ contents to /etc/chef/ on the host and modify node.json and solo.rb according to
 tbd.
 
 
-## Technical Details
+## The platform service structure
 
-See the [voice-infrastructure](/docs/voice-infrastructure.svg) .svg for a draft overview of the service components.
+Apart from the underlying Ubuntu linux, the Voice stack consists of these ruby services, that are kept in separate Github repos:
 
-tbd.
+* [Voice-Ahn](https://github.com/fwoeck/voice-ahn): the entry point for incoming calls, drives the IVR and controls the SIP server.
+* [Voice-Custom](https://github.com/fwoeck/voice-custom): provides the basic CRM service, history/tagging and fulltext search.
+* [Voice-Numbers](https://github.com/fwoeck/voice-numbers): calculates realtime statistics and aggregates the call logs.
+* [Voice-Push](https://github.com/fwoeck/voice-push): sends push notifications for current events to the agent's browsers.
+* [Voice-Rails](https://github.com/fwoeck/voice-rails): delivers the frontend application for agents and supervisors.
+* [Voice-Specs](https://github.com/fwoeck/voice-specs): not a service per se, but a tool collection for burn-in testing.
+
+See the [voice-infrastructure.pdf](https://github.com/fwoeck/voice/blob/master/docs/voice-infrastructure.pdf?raw=true) for an overview of the communication flow and storage engines.
 
 
 ## Contributing
