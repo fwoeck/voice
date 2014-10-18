@@ -64,7 +64,7 @@ The supported languages and skills are freely customizable.
 
 ## Project Status
 
-**We don't consider the Voice platform production ready at this point.** It's being tested internally and will
+**We don't consider the Voice platform to be production ready at this point.** It's being tested internally and will
 very likely be modified as we see fit. As soon as things stabilize, we'll hit 1.0 and switch to semantic versioning.
 
 
@@ -118,8 +118,8 @@ There are two distinct [Chef-roles](/roles) the VM can be configured for. The *d
 the *server*-role is meant for production use. The two environments are almost identical, except for these things:
 
 * *desktop* uses MRI ruby 2.1 for shorter response cycles during development,
-* while *server* uses jRuby 1.7 for GIL-less threading and better instrumentation
-* *desktop* uses the *vagrant*-user as primary actor whereas *server* uses *wim*
+* while *server* uses jRuby 1.7 for GIL-less threading and better instrumentation.
+* *desktop* uses the *vagrant*-user as primary actor whereas *server* uses *wim*.
 
 We recommend to go with the *desktop*-default unless you want to conduct some smoke tests with the production environment.
 Please refer to the [Vagrantfile.example](/Vagrantfile.example) for more available options including Zendesk support and VoIP
@@ -172,13 +172,13 @@ For convenient interaction with the VM, add its IP address and hostname -
 and include the [certs/server.crt](/certs/server.crt) with your SSL-key management.
 
 **Be aware, that the provided SSL certificate is publicly available and gives no real security.**
-You can easily replace it by your own after the initial provisioning, if you wish.
+You can easily replace it by your own after the initial provisioning.
 
 Now you should be able to open the [Voice platform frontend](https://voice01.wimdu.com) with your browser and log in as admin user.
 For the time being, only the latest versions of Chrome and Firefox are supported, because we make use of their WebRTC- and SSE-features.
 
 Congratulations, you have the fully operational Voice platform at hand! Please head over to the
-[Voice wiki](https://github.com/fwoeck/voice/wiki) to see how you can register your SIP phones and make the first test calls.
+[Voice wiki](https://github.com/fwoeck/voice/wiki) to see how you can register your SIP phones and make the first test calls (tbd.).
 
 
 #### Building the Ubuntu base image with Veewee (optional)
@@ -196,11 +196,11 @@ Although running the Voice stack in a VM is handy to get a first impression, it'
 primarily for performance and timing reasons.
 
 Setting up the Voice stack on a physical host is not much different than the installation to a VM.
-You can follow the [Veewee](https://github.com/jedi4ever/veewee)-scripts in [/vagrant.box](/vagrant.box),
-that were used to prepare a base image for Vagrant. To get the Chef-client configured, copy the [/seeds](/seeds)
-contents to /etc/chef/ on the host and modify node.json and solo.rb according to your needs.
+You can follow the [Veewee](https://github.com/jedi4ever/veewee)-instructions in [/vagrant.box](/vagrant.box),
+that were used to prepare a base-image for Vagrant to install the Ubuntu linux. To get the Chef-client configured,
+copy the [/seeds](/seeds) contents to /etc/chef/ on the host and modify node.json and solo.rb according to your needs.
 
-Please refer to the [Voice wiki](https://github.com/fwoeck/voice/wiki) for detailed instructions on how to install the Voice stack
+Please consult the [Voice wiki](https://github.com/fwoeck/voice/wiki) for detailed instructions on how to install the Voice stack
 on an external production host (tbd.).
 
 
