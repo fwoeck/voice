@@ -73,7 +73,7 @@ link '/etc/service/elasticsearch' do
   to '/etc/sv/elasticsearch'
 end
 
-cron 'optimize_elasticsearch_indiecs' do
+cron 'optimize_elasticsearch_indices' do
   minute  '28'
   hour    '1'
   weekday '0'
