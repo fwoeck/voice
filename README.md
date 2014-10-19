@@ -4,6 +4,14 @@ needed by call center agents and supervisors in one integrated platform.
 It offers a fully automated but customizable installation and contains all necessary layers
 like the SIP server and a modern, easy to use web interface.
 
+##### Platform services (see details [below](#the-platform-service-structure))
+
+[![Code Climate](https://codeclimate.com/github/fwoeck/voice-ahn/badges/gpa.svg)](https://codeclimate.com/github/fwoeck/voice-ahn) [Voice-Ahn](https://github.com/fwoeck/voice-ahn)  
+[![Code Climate](https://codeclimate.com/github/fwoeck/voice-custom/badges/gpa.svg)](https://codeclimate.com/github/fwoeck/voice-custom) [Voice-Custom](https://github.com/fwoeck/voice-custom)  
+[![Code Climate](https://codeclimate.com/github/fwoeck/voice-numbers/badges/gpa.svg)](https://codeclimate.com/github/fwoeck/voice-numbers) [Voice-Numbers](https://github.com/fwoeck/voice-numbers)  
+[![Code Climate](https://codeclimate.com/github/fwoeck/voice-push/badges/gpa.svg)](https://codeclimate.com/github/fwoeck/voice-push) [Voice-Push](https://github.com/fwoeck/voice-push)  
+[![Code Climate](https://codeclimate.com/github/fwoeck/voice-rails/badges/gpa.svg)](https://codeclimate.com/github/fwoeck/voice-rails) [Voice-Rails](https://github.com/fwoeck/voice-rails)
+
 
 ## Overview
 
