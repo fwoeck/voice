@@ -72,3 +72,10 @@ end
 link '/etc/service/elasticsearch' do
   to '/etc/sv/elasticsearch'
 end
+
+cron 'optimize_elasticsearch_indiecs' do
+  minute  '28'
+  hour    '1'
+  weekday '0'
+  command "curl -s #{node[:elasticsearch][:host]}:#{node[:elasticsearch][:port]}/_cat/indices | awk '{print $2}' | while read IND; do curl -s -XPOST http://#{node[:elasticsearch][:host]}:#{node[:elasticsearch][:port]}/$IND/_optimize >/dev/null; done"
+end

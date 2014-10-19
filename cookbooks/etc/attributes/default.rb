@@ -20,6 +20,8 @@ default[:etc][:logdir]                   = '/opt/log'
 
 default[:elasticsearch][:basedir]        = '/opt/elasticsearch'
 default[:elasticsearch][:version]        = '1.3.4'
+default[:elasticsearch][:host]           = '127.0.0.1'
+default[:elasticsearch][:port]           = '9200'
 
 default[:flashphoner][:host]             = '127.0.0.1'
 default[:flashphoner][:basename]         = 'FlashphonerWebCallServer'
