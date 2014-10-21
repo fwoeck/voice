@@ -8,8 +8,14 @@ git node[:voice_specs][:basedir] do
   not_if "test -e #{node[:voice_specs][:basedir]}"
 end
 
-template "#{node[:voice_specs][:basedir]}/config/app.yml.example" do
+template "#{node[:voice_specs][:basedir]}/config/app.yml" do
   source 'app.yml.erb'
+  owner   node[:wim][:user]
+  group   node[:wim][:group]
+end
+
+template "#{node[:voice_specs][:basedir]}/config/load.yml.example" do
+  source 'load.yml.erb'
   owner   node[:wim][:user]
   group   node[:wim][:group]
 end
