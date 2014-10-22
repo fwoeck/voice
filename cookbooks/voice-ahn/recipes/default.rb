@@ -114,8 +114,8 @@ bash 'install_voice_sounds' do
   not_if 'test -e /var/lib/asterisk/sounds/wimdu/en_welcome_to_wimdu.sln32'
 end
 
-remote_file '/var/lib/asterisk/sounds/wimdu/songbirds.sln32' do
-  source "#{node[:aws][:cdn]}/songbirds.sln32"
+remote_file '/var/lib/asterisk/sounds/wimdu/voice-moh.sln32' do
+  source "#{node[:aws][:cdn]}/voice-moh.sln32"
   owner     node[:wim][:user]
   group     node[:wim][:group]
   mode      00644
