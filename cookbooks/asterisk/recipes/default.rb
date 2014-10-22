@@ -123,6 +123,12 @@ directory '/var/lib/asterisk' do
   owner 'asterisk'
 end
 
+cookbook_file '/var/lib/asterisk/sounds/beep.sln32' do
+  source 'beep.sln32'
+  owner  'asterisk'
+  mode    00644
+end
+
 remote_file '/usr/lib/asterisk/modules/codec_g729.so' do
   source  "#{node[:aws][:cdn]}/codec_g729.so"
   checksum node[:asterisk][:g729_checksum]
