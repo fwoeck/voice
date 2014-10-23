@@ -180,11 +180,6 @@ let g:ctrlp_cache_dir = $HOME.'/.vim/cache/ctrlp'
 let g:ctrlp_working_path_mode = 'a'
 let g:yankring_history_dir = '$HOME/.vim'
 
-map <Space> /
-map <leader><Space> ?
-map <leader>gg :Ggrep -e '<C-R>=expand("<cword>")<Enter>'
-map <leader>, <C-^>
-
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -231,7 +226,13 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
+nmap § <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+
+map <Space> /
+map <leader><Space> ?
+map <leader>gg :Ggrep -e '<C-R>=expand("<cword>")<Enter>'
+map <leader>, <C-^>

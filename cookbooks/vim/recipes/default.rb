@@ -68,7 +68,7 @@ cookbook_file "#{node[:wim][:home]}/.vimrc" do
   mode    00755
 
   notifies :run, 'bash[update_vundle]', :immediately
-  not_if { File.exists?("#{node[:wim][:home]}/.vimrc") }
+# not_if { File.exists?("#{node[:wim][:home]}/.vimrc") }
 end
 
 bash 'update_vundle' do
