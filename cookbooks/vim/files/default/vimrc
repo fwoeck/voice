@@ -134,6 +134,7 @@ au Syntax * syn match localWhitespaceError / \+\ze\t/ display
 
 map <leader>. :cn<CR>
 map <leader>m :cp<CR>
+map § ^
 
 let NERDTreeChDirMode=2
 let NERDTreeWinSize=40
