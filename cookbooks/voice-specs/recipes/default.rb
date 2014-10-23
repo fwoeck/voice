@@ -20,6 +20,12 @@ template "#{node[:voice_specs][:basedir]}/config/load.yml.example" do
   group   node[:wim][:group]
 end
 
+template "#{node[:voice_specs][:basedir]}/config/mongoid.yml" do
+  source 'mongoid.yml.erb'
+  owner   node[:wim][:user]
+  group   node[:wim][:group]
+end
+
 file "#{node[:voice_specs][:basedir]}/.ruby-version" do
   content "ruby-#{node[:mri][:version]}"
   owner   node[:wim][:user]
