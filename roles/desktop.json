@@ -24,8 +24,7 @@
   "run_list": [
     "role[server]",
     "recipe[wim-user-dev]",
-    "recipe[phantomjs]",
-    "recipe[v4l2]"
+    "recipe[phantomjs]"
   ],
   "env_run_lists": {
   }

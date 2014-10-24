@@ -19,7 +19,6 @@ rm /var/log/mongodb/mongod.log.20* 2>/dev/null
 
 rm <%= node[:etc][:logdir] %>/*/@* 2>/dev/null
 truncate -s0 <%= node[:nginx][:basedir] %>/logs/*.log
-chmod 666 /dev/video0 2>/dev/null
 su - -c '<%= node[:wim][:home] %>/bin/vnc' <%= node[:wim][:user] %>
 
 <% end %>

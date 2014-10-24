@@ -115,8 +115,6 @@ default[:voice_numbers][:stats_url]      = '/data/queue-stats.svg'
 default[:voice_numbers][:stats_img]      =  default[:voice_rails][:basedir] + '/public' + default[:voice_numbers][:stats_url]
 default[:voice_numbers][:stats_rrd]      =  default[:voice_numbers][:basedir] + '/data/queue_stats.rrd'
 
-default[:v4l2][:basedir]                 = '/opt/v4l2'
-
 default[:wim][:user]                     = 'wim'
 default[:wim][:group]                    = 'wim'
 default[:wim][:home]                     = '/home/wim'
