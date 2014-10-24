@@ -60,7 +60,9 @@ if node[:roles].include?('desktop')
       rvm use ruby-#{node[:mri][:version]}@global
       git reset --hard
       git checkout #{node[:etc][:default_branch]}
+
       bundle install --path=vendor/bundle --no-binstubs
+      bundle exec rake db:mongoid:create_indexes
     EOH
 
     not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/ruby/#{node[:mri][:baseapi]}/gems"
@@ -79,7 +81,9 @@ else
       rvm use jruby-#{node[:jruby][:version]}@global
       git reset --hard
       git checkout #{node[:etc][:default_branch]}
+
       bundle install --path=vendor/bundle --no-binstubs
+      bundle exec rake db:mongoid:create_indexes
       RAILS_ENV=production bundle exec rake assets:precompile 2>/dev/null
     EOH
 
@@ -95,7 +99,7 @@ bash 'seed_admin_user' do
       source #{node[:rvm][:basedir]}/scripts/rvm
       cd #{node[:voice_rails][:basedir]}
       bundle exec rake db:migrate
-      bundle exec rails runner User.seed_admin_user
+      bundle exec rails runner User.seed_admin_user || :
     EOH
 
   not_if {
