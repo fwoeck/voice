@@ -42,7 +42,7 @@ bash 'install_vim' do
     make -j3
     make install
     cd ../..
-    rm -rf vim
+    rm -rf #{tar_name}
   EOH
 
   not_if { File.exists?('/usr/local/bin/vim') }
