@@ -79,6 +79,11 @@ http {
   }
 
   server {
+    listen <%= node[:etc][:external_ip] %>:80;
+    return 301 https://$host$request_uri;
+  }
+
+  server {
     listen <%= node[:nginx][:fe_port] %> default deferred ssl;
     server_name <%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>;
     ssl_certificate_key server.key;
