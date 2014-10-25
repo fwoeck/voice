@@ -16,3 +16,5 @@ rails_base:   "<%= node[:voice_rails][:basedir] %>"
 elastic_host: "<%= node[:elasticsearch][:host] %>"
 elastic_port: "<%= node[:elasticsearch][:port] %>"
 stats_rrd:    "<%= node[:voice_numbers][:stats_rrd] %>"
+
+<%= node[:agent][:attributes] %>
