@@ -15,4 +15,4 @@ export SECRET_KEY_BASE=<%= node[:voice_rails][:keybase] %>
 <% end %>
 
 cd <%= node[:voice_rails][:basedir] %>
-exec chpst -u <%= node[:wim][:user] %> ./bin/puma -e <%= node[:etc][:railsenv] %> -p <%= node[:puma][:port] %> -t 32:32 2>&1
+exec chpst -u <%= node[:wim][:user] %> ./bin/puma -e <%= node[:etc][:railsenv] %> -p <%= node[:puma][:port] %><% unless node[:roles].include?('desktop') %> -t 64:64<% end %> 2>&1
