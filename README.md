@@ -52,22 +52,26 @@ These are some of the core technologies in use:
 Incoming call pane: the default view for an agent when a customer calls in.
 You can see the customer's history and the latest CRM tickets.
 
-![voice-1](/images/voice-1.png)
+<img src="/images/voice-08.png" alt="voice-08" width="341" height="277">
+<img src="/images/voice-02.png" alt="voice-02" width="341" height="277">
 
 Customer history search: agents can look for specific calls, pending tickets or mailbox messages here.
 They can update entry states or use them to do outbound calls.
 
-![voice-2](/images/voice-2.png)
+<img src="/images/voice-03.png" alt="voice-03" width="341" height="277">
+<img src="/images/voice-04.png" alt="voice-04" width="341" height="277">
 
 Statistical overview: this gives a broad summary of the current call situation and shows details for teams.
 Calls and timings are aggregated for the last 24h.
 
-![voice-3](/images/voice-3.png)
+<img src="/images/voice-05.png" alt="voice-05" width="341" height="277">
+<img src="/images/voice-01.png" alt="voice-01" width="341" height="277">
 
 Agent preference settings: this is where agents go to adjust their profile and admins add new agents.
 The supported languages and skills are freely customizable.
 
-![voice-4](/images/voice-4.png)
+<img src="/images/voice-06.png" alt="voice-06" width="341" height="277">
+<img src="/images/voice-07.png" alt="voice-07" width="341" height="277">
 
 
 ## Project Status
