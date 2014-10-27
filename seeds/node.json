@@ -3,10 +3,10 @@
     "ami_pass": "<password>"
   },
   "aws": {
+    "s3_backup": false,
     "gpg_pass":  "<password>",
     "key_id":    "<your-aws-key-id>",
     "secret":    "<your-aws-secret>",
-    "s3_backup": false,
     "s3_bucket": "s3-eu-west-1.amazonaws.com/<bucket-name>"
   },
   "crm_provider": {

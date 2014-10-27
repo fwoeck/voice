@@ -20,11 +20,11 @@
 # no real security. You can easily replace it by copying your own server
 # certificate to the following places after the first provisioning:
 #
-#   /etc/asterisk/asterisk.pem
-#   /etc/asterisk/ca.crt
-#   /opt/nginx/conf/server.key
-#   /opt/nginx/conf/server.crt
-#   /etc/postfix/cacert.pem
+#  /etc/asterisk/asterisk.pem (owner asterisk, mode 0600)
+#  /etc/asterisk/ca.crt       (owner asterisk, mode 0640)
+#  /opt/nginx/conf/server.key (owner wim/vagr, mode 0600)
+#  /opt/nginx/conf/server.crt (owner wim/vagr, mode 0640)
+#  /etc/postfix/cacert.pem    (owner postfix,  mode 0600)
 
 host            = 'voice01'                 # Host name of the new virtual node
 domain          = 'wimdu.com'               # Domain name of the VM
@@ -54,10 +54,6 @@ admin_secret    = '0000'                    # Used as SIP secret for asterisk lo
 admin_name      = '999'                     # The admin's SIP extension/name
 
 ### Compulsory parameters - FINISH
-
-
-### Optional parameters - START
-### Optional parameters - FINISH
 
 
 Vagrant.configure('2') do |config|
