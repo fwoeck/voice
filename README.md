@@ -195,7 +195,7 @@ Congratulations, you have the fully operational Voice platform at hand! Please h
 
 #### Building the Ubuntu base image with Veewee (optional)
 
-If you already installed the VM, you may have noticed that Vagrant downloaded a voice-base image (~500MB) at the beginning. This is a minimal
+If you already installed the VM, you may have noticed that Vagrant downloaded a voice-base image (~375MB) at the beginning. This is a minimal
 Ubuntu installation that we provide on our CDN to accelerate the installation.
 
 However, the steps to compile this box are automated with [Veewee](https://github.com/jedi4ever/veewee) and you can use the
