@@ -105,7 +105,6 @@ end
   sox
   sqlite3
   ssh-askpass
-  subversion
   tree
   unixodbc-dev
   x11vnc
@@ -113,6 +112,18 @@ end
   zlib1g-dev
   zsh
 }.each {|pkg| package pkg }
+
+package 'xubuntu-desktop' do
+  options '--no-install-recommends'
+end
+
+package 'xubuntu-icon-theme' do
+  options '--no-install-recommends'
+end
+
+package 'xfce4-terminal' do
+  options '--no-install-recommends'
+end
 
 bash 'remove_some_packages' do
   code <<-EOH
