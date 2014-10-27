@@ -105,6 +105,7 @@ end
   sox
   sqlite3
   ssh-askpass
+  subversion
   tree
   unixodbc-dev
   x11vnc
