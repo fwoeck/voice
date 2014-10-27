@@ -64,9 +64,7 @@ bash 'install_asterisk' do
     menuselect/menuselect --enable format_mp3 menuselect.makeopts || :
     menuselect/menuselect --enable res_config_mysql menuselect.makeopts || :
     ./contrib/scripts/get_mp3_source.sh
-    make -j4 && make install && make samples
-    cd ..
-    rm -rf #{tar_name}
+    make -j4 && make install && make samples && cd .. && rm -rf #{tar_name}
   EOH
 
   not_if {
