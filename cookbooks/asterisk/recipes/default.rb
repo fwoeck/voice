@@ -123,6 +123,10 @@ directory '/var/lib/asterisk' do
   owner 'asterisk'
 end
 
+directory '/var/lib/asterisk/sounds' do
+  owner 'asterisk'
+end
+
 cookbook_file '/var/lib/asterisk/sounds/beep.sln32' do
   source 'beep.sln32'
   owner  'asterisk'
