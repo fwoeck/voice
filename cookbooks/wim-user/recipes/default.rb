@@ -9,9 +9,12 @@ end
 
 group 'sudo' do
   append true
-  members node[:wim][:user]
 
-  only_if { node[:wim][:sudoer] }
+  if node[:wim][:sudoer]
+    members node[:wim][:user]
+  else
+    excluded_members node[:wim][:user]
+  end
 end
 
 group 'admin' do

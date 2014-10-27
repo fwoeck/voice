@@ -34,5 +34,5 @@ cron 'weekly_s3_backup' do
   weekday '0'
 
   command '/root/bin/s3_backup'
-  only_if { node[:aws][:s3_backup] }
+  action node[:aws][:s3_backup] ? :create : :delete
 end
