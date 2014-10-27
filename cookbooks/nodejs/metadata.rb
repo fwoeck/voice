@@ -1,6 +1,6 @@
 name             'nodejs'
 maintainer       'Wimdu'
-maintainer_email 'frank.woeckener@wimdu.com'
+maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Installs the node.js packages'
 long_description ''

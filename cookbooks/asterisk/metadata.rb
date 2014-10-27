@@ -1,6 +1,6 @@
 name             'asterisk'
 maintainer       'Wimdu'
-maintainer_email 'frank.woeckener@wimdu.com'
+maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures the asterisk package'
 long_description ''

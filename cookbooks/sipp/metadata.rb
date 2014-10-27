@@ -1,6 +1,6 @@
 name             'sipp'
 maintainer       'Wimdu'
-maintainer_email 'frank.woeckener@wimdu.com'
+maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Installs the sipp package'
 long_description ''

@@ -1,6 +1,6 @@
 name             'root'
 maintainer       'Wimdu'
-maintainer_email 'frank.woeckener@wimdu.com'
+maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Configures the root/vagrant user with ssh'
 long_description ''

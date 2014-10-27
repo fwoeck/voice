@@ -61,7 +61,7 @@ Vagrant.configure('2') do |config|
   config.vm.define host do |config|
     config.vm.network             :private_network, ip: ipaddress
     config.vm.box               = 'voice-base'
-    config.vm.box_url           = 'http://dokmatic-cdn.s3.amazonaws.com/wimdu/voice-base.box'
+    config.vm.box_url           = 'http://dokmatic-cdn.s3.amazonaws.com/voice/voice-base.box'
     config.vm.hostname          = fqdn
 
     config.ssh.forward_agent    = true

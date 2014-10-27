@@ -1,6 +1,6 @@
 name             'tmux'
 maintainer       'Wimdu'
-maintainer_email 'frank.woeckener@wimdu.com'
+maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Installs the tmux package'
 long_description ''

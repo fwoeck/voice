@@ -1,6 +1,6 @@
 name             'aptget'
 maintainer       'Wimdu'
-maintainer_email 'frank.woeckener@wimdu.com'
+maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Installs/updates basic dpkg packages'
 long_description ''

@@ -1,6 +1,6 @@
 name             'voice-push'
 maintainer       'Wimdu'
-maintainer_email 'frank.woeckener@wimdu.com'
+maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures the goliath server'
 long_description ''
