@@ -227,7 +227,7 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
-nmap § <Plug>(easymotion-prefix)
+nmap ± <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
 map  / <Plug>(easymotion-sn)
