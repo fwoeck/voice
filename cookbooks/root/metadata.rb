@@ -1,5 +1,5 @@
 name             'root'
-maintainer       'Wimdu'
+maintainer       'Frank Woeckener'
 maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Configures the root/vagrant user with ssh'

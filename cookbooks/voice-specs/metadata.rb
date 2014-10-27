@@ -1,5 +1,5 @@
 name             'voice-specs'
-maintainer       'Wimdu'
+maintainer       'Frank Woeckener'
 maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Installs the load testing repo'

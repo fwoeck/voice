@@ -1,5 +1,5 @@
 name             'wim-user-dev'
-maintainer       'Wimdu'
+maintainer       'Frank Woeckener'
 maintainer_email 'fwoeck@gmail.com'
 license          'All rights reserved'
 description      'Adds some development tools'
