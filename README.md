@@ -212,8 +212,8 @@ You can follow the [Veewee](https://github.com/jedi4ever/veewee)-instructions in
 that were used to prepare a base-image for Vagrant to install the Ubuntu linux. To get the Chef-client configured,
 copy the [/seeds](/seeds) contents to /etc/chef/ on the host and modify node.json and solo.rb according to your needs.
 
-Please consult the [Voice wiki](https://github.com/fwoeck/voice/wiki) for detailed instructions on how to install the Voice stack
-on an external production host (tbd.).
+Please consult the [Voice wiki](https://github.com/fwoeck/voice/wiki/Installation-on-a-production-host) for detailed instructions on how to install the Voice stack
+on an external production host.
 
 
 ## The platform service structure
