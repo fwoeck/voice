@@ -134,7 +134,7 @@ the *server*-role is meant for production use. The two environments are almost i
 * *desktop* uses the *vagrant*-user as primary actor whereas *server* uses *wim*.
 
 We recommend to go with the *desktop*-default unless you want to conduct some smoke tests with the production environment.
-Please refer to the [Vagrantfile.example](/Vagrantfile.example) for more available options including Zendesk support and VoIP
+Please refer to the [configuration table](https://github.com/fwoeck/voice/wiki/Table-of-chef-parameters) for more available options including Zendesk support and VoIP
 provider settings.
 
 ```
@@ -181,7 +181,7 @@ For convenient interaction with the VM, add its IP address and hostname -
     User vagrant
 ```
 
-and include the [certs/server.crt](/certs/server.crt) with your SSL-key management.
+and include the [certs/server.crt](/certs/server.crt) to your SSL key-chain management.
 
 **Be aware, that the provided SSL certificate is publicly available and gives no real security.**
 You can easily replace it by your own after the initial provisioning.
@@ -190,7 +190,7 @@ Now you should be able to open the [Voice platform frontend](https://voice01.wim
 For the time being, only the latest versions of Chrome and Firefox are supported, because we make use of their WebRTC- and SSE-features.
 
 Congratulations, you have the fully operational Voice platform at hand! Please head over to the
-[Voice wiki](https://github.com/fwoeck/voice/wiki) to see how you can register your SIP phones and make the first test calls (tbd.).
+[Voice wiki](https://github.com/fwoeck/voice/wiki/Connecting-phones-and-calling) to see how you can register your SIP phones and make the first test calls.
 
 
 #### Building the Ubuntu base image with Veewee (optional)
