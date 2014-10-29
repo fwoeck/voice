@@ -207,11 +207,6 @@ However, the steps to compile this box are automated with [Veewee](https://githu
 Although running the Voice stack in a VM is handy to get a first impression, it's usually not sufficient for production use -
 primarily for performance and timing reasons.
 
-Setting up the Voice stack on a physical host is not much different than the installation to a VM.
-You can follow the [Veewee](https://github.com/jedi4ever/veewee)-instructions in [/vagrant.box](/vagrant.box),
-that were used to prepare a base-image for Vagrant to install the Ubuntu linux. To get the Chef-client configured,
-copy the [/seeds](/seeds) contents to /etc/chef/ on the host and modify node.json and solo.rb according to your needs.
-
 Please consult the [Voice wiki](https://github.com/fwoeck/voice/wiki/Installation-on-a-production-host) for detailed instructions on how to install the Voice stack
 on an external production host.
 
