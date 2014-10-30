@@ -53,6 +53,7 @@ if node[:roles].include?('desktop')
     code <<-EOH
       export HOME=#{node[:wim][:home]}
       export PATH=#{node[:jdk][:home]}/bin:$PATH
+      export RAILS_ENV=#{node[:etc][:railsenv]}
       export LC_ALL=en_US.UTF-8
       export LANG=en_US.UTF-8
 
@@ -76,6 +77,7 @@ else
     code <<-EOH
       export HOME=#{node[:wim][:home]}
       export PATH=#{node[:jdk][:home]}/bin:$PATH
+      export RAILS_ENV=#{node[:etc][:railsenv]}
   
       source #{node[:rvm][:basedir]}/scripts/rvm
       rvm use jruby-#{node[:jruby][:version]}@global
@@ -84,7 +86,7 @@ else
 
       bundle install --path=vendor/bundle --no-binstubs
       bundle exec rake db:mongoid:create_indexes
-      RAILS_ENV=production bundle exec rake assets:precompile 2>/dev/null
+      bundle exec rake assets:precompile 2>/dev/null
     EOH
 
     not_if "test -e #{node[:voice_rails][:basedir]}/vendor/bundle/jruby/#{node[:jruby][:baseapi]}/gems"
@@ -96,8 +98,10 @@ bash 'seed_admin_user' do
     group node[:wim][:group]
 
     code <<-EOH
+      export RAILS_ENV=#{node[:etc][:railsenv]}
       source #{node[:rvm][:basedir]}/scripts/rvm
       cd #{node[:voice_rails][:basedir]}
+
       bundle exec rake db:migrate
       bundle exec rails runner User.seed_admin_user || :
     EOH
