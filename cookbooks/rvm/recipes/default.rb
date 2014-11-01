@@ -41,6 +41,7 @@ bash 'install_rvm' do
 
   code <<-EOH
     export HOME=#{node[:wim][:home]}
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
     curl -sSL https://get.rvm.io | bash -s master; echo
 
     source #{node[:rvm][:basedir]}/scripts/rvm
