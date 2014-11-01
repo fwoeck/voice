@@ -14,8 +14,8 @@ bash 'install_jdk' do
     tar -zxf #{tar_name}.tar.gz
     rm -rf #{node[:jdk][:home]}
     mv #{tar_name} #{node[:jdk][:home]}
-    chown -R #{node[:wim][:user]}:#{node[:wim][:group]} #{node[:jdk][:home]}
     #{node[:jdk][:home]}/bin/java -Xshare:dump
+    chown -R #{node[:wim][:user]}:#{node[:wim][:group]} #{node[:jdk][:home]}
   EOH
 
   action :nothing
