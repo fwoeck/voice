@@ -76,8 +76,9 @@ else
 
     code <<-EOH
       export HOME=#{node[:wim][:home]}
-      export PATH=#{node[:jdk][:home]}/bin:$PATH
       export RAILS_ENV=#{node[:etc][:railsenv]}
+      export PATH=#{node[:jdk][:home]}/bin:$PATH
+      export JRUBY_OPTS='#{node[:jruby][:dev_opts]}'
   
       source #{node[:rvm][:basedir]}/scripts/rvm
       rvm use jruby-#{node[:jruby][:version]}@global
@@ -99,6 +100,8 @@ bash 'seed_admin_user' do
 
     code <<-EOH
       export RAILS_ENV=#{node[:etc][:railsenv]}
+      export JRUBY_OPTS='#{node[:jruby][:dev_opts]}'
+
       source #{node[:rvm][:basedir]}/scripts/rvm
       cd #{node[:voice_rails][:basedir]}
 

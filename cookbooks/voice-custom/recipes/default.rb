@@ -68,6 +68,7 @@ else
     code <<-EOH
       export HOME=#{node[:wim][:home]}
       export PATH=#{node[:jdk][:home]}/bin:$PATH
+      export JRUBY_OPTS='#{node[:jruby][:dev_opts]}'
   
       source #{node[:rvm][:basedir]}/scripts/rvm
       rvm use jruby-#{node[:jruby][:version]}@global

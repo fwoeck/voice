@@ -53,6 +53,7 @@ bash 'install_jrb_gems' do
     export HOME=#{node[:wim][:home]}
     export JDK_HOME=#{node[:jdk][:home]}
     export JAVA_HOME=#{node[:jdk][:home]}
+    export JRUBY_OPTS='#{node[:jruby][:dev_opts]}'
     export PATH=#{node[:jdk][:home]}/bin:$PATH
 
     source #{node[:rvm][:basedir]}/scripts/rvm
