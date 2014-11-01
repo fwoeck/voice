@@ -98,7 +98,6 @@ bash 'seed_admin_user' do
     group node[:wim][:group]
 
     code <<-EOH
-      export SUBSCRIBE_AMQP=1
       export RAILS_ENV=#{node[:etc][:railsenv]}
       source #{node[:rvm][:basedir]}/scripts/rvm
       cd #{node[:voice_rails][:basedir]}
