@@ -7,11 +7,11 @@ export TZ=UTC
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export JAVA_OPTS='<%= node[:jdk][:opts] %>'
-export RAILS_ENV=<%= node[:etc][:railsenv] %>
 export JRUBY_OPTS='<%= node[:jruby][:opts] %> -J-Djruby.management.enabled=true'
 
 export AHN_ENV=<%= node[:etc][:railsenv] %>
 export RACK_ENV=<%= node[:etc][:railsenv] %>
+export RAILS_ENV=<%= node[:etc][:railsenv] %>
 
 cd <%= node[:voice_ahn][:basedir] %>
 exec chpst -n -10 -u <%= node[:wim][:user] %>:admin <%= node[:voice_ahn][:basedir] %>/bin/ahn start . --no-console 2>&1

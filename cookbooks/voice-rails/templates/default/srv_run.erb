@@ -7,9 +7,9 @@ export TZ=UTC
 export SUBSCRIBE_AMQP=1
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export JAVA_OPTS='<%= node[:jdk][:opts] %>'
 export RAILS_ENV=<%= node[:etc][:railsenv] %>
 export JRUBY_OPTS='<%= node[:jruby][:opts] %>'
+export JAVA_OPTS='<%= node[:jdk][:opts] %>'
 <% unless node[:roles].include?('desktop') %>
 export SECRET_KEY_BASE=<%= node[:voice_rails][:keybase] %>
 <% end %>
