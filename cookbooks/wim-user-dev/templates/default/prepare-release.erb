@@ -6,7 +6,7 @@ source <%= node[:rvm][:basedir] %>/scripts/rvm
 newrelease=0.1.`printf "%02d" $(($(git tag | sort | tail -1 | cut -d. -f3)+1))`
 
 echo "This will create the release version $newrelease for all projects."
-echo "Make sure, you have no uncommitted changes in VR, VA, VN or VP and"
+echo "Make sure, you have no uncommitted changes in any subfolder and"
 echo "all development branches can be cleanly merged into master."
 
 read -q "resp1?Should we proceed? [y/N] "
@@ -34,15 +34,3 @@ fi
 
 echo
 echo "Ok, all done."
-read -q "resp2?Do you want to deploy this release now? [y/N] "
-if [[ $resp2 =~ ^(Y|y)$ ]]; then
-  echo
-
-  cd <%= node[:voice_rails][:basedir] %> || :
-  RAILS_ENV=production rake assets:precompile
-  rsync --delete -a ./public/assets voice:<%= node[:voice_rails][:basedir] %>/public
-  rm -rf public/assets/*
-  ssh -t voice '~/bin/update-voice'
-else
-  echo
-fi

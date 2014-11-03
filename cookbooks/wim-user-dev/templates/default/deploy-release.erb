@@ -1,0 +1,16 @@
+#!/bin/zsh
+set -e
+
+cd <%= node[:voice_rails][:basedir] %> || :
+source <%= node[:rvm][:basedir] %>/scripts/rvm
+
+read -q "resp2?Do you want to deploy current master now? [y/N] "
+if [[ $resp2 =~ ^(Y|y)$ ]]; then
+  echo
+  RAILS_ENV=production rake assets:precompile
+  rsync --delete -a ./public/assets voice:<%= node[:voice_rails][:basedir] %>/public
+  rm -rf public/assets/*
+  ssh -t voice '~/bin/update-voice'
+else
+  echo
+fi
