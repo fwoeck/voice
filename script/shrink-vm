@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Convert an existing vmdk-file to vdi-format:
+#
+#   VM='voice01_voice01_1413015011139_20291'
+#   cd /path-to/$VM
+#
+#   vboxmanage storageattach $VM --storagectl 'SATA Controller' --port 0 --device 0 --type hdd --medium none
+#   vboxmanage clonehd --format vdi box-disk1.vmdk box-disk1.vdi
+#   vboxmanage closemedium disk box-disk1.vmdk --delete
+#   vboxmanage storageattach $VM --storagectl 'SATA Controller' --port 0 --device 0 --type hdd --medium box-disk1.vdi
+#   vboxmanage modifyhd box-disk1.vdi --compact
+
+vagrant ssh -c 'sudo /root/bin/shrink_disks'
+vagrant halt
+
+# Compact the .vdi file:
+#   cd /path-to/$VM
+#   vboxmanage modifyhd box-disk1.vdi --compact
