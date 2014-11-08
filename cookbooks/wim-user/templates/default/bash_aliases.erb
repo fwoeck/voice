@@ -39,6 +39,8 @@ alias tln='tail -F <%= node[:voice_numbers][:logdir] %>/current'
 alias tle='tail -F <%= node[:etc][:logdir] %>/elasticsearch/current'
 alias tlr='tail -F <%= node[:voice_rails][:basedir] %>/log/*.log <%= node[:voice_rails][:logdir] %>/current'
 
+alias esi="curl '<%= node[:elasticsearch][:host] %>:<%= node[:elasticsearch][:port] %>/_cat/indices?v'"
+
 function show_all_calls() {
   sudo asterisk -r -x 'core show channels'
 }
