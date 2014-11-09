@@ -21,7 +21,7 @@ alias   e='exit'
 alias   t='htop'
 
 alias psg='ps aux | grep -v grep | grep -v tail | grep -i'
-alias  cs='chef-solo'
+alias  cs='cd ~/voice; git pull; chef-solo'
 
 function gg() {
   git grep -Iin "$*"
