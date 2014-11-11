@@ -3,7 +3,7 @@ default[:ahn][:ami_host]                 = '127.0.0.1'
 
 default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com/voice'
 
-default[:asterisk][:version]             = '11.13.0'
+default[:asterisk][:version]             = '11.14.0'
 default[:asterisk][:g729_checksum]       = '8bbd222c2b1f7883d16387809ad7bfdc85f8e32a7fb5b73e499b1740a93664b1'
 default[:asterisk][:stun_server]         = 'stun.l.google.com:19302'
 default[:asterisk][:rtp_start]           =  10000
@@ -54,7 +54,7 @@ default[:mysql][:socket]                 = '/var/run/mysqld/mysqld.sock'
 
 default[:nginx][:basedir]                = '/opt/nginx'
 default[:nginx][:fe_port]                =  443
-default[:nginx][:version]                = '1.7.6'
+default[:nginx][:version]                = '1.7.7'
 default[:nginx][:language][:checksum]    = '4609c52787e10a86d0bf25b524b91eaa3e8bb80d4208eaa2de8a9db14002f551'
 default[:nginx][:headers][:version]      = '0.25'
 default[:nginx][:redis][:version]        = '0.3.7'
