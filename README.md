@@ -15,7 +15,7 @@ like the SIP server and a modern, easy to use web interface.
 
 ## Overview
 
-Watch a 7min feature walkthrough at Youtube:
+Watch a 7min feature walkthrough [on youtube](http://www.youtube.com/watch?feature=player_embedded&v=G4323t5HzuM):
 
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=G4323t5HzuM' target='_blank'><img src='http://img.youtube.com/vi/G4323t5HzuM/0.jpg' alt='Voice platform intro' width='160' height='120' /></a>
 
