@@ -139,7 +139,7 @@ the *server*-role is meant for production use. The two environments are almost i
 * *desktop* uses the *vagrant*-user as primary actor whereas *server* uses *wim*.
 
 We recommend to go with the *desktop*-default unless you want to conduct some smoke tests with the production environment.
-Please refer to the [configuration table](https://github.com/fwoeck/voice/wiki/Table-of-chef-parameters) for more available options including Zendesk support and VoIP
+Please refer to the [configuration table](https://github.com/fwoeck/voice/wiki/Table-of-configuration-options) for more available options including Zendesk support and VoIP
 provider settings.
 
 ```
