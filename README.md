@@ -227,7 +227,9 @@ Apart from the underlying Ubuntu linux, the Voice stack consists of these ruby s
 * [Voice-Rails](https://github.com/fwoeck/voice-rails): delivers the browser application for agents and supervisors.
 * [Voice-Specs](https://github.com/fwoeck/voice-specs): not a service per se, but a tool collection for integration testing.
 
-See the [voice-infrastructure.pdf](https://github.com/fwoeck/voice/blob/master/docs/voice-infrastructure.pdf?raw=true) for an overview of the communication flow and storage engines.
+This diagram shows a rough overview of the communication flow and storage engines:
+
+<img src="/images/voice-09.png" alt="voice-09" width="512" height="350">
 
 
 ## Contributing
