@@ -24,6 +24,7 @@
   "run_list": [
     "role[server]",
     "recipe[wim-user-dev]",
+    "recipe[chromedriver]",
     "recipe[phantomjs]"
   ],
   "env_run_lists": {

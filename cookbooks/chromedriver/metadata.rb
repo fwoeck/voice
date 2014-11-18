@@ -1,0 +1,8 @@
+name             'chromedriver'
+maintainer       'Frank Woeckener'
+maintainer_email 'fwoeck@gmail.com'
+license          'All rights reserved'
+description      'Installs the chromedriver binary'
+long_description ''
+version          '0.1.0'
+depends          'etc'

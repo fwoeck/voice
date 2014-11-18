@@ -11,6 +11,9 @@ default[:asterisk][:rtp_end]             =  20000
 default[:asterisk][:wss_port]            =  8009
 default[:asterisk][:ws_port]             =  8008
 
+default[:chromedriver][:version]         = '2.12'
+default[:chromedriver][:basedir]         = '/usr/local/bin'
+
 default[:etc][:internal_ip]              = '127.0.1.1'   # Caution: changing this will break things
 default[:etc][:railsenv]                 = 'production'
 default[:etc][:default_branch]           = 'master'
