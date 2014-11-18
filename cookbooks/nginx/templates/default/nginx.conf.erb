@@ -18,10 +18,6 @@ http {
   default_type  application/octet-stream;
   server_tokens off;
 
-  log_format main '$http_x_forwarded_for - $remote_user [$time_local] '
-                  '"$request" $status $body_bytes_sent '
-                  '"$http_referer" "$http_user_agent"';
-
   keepalive_timeout       10m;
   sendfile                on;
   tcp_nopush              on;
@@ -86,7 +82,7 @@ http {
     ssl_certificate_key server.key;
     ssl_certificate server.crt;
 
-    access_log logs/nginx.log main;
+    access_log logs/nginx.log combined;
 
     root <%= node[:voice_rails][:basedir] %>/public;
     set_from_accept_language $lang en de;
@@ -156,7 +152,9 @@ http {
 
 <% end %>
     location @voice {
+      proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header  X-Forwarded-Proto https;
+      proxy_set_header  X-Real-IP $remote_addr;
       proxy_set_header  X-Url-Scheme $scheme;
       proxy_set_header  Host $http_host;
       proxy_pass        http://puma;
@@ -169,7 +167,7 @@ http {
     listen <%= node[:capybara][:port] %>;
     server_name test-<%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:domain] %>;
 
-    access_log logs/nginx-test.log main;
+    access_log logs/nginx-test.log combined;
 
     root <%= node[:voice_rails][:basedir] %>/public;
     try_files $uri/index.html $uri;
