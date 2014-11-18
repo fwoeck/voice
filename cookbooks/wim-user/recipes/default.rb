@@ -22,6 +22,11 @@ group 'admin' do
   members node[:wim][:user]
 end
 
+group 'audio' do
+  append true
+  members node[:wim][:user]
+end
+
 bash 'create_wim_home' do
   user 'root'
 
