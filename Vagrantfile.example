@@ -90,7 +90,12 @@ Vagrant.configure('2') do |config|
 
     chef.json = {
       'ahn' => {
-        'ami_pass' => ami_pass
+        'ami_pass'            => ami_pass,
+        'call_timeout'        => 300,
+        'dispatch_attempts'   => 3,
+        'voicemail_available' => true,
+        'voicemail_timeout'   => 300,
+        'ring_timeout'        => 15
       },
       'aws' => {
         'gpg_pass'  => '<password>',

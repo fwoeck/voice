@@ -1,6 +1,11 @@
 {
   "ahn": {
-    "ami_pass": "<password>"
+    "ami_pass":            "<password>",
+    "call_timeout":        300,
+    "dispatch_attempts":   3,
+    "voicemail_available": true,
+    "voicemail_timeout":   300,
+    "ring_timeout":        15
   },
   "aws": {
     "s3_backup": false,

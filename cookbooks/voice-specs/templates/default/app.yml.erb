@@ -20,5 +20,10 @@ puma_port:    "<%= node[:puma][:port] %>"
 elastic_host: "<%= node[:elasticsearch][:host] %>"
 elastic_port: "<%= node[:elasticsearch][:port] %>"
 stats_rrd:    "<%= node[:voice_numbers][:stats_rrd] %>"
+call_timeout:  <%= node[:ahn][:call_timeout] %>
+dispatch_att:  <%= node[:ahn][:dispatch_attempts] %>
+vm_available:  <%= node[:ahn][:voicemail_available] %>
+vm_timeout:    <%= node[:ahn][:voicemail_timeout] %>
+ring_timeout:  <%= node[:ahn][:ring_timeout] %>
 
 <%= node[:agent][:attributes] %>

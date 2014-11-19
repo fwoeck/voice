@@ -1,5 +1,10 @@
 default[:ahn][:ami_user]                 = 'ahn_ami'
 default[:ahn][:ami_host]                 = '127.0.0.1'
+default[:ahn][:call_timeout]             =  300
+default[:ahn][:dispatch_attempts]        =  3
+default[:ahn][:voicemail_available]      =  true
+default[:ahn][:voicemail_timeout]        =  300
+default[:ahn][:ring_timeout]             =  15
 
 default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com/voice'
 

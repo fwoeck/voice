@@ -1,24 +1,29 @@
 ---
-rails_env:   "<%= node[:etc][:railsenv] %>"
-ami_pass:    "<%= node[:ahn][:ami_pass] %>"
-ami_host:    "<%= node[:ahn][:ami_host] %>"
-ami_user:    "<%= node[:ahn][:ami_user] %>"
-mysql_db:    "<%= node[:mysql][:dbname] %>"
-mysql_host:  "<%= node[:mysql][:host] %>"
-mysql_pass:  "<%= node[:mysql][:wim_pass] %>"
-mysql_port:  "<%= node[:mysql][:port] %>"
-mysql_user:  "<%= node[:mysql][:wim_user] %>"
-rabbit_host: "<%= node[:rabbitmq][:host] %>"
-rabbit_pass: "<%= node[:rabbitmq][:pass] %>"
-rabbit_user: "<%= node[:rabbitmq][:user] %>"
-redis_db:    "<%= node[:redis][:db][:ahn] %>"
-redis_host:  "<%= node[:redis][:host] %>"
-redis_port:  "<%= node[:redis][:port] %>"
-sip_proxy:   "<%= node[:sip_provider][:proxy] %>"
-mp3_source:  "<%= node[:voice_ahn][:record] %>/record"
-mp3_target:  "<%= node[:voice_rails][:basedir] %>/public/record"
-admin_name:  "<%= node[:voice_rails][:admin][:name] %>"
-locked:      false
+rails_env:    "<%= node[:etc][:railsenv] %>"
+ami_pass:     "<%= node[:ahn][:ami_pass] %>"
+ami_host:     "<%= node[:ahn][:ami_host] %>"
+ami_user:     "<%= node[:ahn][:ami_user] %>"
+mysql_db:     "<%= node[:mysql][:dbname] %>"
+mysql_host:   "<%= node[:mysql][:host] %>"
+mysql_pass:   "<%= node[:mysql][:wim_pass] %>"
+mysql_port:   "<%= node[:mysql][:port] %>"
+mysql_user:   "<%= node[:mysql][:wim_user] %>"
+rabbit_host:  "<%= node[:rabbitmq][:host] %>"
+rabbit_pass:  "<%= node[:rabbitmq][:pass] %>"
+rabbit_user:  "<%= node[:rabbitmq][:user] %>"
+redis_db:     "<%= node[:redis][:db][:ahn] %>"
+redis_host:   "<%= node[:redis][:host] %>"
+redis_port:   "<%= node[:redis][:port] %>"
+sip_proxy:    "<%= node[:sip_provider][:proxy] %>"
+mp3_source:   "<%= node[:voice_ahn][:record] %>/record"
+mp3_target:   "<%= node[:voice_rails][:basedir] %>/public/record"
+admin_name:   "<%= node[:voice_rails][:admin][:name] %>"
+call_timeout:  <%= node[:ahn][:call_timeout] %>
+dispatch_att:  <%= node[:ahn][:dispatch_attempts] %>
+vm_available:  <%= node[:ahn][:voicemail_available] %>
+vm_timeout:    <%= node[:ahn][:voicemail_timeout] %>
+ring_timeout:  <%= node[:ahn][:ring_timeout] %>
+locked:        false
 
 <%= node[:agent][:attributes] %>
 <%= node[:agent][:menu] %>
