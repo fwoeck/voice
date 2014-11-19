@@ -14,7 +14,7 @@ outbound_proxy             = <%= node[:hostname][/[^.]+/] %>.<%= node[:etc][:dom
 outbound_port              = 5060
 log_level                  = 5
 enable_context_logs        = false
-rtp_activity_detecting     = true,5
+rtp_activity_detecting     = true,15
 sip_msg_listener           = com.flashphoner.sdk.sip.ChangeCallIdListener
 call_record_listener       = com.flashphoner.server.client.DefaultCallRecordListener
 dtmf                       = rfc2833
