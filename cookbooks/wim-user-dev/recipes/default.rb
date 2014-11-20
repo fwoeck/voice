@@ -27,8 +27,8 @@ template "#{node[:wim][:home]}/bin/prepare-release" do
   mode    00750
 end
 
-template "#{node[:wim][:home]}/bin/deploy-release" do
-  source 'deploy-release.erb'
+template "#{node[:wim][:home]}/bin/deploy-master" do
+  source 'deploy-master.erb'
   owner   node[:wim][:user]
   mode    00750
 end
