@@ -4,6 +4,7 @@
 /.Trash*
 /*.xz
 /opt
+/seeds/*.license
 /vagrant.box/iso/*
 /vagrant.box/*.box
 /vagrant.box/vendor/*
