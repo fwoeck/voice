@@ -98,7 +98,7 @@ Its as simple as cloning this repo, customizing one file and typing "vagrant up"
 It's recommended to have at least a recent quad-core machine with 8Gbyte of free ram for things to run smoothly. Installations are
 tested with OsX 10.9.5 and Ubuntu 14.04.
 
-* Grab the latest copy of [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (currently 4.3.18), including the Extension Pack.
+* Grab the latest copy of [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (currently 4.3.20), including the Extension Pack.
 * Also, you'll need to install [Vagrant](https://www.vagrantup.com/downloads.html) (currently 1.6.5).
 
 * Now get the [vagrant-omnibus](https://github.com/opscode/vagrant-omnibus) plugin that helps us keeping the Chef client up to date:
