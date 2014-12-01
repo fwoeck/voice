@@ -97,7 +97,7 @@ default[:tmux][:version]                 = '1.9a'
 default[:vim][:version]                  = '7-4-465'
 
 default[:vnc][:display]                  =  0
-default[:vnc][:version]                  = '1.3.1'
+default[:vnc][:version]                  = '1.3.90'
 default[:vnc][:basedir]                  = '/opt/tigervnc'
 
 default[:voice_specs][:basedir]          = '/opt/voice-specs'
