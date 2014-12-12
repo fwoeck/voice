@@ -99,7 +99,7 @@ It's recommended to have at least a recent quad-core machine with 8Gbyte of free
 tested with OsX 10.9.5 and Ubuntu 14.04.
 
 * Grab the latest copy of [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (currently 4.3.20), including the Extension Pack.
-* Also, you'll need to install [Vagrant](https://www.vagrantup.com/downloads.html) (currently 1.6.5).
+* Also, you'll need to install [Vagrant](https://www.vagrantup.com/downloads.html) (currently 1.7.0).
 
 * Now get the [vagrant-omnibus](https://github.com/opscode/vagrant-omnibus) plugin that helps us keeping the Chef client up to date:
 
@@ -181,9 +181,9 @@ For convenient interaction with the VM, add its IP address and hostname -
 
 * to your ~/.ssh/config file:
   Host voice01
-    HostName voice01.wimdu.com
-    IdentityFile ~/.vagrant.d/insecure_private_key
     User vagrant
+    HostName voice01.wimdu.com
+    IdentityFile ./.vagrant/machines/voice01/virtualbox/private_key
 ```
 
 and include the [certs/server.crt](/certs/server.crt) to your SSL key-chain management.

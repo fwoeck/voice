@@ -10,9 +10,9 @@
 #
 # - to your ~/.ssh/config file:
 #   Host voice01
-#     HostName voice01.wimdu.com
-#     IdentityFile ~/.vagrant.d/insecure_private_key
 #     User vagrant
+#     HostName voice01.wimdu.com
+#     IdentityFile ./.vagrant/machines/voice01/virtualbox/private_key
 #
 # and include the certs/server.crt with your SSL-key management.
 #
