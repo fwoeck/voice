@@ -8,7 +8,7 @@ default[:ahn][:ring_timeout]             =  15
 
 default[:aws][:cdn]                      = 'http://dokmatic-cdn.s3.amazonaws.com/voice'
 
-default[:asterisk][:version]             = '11.14.0'
+default[:asterisk][:version]             = '11.14.1'
 default[:asterisk][:g729_checksum]       = '8bbd222c2b1f7883d16387809ad7bfdc85f8e32a7fb5b73e499b1740a93664b1'
 default[:asterisk][:stun_server]         = 'stun.l.google.com:19302'
 default[:asterisk][:rtp_start]           =  10000
@@ -16,7 +16,7 @@ default[:asterisk][:rtp_end]             =  20000
 default[:asterisk][:wss_port]            =  8009
 default[:asterisk][:ws_port]             =  8008
 
-default[:chromedriver][:version]         = '2.12'
+default[:chromedriver][:version]         = '2.13'
 default[:chromedriver][:basedir]         = '/usr/local/bin'
 
 default[:etc][:internal_ip]              = '127.0.1.1'   # Caution: changing this will break things
@@ -27,7 +27,7 @@ default[:etc][:path]                     = '/usr/local/sbin:/usr/local/bin:/sbin
 default[:etc][:logdir]                   = '/opt/log'
 
 default[:elasticsearch][:basedir]        = '/opt/elasticsearch'
-default[:elasticsearch][:version]        = '1.3.4'
+default[:elasticsearch][:version]        = '1.4.1'
 default[:elasticsearch][:host]           = '127.0.0.1'
 default[:elasticsearch][:port]           = '9200'
 
@@ -62,7 +62,7 @@ default[:mysql][:socket]                 = '/var/run/mysqld/mysqld.sock'
 
 default[:nginx][:basedir]                = '/opt/nginx'
 default[:nginx][:fe_port]                =  443
-default[:nginx][:version]                = '1.7.7'
+default[:nginx][:version]                = '1.7.8'
 default[:nginx][:language][:checksum]    = '4609c52787e10a86d0bf25b524b91eaa3e8bb80d4208eaa2de8a9db14002f551'
 default[:nginx][:headers][:version]      = '0.25'
 default[:nginx][:redis][:version]        = '0.3.7'
@@ -97,7 +97,7 @@ default[:tmux][:version]                 = '1.9a'
 default[:vim][:version]                  = '7-4-465'
 
 default[:vnc][:display]                  =  0
-default[:vnc][:version]                  = '1.3.90'
+default[:vnc][:version]                  = '1.4.0'
 default[:vnc][:basedir]                  = '/opt/tigervnc'
 
 default[:voice_specs][:basedir]          = '/opt/voice-specs'
