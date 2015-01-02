@@ -27,7 +27,7 @@ default[:etc][:path]                     = '/usr/local/sbin:/usr/local/bin:/sbin
 default[:etc][:logdir]                   = '/opt/log'
 
 default[:elasticsearch][:basedir]        = '/opt/elasticsearch'
-default[:elasticsearch][:version]        = '1.4.1'
+default[:elasticsearch][:version]        = '1.4.2'
 default[:elasticsearch][:host]           = '127.0.0.1'
 default[:elasticsearch][:port]           = '9200'
 
@@ -41,7 +41,7 @@ default[:jdk][:version]                  = '1.8.0_25'
 default[:jdk][:opts]                     = '-Xmn512m -Xms2048m -Xmx2048m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+UseCodeCacheFlushing'
 
 default[:jruby][:baseapi]                = '1.9'
-default[:jruby][:version]                = '1.7.17'
+default[:jruby][:version]                = '1.7.18'
 default[:jruby][:opts]                   = '-J-Djruby.thread.pooling=true -J-Djruby.cext.enabled=false -J-Djruby.compat.version=1.9 -J-Dfile.encoding=UTF-8 -J-Djruby.jit.threshold=5 -J-Djruby.compile.mode=JIT -J-server'
 default[:jruby][:dev_opts]               = '--dev -J-Djruby.cext.enabled=false -J-Djruby.compat.version=1.9 -J-Dfile.encoding=UTF-8'
 
@@ -51,8 +51,8 @@ default[:mongodb][:db][:test]            = 'voice_test'
 default[:mongodb][:host]                 = '127.0.0.1'
 default[:mongodb][:port]                 =  27017
 
-default[:mri][:baseapi]                  = '2.1.0'
-default[:mri][:version]                  = '2.1.4'
+default[:mri][:baseapi]                  = '2.2.0'
+default[:mri][:version]                  = '2.2.0'
 
 default[:mysql][:wim_user]               = 'astrealtime'
 default[:mysql][:dbname]                 = 'asterisk'
@@ -62,7 +62,7 @@ default[:mysql][:socket]                 = '/var/run/mysqld/mysqld.sock'
 
 default[:nginx][:basedir]                = '/opt/nginx'
 default[:nginx][:fe_port]                =  443
-default[:nginx][:version]                = '1.7.8'
+default[:nginx][:version]                = '1.7.9'
 default[:nginx][:language][:checksum]    = '4609c52787e10a86d0bf25b524b91eaa3e8bb80d4208eaa2de8a9db14002f551'
 default[:nginx][:headers][:version]      = '0.25'
 default[:nginx][:redis][:version]        = '0.3.7'
@@ -97,7 +97,7 @@ default[:tmux][:version]                 = '1.9a'
 default[:vim][:version]                  = '7-4-465'
 
 default[:vnc][:display]                  =  0
-default[:vnc][:version]                  = '1.4.0'
+default[:vnc][:version]                  = '1.4.1'
 default[:vnc][:basedir]                  = '/opt/tigervnc'
 
 default[:voice_specs][:basedir]          = '/opt/voice-specs'
